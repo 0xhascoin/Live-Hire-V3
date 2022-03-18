@@ -1,0 +1,111 @@
+.columns.search-hero {
+  margin: 0 2rem;
+  padding: 0;
+  /* border: 1px solid black */
+
+  .job-search-hero.column {
+    margin: 0;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    /* border: 1px solid black; */
+
+    .job-search-title {
+      font-size: 2rem;
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .job-search-title-dark {
+      color: white;
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .job-search-desc {
+      color: #0e1016;
+      font-family: "Noto Sans", sans-serif;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .job-search-desc-dark {
+      color: white;
+      font-family: "Noto Sans", sans-serif;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .job-search-input {
+      margin-top: 1rem;
+      width: 90%;
+      padding: 0.75rem;
+      font-family: "Noto Sans", sans-serif;
+      border-radius: 6px;
+      border: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .job-search-buttons {
+      /* border: 1px solid black; */
+      padding: 0;
+      margin-top: 1.5rem;
+
+      button {
+        margin: 0;
+        border-radius: 6px;
+        height: 2.5rem !important;
+        width: 9rem !important;
+        border: none;
+        margin-right: 1rem;
+        font-family: "Noto Sans", sans-serif;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .icon {
+          font-size: 1rem;
+          margin-left: 0.3rem;
+        }
+
+        &.search-button {
+          background-color: black;
+          color: white;
+          font-size: 0.9rem;
+        }
+
+        &.clear-button {
+          background-color: #e2e8f0;
+          color: #0e1016;
+          font-size: 0.9rem;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+      }
+    }
+  }
+
+  .column.job-hero-image {
+    /* border: 1px solid black; */
+    padding: 2rem;
+    margin-bottom: 9rem;
+
+    div {
+      /* border: 1px solid black; */
+      height: 55vh;
+      padding: 1rem;
+      background-color: black;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    &.dark {
+      div {
+        background-color: #ffffff40 !important;
+      }
+    }
+  }
+}
+
