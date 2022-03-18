@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import bulma from 'bulma';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
