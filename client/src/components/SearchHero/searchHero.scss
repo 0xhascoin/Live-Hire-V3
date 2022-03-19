@@ -109,3 +109,15 @@
   }
 }
 
+
+@media only screen and (max-width: 840px) {
+  .column.job-hero-image {
+    display: none;
+  }
+
+  .job-search-hero.column {
+    text-align: center;
+    border: 1px solid black;
+    padding: 0 !important;
+  }
+}

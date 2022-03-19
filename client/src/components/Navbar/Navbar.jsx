@@ -8,7 +8,7 @@ import { AiOutlinePlayCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ darkTheme, setDarkTheme }) => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <nav
       className={darkTheme ? "navbar navbar-dark" : "navbar navbar-light"}

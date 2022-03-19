@@ -5,6 +5,8 @@ import { HiOutlineSearchCircle } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
+import HeroImage from '../../assets/images/RoomScreenshot.png'
+
 
 const SearchHero = ({ darkTheme }) => {
   return (
@@ -47,11 +49,11 @@ const SearchHero = ({ darkTheme }) => {
       <div
         className={
           !darkTheme
-            ? "column job-hero-image has-text-centered"
-            : "column job-hero-image has-text-centered dark"
+            ? "column is-7 job-hero-image has-text-centered"
+            : "column is-7 job-hero-image has-text-centered dark"
         }
       >
-        <div />
+        <img src={HeroImage} />
       </div>
     </motion.div>
   );
