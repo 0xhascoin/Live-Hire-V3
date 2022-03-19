@@ -9,8 +9,7 @@ import SearchHero from '../../components/SearchHero/SearchHero';
 import JobsList from '../../components/JobsList/JobsList';
 import Job from '../../components/Job/Job';
 
-const FindJobs = () => {
-  const [darkTheme, setDarkTheme] = useState(false);
+const FindJobs = ({ darkTheme, setDarkTheme }) => {
   return (
     <div className={darkTheme ? "find-jobs dark" : "find-jobs light"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
