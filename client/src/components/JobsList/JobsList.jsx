@@ -40,7 +40,7 @@ const jobs = [
 
 const JobsList = ({ darkTheme }) => {
   return (
-    <div className="jobs-list-container">
+    <div className={darkTheme ? "jobs-list-container dark" : "jobs-list-container"}>
       <div className="jobs-list">
         {jobs.map((job, index) => (
           <Job job={job} key={index} darkTheme={darkTheme} />
