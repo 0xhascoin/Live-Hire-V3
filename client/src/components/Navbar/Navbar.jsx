@@ -97,6 +97,24 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
           >
             About Us
           </a>
+          <Link to="/register"
+            className={
+              darkTheme
+                ? "navbar-item navbar-item-dark"
+                : "navbar-item navbar-item-light"
+            }
+          >
+            Sign up
+          </Link>
+          <Link to="/login"
+            className={
+              darkTheme
+                ? "navbar-item navbar-item-dark"
+                : "navbar-item navbar-item-light"
+            }
+          >
+            Login
+          </Link>
           <div
             class={
               showDropdown
