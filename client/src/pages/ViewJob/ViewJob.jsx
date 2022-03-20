@@ -10,9 +10,9 @@ import JobApply from "../../components/JobApply/JobApply";
 
 const ViewJob = ({ darkTheme, setDarkTheme }) => {
   return (
-    <div className="view-job-container">
+    <div className={darkTheme ? "view-job-container dark" : "view-job-container light"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      <JobHeader />
+      <JobHeader darkTheme={darkTheme} />
       <JobBanner />
       <div className="columns">
         <JobDetails />

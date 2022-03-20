@@ -1,0 +1,71 @@
+.job-header.columns {
+//   border: 1px solid black;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.712);
+  padding: 1.5rem 1rem;
+
+  .job-header-logo-col.column {
+    // border: 1px solid black;
+    text-align: center;
+
+    .logo {
+      // border: 1px solid red;
+      max-height: 90px;
+    }
+  }
+
+  .job-header-name-col.column {
+    // border: 1px solid black;
+
+    .job-title {
+      font-size: 1.8rem;
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .job-company-name {
+      color: #0e1016 !important;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 1rem;
+
+      .bold {
+          font-family: "M PLUS Rounded 1c";
+          font-size: 1.2rem;
+          font-weight: 600;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: transparent;
+    .job-header-name-col.column {
+        // border: 1px solid black;
+    
+        .job-title {
+          font-size: 1.8rem;
+          color: white;
+          font-weight: 600;
+          font-family: "M PLUS Rounded 1c";
+        }
+    
+        .job-company-name {
+          color: white !important;
+          font-family: "Noto Sans", sans-serif;
+          font-size: 1rem;
+    
+          .bold {
+              font-family: "M PLUS Rounded 1c";
+              font-size: 1.2rem;
+              font-weight: 600;
+          }
+        }
+      }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+    .job-header-name-col.column {
+        text-align: center;
+    }
+  }
