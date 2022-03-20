@@ -84,6 +84,56 @@
       .navbar-item {
         background-color: transparent;
 
+        &:focus {
+          outline: none !important;
+        }
+
+        &.dropdown {
+          // border: 1px solid black !important;
+          padding: 0;
+          font-family: "M PLUS Rounded 1c" !important;
+          background-color: transparent;
+          width: 25%;
+
+          &:focus {
+            outline: none !important;
+          }
+
+          .button {
+            background-color: transparent;
+            width: 100%;
+            font-family: "M PLUS Rounded 1c" !important;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1a202c;
+            height: 2.5rem;
+            border-radius: 6px;
+
+            &.dark {
+              color: white;
+            }
+
+            &:focus {
+              outline: none !important;
+            }
+          }
+
+          .dropdown-trigger {
+            // border: 1px solid black;
+            width: 100%;
+            background-color: transparent;
+
+            &:focus {
+              outline: none !important;
+            }
+          }
+
+          .dropdown-menu {
+            // border: 1px solid black;
+            padding: 0;
+          }
+        }
+
         &:hover {
           background-color: transparent;
         }

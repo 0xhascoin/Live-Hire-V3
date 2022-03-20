@@ -4,11 +4,17 @@ import "./navbar.scss";
 import { FaMoon } from "react-icons/fa";
 import { RiSunLine } from "react-icons/ri";
 import { MdImportantDevices } from "react-icons/md";
-import { AiOutlinePlayCircle } from "react-icons/ai";
+import {
+  AiOutlinePlayCircle,
+  AiFillCaretUp,
+  AiFillCaretDown,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ darkTheme, setDarkTheme }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <nav
       className={darkTheme ? "navbar navbar-dark" : "navbar navbar-light"}
@@ -89,17 +95,46 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                 : "navbar-item navbar-item-light"
             }
           >
-            Saved Jobs
-          </a>
-          <a
-            className={
-              darkTheme
-                ? "navbar-item navbar-item-dark"
-                : "navbar-item navbar-item-light"
-            }
-          >
             About Us
           </a>
+          <div
+            class={
+              showDropdown
+                ? "navbar-item dropdown is-active"
+                : "navbar-item dropdown"
+            }
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <div class="dropdown-trigger">
+              <button
+                class={darkTheme ? "button dark" : "button"}
+                aria-haspopup="true"
+                aria-controls="dropdown-menu"
+              >
+                <span>Hasan</span>
+                <span class="icon is-small">
+                  {showDropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  Saved jobs
+                </a>
+                <a href="#" class="dropdown-item">
+                  My jobs
+                </a>
+                <a href="#" class="dropdown-item">
+                  My Interiews
+                </a>
+                <a href="#" class="dropdown-item">
+                  Update Profile
+                </a>
+              </div>
+            </div>
+          </div>
+
           {!darkTheme ? (
             <a className="navbar-item">
               <button
