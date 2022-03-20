@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 // Pages
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 import FindJobs from './pages/FindJobs/FindJobs';
 import ViewJob from './pages/ViewJob/ViewJob';
 
@@ -19,6 +20,7 @@ function App() {
     <Router>
         <Switch>
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
           <Route exact path="/" element={<FindJobs darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/job/:id" element={<ViewJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>

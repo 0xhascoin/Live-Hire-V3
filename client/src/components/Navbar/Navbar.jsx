@@ -149,6 +149,9 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                 <a href="#" class="dropdown-item">
                   Update Profile
                 </a>
+                <a href="#" class="dropdown-item">
+                  Logout
+                </a>
               </div>
             </div>
           </div>
