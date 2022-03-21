@@ -15,7 +15,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  let { loading, error, userInfo } = userLogin;
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -29,7 +29,6 @@ const Login = () => {
         setPasswordError(false);
         // setSignedIn(true);
         dispatch(loginUser(user));
-        history("/");
       }
     }
   };
@@ -39,6 +38,7 @@ const Login = () => {
     if (userInfo) {
       history("/");
     }
+
   }, [history, userInfo]);
 
   return (
@@ -91,12 +91,7 @@ const Login = () => {
               >
                 {loading ? (
                   <span>
-                    <div className="lds-ellipsis">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
+                    Loading ...
                   </span>
                 ) : (
                   <span>Sign In</span>

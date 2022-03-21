@@ -5,10 +5,15 @@ import { HiOutlineSearchCircle } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-import HeroImage from '../../assets/images/RoomScreenshot.png'
+import HeroImage from "../../assets/images/RoomScreenshot.png";
 
+const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
 
-const SearchHero = ({ darkTheme }) => {
+  const clearSearch = () => {
+    setSearch("");
+    searchHandler("");
+  };
+  
   return (
     <motion.div
       initial={{ y: 10, opacity: 0 }}
@@ -30,15 +35,23 @@ const SearchHero = ({ darkTheme }) => {
           <br />
           remote workers in web3 space.
         </p>
-        <input className="job-search-input" placeholder="Web developer" />
+        <input
+          className="job-search-input"
+          placeholder="Web developer"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
         <div className="job-search-buttons">
-          <button className="search-button">
+          <button
+            className="search-button"
+            onClick={() => searchHandler(search)}
+          >
             <span>Search job</span>
             <span class="icon">
               <HiOutlineSearchCircle />
             </span>
           </button>
-          <button className="clear-button">
+          <button className="clear-button" onClick={clearSearch}>
             <span>Clear input</span>
             <span class="icon">
               <AiOutlineCloseCircle />

@@ -9,11 +9,25 @@ import {
   AiFillCaretUp,
   AiFillCaretDown,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/userActions";
 
 const Navbar = ({ darkTheme, setDarkTheme }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const history = useNavigate();
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  // Logout function
+  const logoutHandler = () => {
+    dispatch(logout()); // Calls the Logout function in Redux
+    history("/"); // Push the user to the Home Page
+  };
 
   return (
     <nav
@@ -97,64 +111,73 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
           >
             About Us
           </a>
-          <Link to="/register"
-            className={
-              darkTheme
-                ? "navbar-item navbar-item-dark"
-                : "navbar-item navbar-item-light"
-            }
-          >
-            Sign up
-          </Link>
-          <Link to="/login"
-            className={
-              darkTheme
-                ? "navbar-item navbar-item-dark"
-                : "navbar-item navbar-item-light"
-            }
-          >
-            Login
-          </Link>
-          <div
-            class={
-              showDropdown
-                ? "navbar-item dropdown is-active"
-                : "navbar-item dropdown"
-            }
-            onClick={() => setShowDropdown(!showDropdown)}
-          >
-            <div class="dropdown-trigger">
-              <button
-                class={darkTheme ? "button dark" : "button"}
-                aria-haspopup="true"
-                aria-controls="dropdown-menu"
+          {!userInfo && (
+            <>
+              <Link
+                to="/register"
+                className={
+                  darkTheme
+                    ? "navbar-item navbar-item-dark"
+                    : "navbar-item navbar-item-light"
+                }
               >
-                <span>Hasan</span>
-                <span class="icon is-small">
-                  {showDropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
-                  Saved jobs
-                </a>
-                <a href="#" class="dropdown-item">
-                  My jobs
-                </a>
-                <a href="#" class="dropdown-item">
-                  My Interiews
-                </a>
-                <a href="#" class="dropdown-item">
-                  Update Profile
-                </a>
-                <a href="#" class="dropdown-item">
-                  Logout
-                </a>
+                Sign up
+              </Link>
+              <Link
+                to="/login"
+                className={
+                  darkTheme
+                    ? "navbar-item navbar-item-dark"
+                    : "navbar-item navbar-item-light"
+                }
+              >
+                Login
+              </Link>
+            </>
+          )}
+
+          {userInfo && (
+            <div
+              class={
+                showDropdown
+                  ? "navbar-item dropdown is-active"
+                  : "navbar-item dropdown"
+              }
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              <div class="dropdown-trigger">
+                <button
+                  class={darkTheme ? "button dark" : "button"}
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
+                >
+                  <span>{userInfo?.name}</span>
+                  <span class="icon is-small">
+                    {showDropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                  <a href="#" class="dropdown-item">
+                    Saved jobs
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    My jobs
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    My Interiews
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    Update Profile
+                  </a>
+                  <a href="#" class="dropdown-item" onClick={logoutHandler}>
+                    Logout
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {!darkTheme ? (
             <a className="navbar-item">

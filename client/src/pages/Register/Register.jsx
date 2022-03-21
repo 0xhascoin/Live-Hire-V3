@@ -27,6 +27,7 @@ const Register = () => {
   const [emailError, setEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
   const [confirmPasswordError, setConfirmPasswordError] = useState(false)
+  
 
   const chooseUserType = (e, uType) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ const Register = () => {
             } else {
               setLocationError(false);
               dispatch(registerUser(user));
-              history.push("/login")
+              history("/login")
             }
           }
           ;
