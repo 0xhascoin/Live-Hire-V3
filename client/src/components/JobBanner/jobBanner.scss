@@ -1,0 +1,42 @@
+.job-banner.columns {
+//   border: 1px solid black;
+  padding: 0.75rem 0 !important;
+  padding-bottom: 1rem !important;
+  margin: 0px !important;
+  margin: auto !important;
+  width: 80%;
+
+  .column {
+    // border: 1px solid black;
+
+    .detail-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+      color: #0e1016;
+    }
+
+    .detail-description {
+      color: #0e1016 !important;
+      font-family: "Noto Sans", sans-serif;
+    }
+  }
+
+  &.dark {
+    .column {
+      .detail-title {
+        color: white !important;
+      }
+
+      .detail-description {
+        color: white !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .job-banner.columns {
+    text-align: center;
+  }
+}

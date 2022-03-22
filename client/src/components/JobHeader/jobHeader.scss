@@ -1,8 +1,10 @@
 .job-header.columns {
 //   border: 1px solid black;
-  margin: 0;
+  margin: 0 !important;
   background-color: rgba(255, 255, 255, 0.712);
   padding: 1.5rem 1rem;
+  // border: 1px solid black;
+  margin-bottom: 0px;
 
   .job-header-logo-col.column {
     // border: 1px solid black;

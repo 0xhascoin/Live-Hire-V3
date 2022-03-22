@@ -13,7 +13,7 @@ const ViewJob = ({ darkTheme, setDarkTheme }) => {
     <div className={darkTheme ? "view-job-container dark" : "view-job-container light"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <JobHeader darkTheme={darkTheme} />
-      <JobBanner />
+      <JobBanner darkTheme={darkTheme} />
       <div className="columns">
         <JobDetails />
         <JobApply />
