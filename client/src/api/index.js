@@ -50,7 +50,7 @@ export const updateUserCV = (_id, aboutMe, workExp, mySkills) => axios.patch(`${
 */
 
 // Get All Interviews, One Interview, Job Applications, Job Queue, 
-export const getAllInterviews = () => axios.get(`${url}/interviews/get`);
+export const getAllInterviews = (page) => axios.get(`${url}/interviews/get/${page}`);
 export const getOneInterview = (id) => axios.get(`${url}/interviews/get/${id}`);
 export const getApplications = (id) => axios.get(`${url}/interviews/get/applications/${id}`);
 export const getQueue = (id) => axios.get(`${url}/interviews/get/q/${id}`);

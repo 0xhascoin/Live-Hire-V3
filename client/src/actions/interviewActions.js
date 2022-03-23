@@ -38,14 +38,14 @@ import {
   
   
   // Get ALL the interviews in the DB
-  export const getAllInterviews = () => async (dispatch) => {
+  export const getAllInterviews = (page) => async (dispatch) => {
     try {
       // Send the LIST REQUEST state
       dispatch({ type: INTERVIEW_LIST_REQUEST });
       console.log("getAllInterviews()")
   
       // Send the API call
-      const { data } = await api.getAllInterviews();
+      const { data } = await api.getAllInterviews(page);
       // Send the LIST SUCCESS state and pass the interviews list
       dispatch({ type: INTERVIEW_LIST_SUCCESS, payload: data });
     } catch (error) {

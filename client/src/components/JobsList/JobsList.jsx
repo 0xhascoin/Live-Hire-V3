@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Job from "../Job/Job";
 
 
-const JobsList = ({ darkTheme, filteredInterviews }) => {
+const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
 
   const dispatch = useDispatch();
 
@@ -60,6 +60,9 @@ const JobsList = ({ darkTheme, filteredInterviews }) => {
           )
         }
       </div>
+      <button type="button" className="button" onClick={() => setPage(1)}>1</button>
+      <button type="button" className="button" onClick={() => setPage(2)}>2</button>
+      <button type="button" className="button" onClick={() => setPage(3)}>3</button>
     </div>
   );
 };

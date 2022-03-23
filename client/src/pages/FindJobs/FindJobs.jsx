@@ -15,6 +15,7 @@ import { getIsUserProfileUpdated } from "../../actions/userActions";
 
 const FindJobs = ({ darkTheme, setDarkTheme }) => {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -40,8 +41,13 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   };
 
   useEffect(() => {
-    dispatch(getAllInterviews());
+    dispatch(getAllInterviews(page));
   }, []);
+
+  useEffect(() => {
+    console.log("Page changed to, ", page);
+    dispatch(getAllInterviews(page));
+  }, [page]);
 
   return (
     <div className={darkTheme ? "find-jobs dark" : "find-jobs light"}>
@@ -53,7 +59,7 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
         setSearch={setSearch}
         searchHandler={searchHandler}
       />
-      <JobsList darkTheme={darkTheme} filteredInterviews={filteredInterviews} />
+      <JobsList darkTheme={darkTheme} filteredInterviews={filteredInterviews} page={page} setPage={setPage} />
     </div>
   );
 };
