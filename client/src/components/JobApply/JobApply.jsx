@@ -1,11 +1,14 @@
 import React from 'react';
 import './jobApply.scss';
 
-const JobApply = () => {
+const JobApply = ({darkTheme}) => {
   return (
-    <div className="column job-apply">
+    <div className={darkTheme ? "column job-apply dark" : "column job-apply"}>
       <div className="apply-box">
-        <h1 className="apply-title">Apply here</h1>
+        <h1 className="apply-title">RSVP here</h1>
+        <p className="date">Date: 20th June 2022, 15:00pm</p>
+        <button className="button apply-button">RSVP</button>
+        <p className="date">Thanks for confirming your attendance</p>
       </div>
     </div>
   )

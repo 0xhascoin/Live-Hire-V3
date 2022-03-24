@@ -62,6 +62,8 @@ import {
   
       // Run the API call with the passed ID
       const { data } = await api.getOneInterview(id);
+      console.log(id, "id")
+      console.log(data, "One Interview")
       // Dispatch the State SUCCESS & send the payload
       dispatch({ type: INTERVIEW_GET_SUCCESS, payload: data });
     } catch (error) {

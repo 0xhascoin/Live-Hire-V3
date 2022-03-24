@@ -1,14 +1,18 @@
 .column.job-apply {
   background-color: rgba(255, 255, 255, 0.712);
-  border: 1px solid black;
+  // border: 1px solid black;
   padding: 0 !important;
 
   .apply-box {
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: auto;
-    width: 90%;
-    height: 20vh;
+    width: 80%;
+    // height: 20vh;
     text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
     .apply-title {
       font-size: 1.4rem;
@@ -16,6 +20,56 @@
       color: #0e1016;
       font-weight: 600;
       margin-top: .5rem;
+    }
+
+    .date {
+      // border: 1px solid black;
+      margin: auto;
+      width: 90%;
+      font-family: "M PLUS Rounded 1c";
+      color: #0e1016;
+      // margin-top: 1rem;
+      padding: 1rem;
+    }
+
+    .apply-button {
+      margin: auto;
+      width: 90%;
+      font-family: "M PLUS Rounded 1c";
+      color: #0e1016;
+      font-weight: 600;
+      border: 1px solid #0e1016;
+      // margin-top: 1rem;
+      background-color: transparent;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        background-color: #0e1016;
+        color: white;
+      }
+
+    }
+  }
+
+
+  &.dark {
+    background-color: transparent;
+
+    .apply-box {
+      color: white;
+
+      .apply-title, .date, .apply-button {
+        color: white;
+      }
+
+      .apply-button {
+        border: 1px solid white;
+
+        &:hover {
+          background-color: white;
+        color: #0e1016;
+        }
+      }
     }
   }
 }

@@ -22,4 +22,12 @@
     font-family: "Noto Sans", sans-serif;
     font-size: 0.9rem;
   }
+
+  &.dark {
+    background-color: transparent;
+
+    .job-details-title, .job-details-title2, .job-details-subtitle {
+      color: white;
+    }
+  }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import "./jobDetails.scss";
 
-const JobDetails = () => {
+const JobDetails = ({darkTheme}) => {
   return (
-    <div className="job-details column is-8">
+    <div className={darkTheme ? "job-details column is-8 dark" : "job-details column is-8"}>
       <h1 className="job-details-title">Company description</h1>
       <hr />
       <p className="job-details-subtitle">
