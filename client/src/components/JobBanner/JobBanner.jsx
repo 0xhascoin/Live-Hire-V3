@@ -1,7 +1,7 @@
 import React from 'react';
 import './jobBanner.scss';
 
-const JobBanner = ({ darkTheme }) => {
+const JobBanner = ({ darkTheme, jobLevel, jobLength }) => {
   return (
     <div className={darkTheme ? "job-banner columns dark" : "job-banner columns"}>
       <div className="column">
@@ -10,11 +10,11 @@ const JobBanner = ({ darkTheme }) => {
       </div>
       <div className="column">
         <p className="detail-title">Job type</p>
-        <p className="detail-description">Full time</p>
+        <p className="detail-description">{jobLength}</p>
       </div>
       <div className="column">
         <p className="detail-title">Job level</p>
-        <p className="detail-description">Senior</p>
+        <p className="detail-description">{jobLevel}</p>
       </div>
     </div>
   )

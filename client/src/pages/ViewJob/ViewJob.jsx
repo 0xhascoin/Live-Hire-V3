@@ -15,6 +15,7 @@ import JobHeader from "../../components/JobHeader/JobHeader";
 import JobBanner from "../../components/JobBanner/JobBanner";
 import JobDetails from "../../components/JobDetails/JobDetails";
 import JobApply from "../../components/JobApply/JobApply";
+import Loader from "../../components/Loader/Loader";
 
 const ViewJob = ({ darkTheme, setDarkTheme }) => {
   const { id } = useParams();
@@ -64,16 +65,22 @@ const ViewJob = ({ darkTheme, setDarkTheme }) => {
                 companyName={int.companyName}
                 jobTitle={int.jobTitle}
               />
-              <JobBanner darkTheme={darkTheme} />
+              <JobBanner darkTheme={darkTheme} jobLevel={int.jobLevel} jobLength={int.jobLength} />
               <div className="columns">
-                <JobDetails darkTheme={darkTheme} />
-                <JobApply darkTheme={darkTheme} />
+                <JobDetails darkTheme={darkTheme} companyDescription={int.companyDescription} jobDetails={int.jobDetails} />
+                <JobApply
+                  darkTheme={darkTheme}
+                  date={int.date}
+                  time={int.time}
+                  job={int}
+                  id={id}
+                />
               </div>
             </div>
           ))}
         </>
       ) : (
-        <div className="loading"></div>
+        <Loader />
       )}
     </>
 

@@ -1,46 +1,30 @@
 import React from "react";
 import "./jobDetails.scss";
 
-const JobDetails = ({darkTheme}) => {
+const JobDetails = ({darkTheme, companyDescription, jobDetails}) => {
   return (
     <div className={darkTheme ? "job-details column is-8 dark" : "job-details column is-8"}>
       <h1 className="job-details-title">Company description</h1>
       <hr />
       <p className="job-details-subtitle">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
-        amet, maiores exercitationem reiciendis doloribus repellat ex magnam <br /> <br />
-        distinctio aspernatur, fugiat omnis modi impedit numquam quo dignissimos
-        illum inventore ea nostrum. Impedit rem nisi quod quidem. Ipsa maxime
-        officia sint magnam!
+        {companyDescription}
       </p>
       <div className="my-6"/>
       <h1 className="job-details-title">Job description</h1>
       <hr />
       <h1 className="job-details-title2">Responsibilities</h1>
       <p className="job-details-subtitle">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
-        amet, maiores exercitationem reiciendis doloribus repellat ex magnam <br /> <br />
-        distinctio aspernatur, fugiat omnis modi impedit numquam quo dignissimos
-        illum inventore ea nostrum. Impedit rem nisi quod quidem. Ipsa maxime
-        officia sint magnam!
+      {jobDetails.responsibilities}
       </p>
       <div className="my-6"/>
       <h1 className="job-details-title2">Requirements</h1>
       <p className="job-details-subtitle">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
-        amet, maiores exercitationem reiciendis doloribus repellat ex magnam <br /> <br />
-        distinctio aspernatur, fugiat omnis modi impedit numquam quo dignissimos
-        illum inventore ea nostrum. Impedit rem nisi quod quidem. Ipsa maxime
-        officia sint magnam!
+      {jobDetails.requirements}
       </p>
       <div className="my-6"/>
       <h1 className="job-details-title2">Bonus skills</h1>
       <p className="job-details-subtitle">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
-        amet, maiores exercitationem reiciendis doloribus repellat ex magnam <br /> <br />
-        distinctio aspernatur, fugiat omnis modi impedit numquam quo dignissimos
-        illum inventore ea nostrum. Impedit rem nisi quod quidem. Ipsa maxime
-        officia sint magnam!
+      {jobDetails.bonusSkills}
       </p>
     </div>
   );

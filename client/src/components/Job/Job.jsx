@@ -22,6 +22,9 @@ const Job = ({ darkTheme, job, id }) => {
         <button className="company-name-tag applied">
           {job.applicationsCount} Applied
         </button>
+        <button className="company-name-tag applied">
+          Date: {job.date}
+        </button>
       </div>
       <BsFillArrowUpRightSquareFill className="icon" />
     </Link>

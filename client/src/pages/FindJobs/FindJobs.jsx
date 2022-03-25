@@ -26,6 +26,9 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const isUserProfileUpdated = useSelector((state) => state.isUserProfileUpdated);
+  const { userProfileUpdated } = isUserProfileUpdated;
+
   const [filteredInterviews, setFilteredInterviews] = useState(interviews);
 
   const searchHandler = (searchText) => {
@@ -42,17 +45,22 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
 
   useEffect(() => {
     dispatch(getAllInterviews(page));
+    dispatch(getIsUserProfileUpdated(userInfo?._id));
+    // if(userInfo?.isUserUpdatedProfile == false) {
+    //   history("/job/621b7818473d6ae6bd530cdb")
+    // }
   }, []);
 
-  useEffect(() => {
-    console.log("Page changed to, ", page);
-    dispatch(getAllInterviews(page));
-  }, [page]);
+
+  // useEffect(() => {
+  //   console.log("Page changed to, ", page);
+  //   dispatch(getAllInterviews(page));
+  // }, [page]);
 
   return (
     <div className={darkTheme ? "find-jobs dark" : "find-jobs light"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      <UpdateProfileNotification darkTheme={darkTheme} />
+      {userProfileUpdated == false && userInfo?.userType.toLowerCase() === "user" && <UpdateProfileNotification darkTheme={darkTheme} /> }
       <SearchHero
         darkTheme={darkTheme}
         search={search}

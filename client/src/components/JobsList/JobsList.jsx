@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // Component
 import Job from "../Job/Job";
+import Loader from '../Loader/Loader';
 
 
 const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
@@ -54,15 +55,15 @@ const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
               }
               </>
             ) : (
-              <p>Loading...</p>
+              <Loader />
             )}
           </>
           )
         }
       </div>
-      <button type="button" className="button" onClick={() => setPage(1)}>1</button>
+      {/* <button type="button" className="button" onClick={() => setPage(1)}>1</button>
       <button type="button" className="button" onClick={() => setPage(2)}>2</button>
-      <button type="button" className="button" onClick={() => setPage(3)}>3</button>
+      <button type="button" className="button" onClick={() => setPage(3)}>3</button> */}
     </div>
   );
 };
