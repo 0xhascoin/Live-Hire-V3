@@ -1,0 +1,29 @@
+.applications {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+
+  &.dark {
+    background-color: #121420;
+  }
+
+  .jobs-list-container {
+    padding: 0 0.25rem;
+    // border: 1px solid red;
+    background-color: #fdfdfd;
+    border-top: 1px solid #fdfdfd;
+
+    &.dark {
+      background-color: #121420;
+      border-top: 1px solid #121420;
+    }
+
+    .jobs-list {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 1rem;
+      justify-content: space-evenly;
+      /* border: 1px solid black; */
+    }
+  }
+}

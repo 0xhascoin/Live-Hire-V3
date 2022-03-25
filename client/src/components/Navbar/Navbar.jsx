@@ -30,12 +30,9 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
   };
 
   function toTitleCase(str) {
-    return str.replace(
-      /\w\S*/g,
-      function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-    );
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   }
 
   return (
@@ -171,12 +168,16 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               </div>
               <div class="dropdown-menu" id="dropdown-menu" role="menu">
                 <div class="dropdown-content">
-                  <Link to="/saved" class="dropdown-item">
-                    Saved jobs
-                  </Link>
-                  <a href="#" class="dropdown-item">
-                    My jobs
-                  </a>
+                  {userInfo?.userType.toLowerCase() === "user" && (
+                    <Link to="/saved" class="dropdown-item">
+                      Saved jobs
+                    </Link>
+                  )}
+                  {userInfo?.userType.toLowerCase() === "employer" && (
+                    <Link to="/applications" class="dropdown-item">
+                      Applications
+                    </Link>
+                  )}
                   <a href="#" class="dropdown-item">
                     My Interiews
                   </a>
