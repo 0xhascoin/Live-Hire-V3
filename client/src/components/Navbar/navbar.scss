@@ -109,8 +109,33 @@
             height: 2.5rem;
             border-radius: 6px;
 
+            .first-letter {
+              // border: 1px solid #1a202c;
+              padding: 0.1rem;
+              margin-right: 0.6rem;
+              // height: 70%;
+
+              p {
+                border: 1px solid black;
+                padding: 0.2rem 0.5rem;
+                background-color: #1a202c;
+                color: white;
+                border-radius: 3px;
+              }
+            }
+
             &.dark {
               color: white;
+
+
+
+              .first-letter {
+                p {
+                  color: white;
+                  background-color:transparent;
+                  border: white 1px solid;
+                }
+              }
             }
 
             &:focus {

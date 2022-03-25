@@ -1,0 +1,19 @@
+.saved-header {
+  // border: 1px solid black;
+  padding: 2.5rem 2rem;
+
+  .header-title {
+    font-size: 2rem;
+    color: #0e1016;
+    font-weight: 600;
+    font-family: "M PLUS Rounded 1c";
+  }
+
+  &.dark {
+    background-color: transparent;
+
+    .header-title {
+        color: white;
+    }
+  }
+}

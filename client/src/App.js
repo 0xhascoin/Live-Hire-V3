@@ -12,6 +12,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import FindJobs from './pages/FindJobs/FindJobs';
 import ViewJob from './pages/ViewJob/ViewJob';
+import SavedJobs from './pages/SavedJobs/SavedJobs';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/" element={<FindJobs darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/job/:id" element={<ViewJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          <Route exact path="/saved" element={<SavedJobs darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>
     </Router>
   );

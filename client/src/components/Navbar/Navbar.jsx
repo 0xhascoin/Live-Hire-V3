@@ -29,6 +29,15 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
     history("/"); // Push the user to the Home Page
   };
 
+  function toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
+
   return (
     <nav
       className={darkTheme ? "navbar navbar-dark" : "navbar navbar-light"}
@@ -151,7 +160,10 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                   aria-haspopup="true"
                   aria-controls="dropdown-menu"
                 >
-                  <span>{userInfo?.name}</span>
+                  <span className="first-letter">
+                    <p>{userInfo?.name[0].toUpperCase()}</p>
+                  </span>
+                  <span>{toTitleCase(userInfo?.name)}</span>
                   <span class="icon is-small">
                     {showDropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
                   </span>
@@ -159,9 +171,9 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               </div>
               <div class="dropdown-menu" id="dropdown-menu" role="menu">
                 <div class="dropdown-content">
-                  <a href="#" class="dropdown-item">
+                  <Link to="/saved" class="dropdown-item">
                     Saved jobs
-                  </a>
+                  </Link>
                   <a href="#" class="dropdown-item">
                     My jobs
                   </a>
