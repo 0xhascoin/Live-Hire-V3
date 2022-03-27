@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getAllJobsUserAppliedTo } from "../../actions/userActions";
+
 
 import "./findJobs.scss";
 
@@ -46,6 +48,9 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   useEffect(() => {
     dispatch(getAllInterviews(page));
     dispatch(getIsUserProfileUpdated(userInfo?._id));
+    if(userInfo?.userType.toLowerCase() == "user") {
+      dispatch(getAllJobsUserAppliedTo(userInfo?._id));
+    }
     // if(userInfo?.isUserUpdatedProfile == false) {
     //   history("/job/621b7818473d6ae6bd530cdb")
     // }

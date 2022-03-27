@@ -23,6 +23,9 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const getAllJobsAppliedTo = useSelector((state) => state.getAllJobsAppliedTo);
+  const { jobsAppliedTo } = getAllJobsAppliedTo;
+
   // Logout function
   const logoutHandler = () => {
     dispatch(logout()); // Calls the Logout function in Redux
@@ -34,6 +37,8 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
+
+  console.log(jobsAppliedTo?.length, "jobsAppliedTo");
 
   return (
     <nav
@@ -90,13 +95,13 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
         className={showMenu ? "navbar-menu is-active" : "navbar-menu"}
       >
         <div className="navbar-end">
-          <a className="navbar-item">
+          <Link className="navbar-item" to="/post">
             <button
               className={darkTheme ? "post-job-button dark" : "post-job-button"}
             >
               Post job
             </button>
-          </a>
+          </Link>
 
           <Link
             to="/"
@@ -170,7 +175,8 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                 <div class="dropdown-content">
                   {userInfo?.userType.toLowerCase() === "user" && (
                     <Link to="/saved" class="dropdown-item">
-                      Saved jobs
+                      Saved jobs{" "}
+                      <span className="count">{jobsAppliedTo?.length}</span>
                     </Link>
                   )}
                   {userInfo?.userType.toLowerCase() === "employer" && (
@@ -179,11 +185,13 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                     </Link>
                   )}
                   <a href="#" class="dropdown-item">
-                    My Interiews
+                    Interview Manager
                   </a>
-                  <a href="#" class="dropdown-item">
-                    Update Profile
-                  </a>
+                  {userInfo?.userType.toLowerCase() === "user" && (
+                    <a href="#" class="dropdown-item">
+                      Update Profile
+                    </a>
+                  )}
                   <a href="#" class="dropdown-item" onClick={logoutHandler}>
                     Logout
                   </a>

@@ -1,0 +1,100 @@
+.page-one-container {
+  //   border: 1px solid black;
+  margin-top: 1rem;
+  //   min-height: 100%;
+  text-align: center;
+
+
+  .page-one-form {
+    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    padding: 1rem 3rem;
+    border-radius: 6px;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+  }
+
+  .page-one-title {
+    color: #0e1016;
+    font-family: "Noto Sans", sans-serif;
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-one-short-desc {
+    color: #0e1016;
+    font-size: 0.9rem;
+    font-weight: 300;
+    // max-width: 70%;
+  }
+
+  .field {
+    // border: 1px solid black;
+    // max-width: 70%;
+
+    .label {
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .error-text {
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
+    }
+
+    .control {
+      //   border: 1px solid black;
+
+      .input,
+      .textarea {
+        color: #0e1016;
+        font-weight: 500;
+        font-family: "M PLUS Rounded 1c";
+        border: none;
+
+        &.is-danger {
+          border: 1px solid #f14668 !important;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
+    .next-button {
+      height: 2.5rem;
+      width: 9rem;
+      background-color: #1a202c;
+      color: rgba(255, 255, 255, 0.92);
+      border: none;
+      border-radius: 6px;
+    }
+  }
+
+  &.dark {
+    .page-one-title,
+    .page-one-short-desc,
+    .field > .label {
+      color: white;
+    }
+
+    .field {
+      .control > .input,
+      .control > .textarea {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+      }
+
+      .input::placeholder,
+      .textarea::placeholder {
+        color: white;
+      }
+
+      .next-button {
+        color: #1a202c;
+        background-color: rgba(255, 255, 255, 0.92);
+      }
+    }
+  }
+}
