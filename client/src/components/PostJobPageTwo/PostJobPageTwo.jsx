@@ -119,59 +119,74 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
           </div>
         </div>
         <div className="field my-5">
-          <label className="label">
-            Job type <span className="required">(required)</span>
-          </label>
-          {jobLengthError && (
-            <span className="error-text has-text-danger has-text-light">
-              Please select a job length from the dropdown
-            </span>
-          )}
-          <div className="control">
-            <div
-              className={
-                jobLengthError
-                  ? "select is-normal is-danger"
-                  : "select is-normal"
-              }
-            >
-              <select
-                onChange={(e) => setJob({ ...job, jobLength: e.target.value })}
-                value={job.jobLength}
-              >
-                <option value={null}>Select from dropdown</option>
-                <option value="Full time">Full time</option>
-                <option value="Part time">Part time</option>
-              </select>
+          <div className="columns">
+            <div className="field column">
+              <label className="label">
+                Job type <span className="required">(required)</span>
+              </label>
+              {jobLengthError && (
+                <span
+                  className="error-text has-text-danger has-text-light"
+                  style={{ minWidth: "100%" }}
+                >
+                  Please select a job length from the dropdown
+                </span>
+              )}
+              <div className="control">
+                <div
+                  className={
+                    jobLengthError
+                      ? "select is-normal is-danger"
+                      : "select is-normal"
+                  }
+                  style={{ minWidth: "100%" }}
+                >
+                  <select
+                    onChange={(e) =>
+                      setJob({ ...job, jobLength: e.target.value })
+                    }
+                    value={job.jobLength}
+                    style={{ minWidth: "100%" }}
+                  >
+                    <option value={null}>Select from dropdown</option>
+                    <option value="Full time">Full time</option>
+                    <option value="Part time">Part time</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="field my-5">
-          <label className="label">
-            Job level <span className="required">(required)</span>
-          </label>
-          {jobLevelError && (
-            <span className="error-text has-text-danger has-text-light">
-              Please select a job level from the dropdown
-            </span>
-          )}
-          <div className="control">
-            <div
-              className={
-                jobLevelError
-                  ? "select is-normal is-danger"
-                  : "select is-normal"
-              }
-            >
-              <select
-                onChange={(e) => setJob({ ...job, jobLevel: e.target.value })}
-                value={job.jobLength}
-              >
-                <option value={null}>Select from dropdown</option>
-                <option value="Full time">Junior</option>
-                <option value="Part time">Mid-level</option>
-                <option value="Part time">Senior</option>
-              </select>
+            <div className="field column">
+              <label className="label">
+                Job level <span className="required">(required)</span>
+              </label>
+              {jobLevelError && (
+                <span className="error-text has-text-danger has-text-light">
+                  Please select a job level from the dropdown
+                </span>
+              )}
+              <div className="control" style={{ minWidth: "100%" }}>
+                <div
+                  className={
+                    jobLevelError
+                      ? "select is-normal is-danger"
+                      : "select is-normal"
+                  }
+                  style={{ minWidth: "100%" }}
+                >
+                  <select
+                    onChange={(e) =>
+                      setJob({ ...job, jobLevel: e.target.value })
+                    }
+                    value={job.jobLevel}
+                    style={{ minWidth: "100%" }}
+                  >
+                    <option value={null}>Select from dropdown</option>
+                    <option value="Full time">Junior</option>
+                    <option value="Part time">Mid-level</option>
+                    <option value="Part time">Senior</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -257,6 +272,159 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
           </div>
         </div>
         <hr />
+        <div className="field my-5">
+          <label className="label my-3">
+            Compensation <span className="required">(required)</span>
+          </label>
+          <div className="columns">
+            <div className="field column is-6">
+              <label className="label">
+                Currency <span className="required">(required)</span>
+              </label>
+              {currencyError && (
+                <span className="error-text has-text-danger">
+                  Please select a currency from the dropdown
+                </span>
+              )}
+              <div className="control" style={{ minWidth: "100%" }}>
+                <div
+                  className={
+                    currencyError
+                      ? "select is-normal is-danger"
+                      : "select is-normal"
+                  }
+                  style={{ minWidth: "100%" }}
+                >
+                  <select
+                    style={{ minWidth: "100%" }}
+                    onChange={(e) =>
+                      setJob({ ...job, currency: e.target.value })
+                    }
+                    value={job.currency}
+                  >
+                    <option value={null}>Select a currency</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CAD">CAD</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="field column is-6">
+              <label className="label">
+                Min salary <span className="required">(required)</span>
+              </label>
+              {minSalaryError && (
+                <span className="error-text has-text-danger">
+                  Please enter a minimum salary
+                </span>
+              )}
+              <div className="control">
+                <input
+                  className={minSalaryError ? "input is-danger" : "input"}
+                  type="number"
+                  value={job.minSalary}
+                  onChange={(e) =>
+                    setJob({ ...job, minSalary: e.target.value })
+                  }
+                  placeholder="10,000+"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="field my-5">
+          <div className="columns">
+            <div className="field column">
+              <label className="label">
+                Select interview date{" "}
+                <span className="required">(required)</span>
+              </label>
+              <div className="control" style={{ minWidth: "100%" }}>
+                {dateError && (
+                  <span className="error-text has-text-danger has-text-light">
+                    Select a date
+                  </span>
+                )}
+                <input
+                  className={dateError ? "input is-danger" : "input"}
+                  type="date"
+                  value={job.date}
+                  onChange={(e) => setJob({ ...job, date: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="field column">
+              <label className="label">
+                Select interview time{" "}
+                <span className="required">(required)</span>
+              </label>
+              <div className="control" style={{ minWidth: "100%" }}>
+                {timeError && (
+                  <span className="error-text has-text-danger has-text-light">
+                    Select a time
+                  </span>
+                )}
+                <input
+                  className={timeError ? "input is-danger" : "input"}
+                  type="time"
+                  value={job.time}
+                  onChange={(e) => setJob({ ...job, time: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="field column">
+              <label className="label">
+                Select a timezone <span className="required">(required)</span>
+              </label>
+              <div className="control" style={{ minWidth: "100%" }}>
+                {timeError && (
+                  <span className="error-text has-text-danger has-text-light">
+                    Select a timezone
+                  </span>
+                )}
+                <div className="control" style={{ minWidth: "100%" }}>
+                  <div
+                    className={
+                      jobLevelError
+                        ? "select is-normal is-danger"
+                        : "select is-normal"
+                    }
+                    style={{ minWidth: "100%" }}
+                  >
+                    <select
+                      onChange={(e) =>
+                        setJob({ ...job, jobLevel: e.target.value })
+                      }
+                      value={job.jobLength}
+                      style={{ minWidth: "100%" }}
+                    >
+                      <option value={null}>Select from dropdown</option>
+                      <option value="Full time">Junior</option>
+                      <option value="Part time">Mid-level</option>
+                      <option value="Part time">Senior</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="field my-5 buttons-field">
+          <button
+            className="button back-button"
+            onClick={() => setPage(page - 1)}
+          >
+            Go back
+          </button>
+          <button
+            className="button next-button"
+            onClick={(e) => nextPage(e)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

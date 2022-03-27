@@ -8,7 +8,7 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
   const nextPage = (e) => {
     e.preventDefault();
 
-    if (job.companyName.length <= 3) {
+    if (job.companyName.length <= 2) {
       setCompanyNameError(true);
       console.log("Company Name INVALID", companyNameError);
     } else {

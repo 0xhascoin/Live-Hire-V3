@@ -2,15 +2,15 @@
   //   border: 1px solid black;
   margin-top: 1rem;
   //   min-height: 100%;
-  text-align: center;
+  // text-align: center;
 
 
   .page-one-form {
     box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
     padding: 1rem 3rem;
+    padding-right: 0px;
     border-radius: 6px;
-    text-align: center;
-    margin: auto;
+    // margin: auto;
     width: 90%;
   }
 
@@ -31,7 +31,7 @@
 
   .field {
     // border: 1px solid black;
-    // max-width: 70%;
+    max-width: 90%;
 
     .label {
       color: #0e1016;

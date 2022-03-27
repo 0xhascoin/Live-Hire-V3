@@ -7,9 +7,12 @@
   .page-two-form {
     box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
     padding: 1rem 3rem;
+    padding-right: 0px;
     border-radius: 6px;
-    margin: auto;
-    width: 100%;
+    // margin: auto;
+    width: 90%;
+    // border: 1px solid black;
+    // padding-bottom: 2rem;
   }
 
   .page-two-title {
@@ -28,7 +31,23 @@
 
   .field {
     // border: 1px solid black;
-    max-width: 80%;
+    max-width: 90%;
+
+    &.buttons-field {
+      // border: 1px solid black;
+      position: relative;
+      height: 8vh;
+
+      .back-button {
+        position: absolute;
+        left: 0;
+      }
+
+      .next-button {
+        position: absolute;
+        right: 0;
+      }
+    }
 
     .label {
       color: #0e1016;
@@ -60,9 +79,10 @@
       .textarea,
       select {
         color: #0e1016;
-        font-weight: 500;
-        font-family: "M PLUS Rounded 1c";
+        font-weight: 400;
+        font-family: "Noto Sans", sans-serif;
         border: none;
+        font-size: 0.9rem;
 
         &.is-danger {
           border: 1px solid #f14668 !important;
@@ -71,13 +91,15 @@
       }
     }
 
-    .next-button {
+    .next-button, .back-button {
       height: 2.5rem;
       width: 9rem;
       background-color: #1a202c;
       color: rgba(255, 255, 255, 0.92);
       border: none;
       border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
     }
   }
 
@@ -102,7 +124,7 @@
         color: white;
       }
 
-      .next-button {
+      .next-button, .back-button {
         color: #1a202c;
         background-color: rgba(255, 255, 255, 0.92);
       }
