@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './postJob.scss';
 
 // Components
@@ -10,6 +10,7 @@ import PostJobPageTwo from '../../components/PostJobPageTwo/PostJobPageTwo';
 
 const PostJob = ({ darkTheme, setDarkTheme }) => {
   const [page, setPage] = useState(2);
+  const [selectedTimezone, setSelectedTimezone] = useState({});
   const [job, setJob] = useState({
     companyName: "",
     companyLogo: "",
@@ -26,8 +27,14 @@ const PostJob = ({ darkTheme, setDarkTheme }) => {
     currency: "",
     minSalary: "",
     date: "",
-    time: ""
+    time: "",
+    timezone: ""
   });
+
+  useEffect(() => {
+    console.log("selectedTimezone");
+    setJob({ ...job, timezone: selectedTimezone.label });
+  }, [selectedTimezone])
 
   return (
     <div className={darkTheme ? "post-job-container dark" : "post-job-container"}>
@@ -37,7 +44,7 @@ const PostJob = ({ darkTheme, setDarkTheme }) => {
         <div className={darkTheme ? "post-container dark" : "post-container"}>
             <h3 className="post-title">Create job listing</h3>
             {page == 1 && <PostJobPageOne darkTheme={darkTheme} job={job} setJob={setJob} page={page} setPage={setPage}/> }
-            {page == 2 && <PostJobPageTwo darkTheme={darkTheme} job={job} setJob={setJob} page={page} setPage={setPage}/> }
+            {page == 2 && <PostJobPageTwo darkTheme={darkTheme} job={job} setJob={setJob} page={page} setPage={setPage} selectedTimezone={selectedTimezone} setSelectedTimezone={setSelectedTimezone} /> }
         </div>
     </div>
   )

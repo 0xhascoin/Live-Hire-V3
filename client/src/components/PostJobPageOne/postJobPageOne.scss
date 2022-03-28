@@ -48,7 +48,8 @@
       //   border: 1px solid black;
 
       .input,
-      .textarea {
+      .textarea, 
+      .timezone {
         color: #0e1016;
         font-weight: 500;
         font-family: "M PLUS Rounded 1c";
@@ -80,7 +81,8 @@
 
     .field {
       .control > .input,
-      .control > .textarea {
+      .control > .textarea,
+      .timezone {
         background-color: transparent;
         color: white;
         border: 1px solid white;

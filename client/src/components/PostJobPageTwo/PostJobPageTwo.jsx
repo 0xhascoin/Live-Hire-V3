@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./postJobPageTwo.scss";
+import TimezoneSelect from "react-timezone-select";
 
-const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
+const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTimezone, selectedTimezone }) => {
   const [jobTitleError, setJobTitleError] = useState(false);
   const [jobLengthError, setJobLengthError] = useState(false);
   const [jobLevelError, setJobLevelError] = useState(false);
@@ -12,6 +13,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
   const [minSalaryError, setMinSalaryError] = useState(false);
   const [dateError, setDateError] = useState(false);
   const [timeError, setTimeError] = useState(false);
+  const [timezoneError, setTimezoneError] = useState(false);
 
   const nextPage = (e) => {
     e.preventDefault();
@@ -72,7 +74,12 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
                         console.log("Please select a time");
                       } else {
                         console.log(job);
-                        setPage(page + 1);
+                        if(!job.timezone) {
+                          setTimezoneError(true);
+                          console.log("Please select a timezone");
+                        } else {
+                          setPage(page + 1);
+                        }
                       }
                     }
                   }
@@ -376,15 +383,26 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
             </div>
             <div className="field column">
               <label className="label">
-                Select a timezone <span className="required">(required)</span>
+                Select your timezone <span className="required">(required)</span>
               </label>
               <div className="control" style={{ minWidth: "100%" }}>
-                {timeError && (
+                {timezoneError && (
                   <span className="error-text has-text-danger has-text-light">
-                    Select a timezone
+                    Select your timezone
                   </span>
                 )}
-                <div className="control" style={{ minWidth: "100%" }}>
+                <div
+                  className="select-wrapper"
+                  style={{ minWidth: "100%" }}
+                >
+                  <TimezoneSelect
+                    value={selectedTimezone}
+                    onChange={setSelectedTimezone}
+                    style={{ minWidth: "100%" }}
+                    className="timezone"
+                  />
+                </div>
+                {/* <div className="control" style={{ minWidth: "100%" }}>
                   <div
                     className={
                       jobLevelError
@@ -406,7 +424,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
                       <option value="Part time">Senior</option>
                     </select>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -418,10 +436,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage }) => {
           >
             Go back
           </button>
-          <button
-            className="button next-button"
-            onClick={(e) => nextPage(e)}
-          >
+          <button className="button next-button" onClick={(e) => nextPage(e)}>
             Next
           </button>
         </div>
