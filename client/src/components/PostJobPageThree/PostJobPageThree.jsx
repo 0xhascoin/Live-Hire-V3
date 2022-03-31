@@ -21,10 +21,10 @@ const PostJobPageThree = ({
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const createInterview = async (e) => {
+  const createInterview = (e) => {
     e.preventDefault();
     dispatch(
-        await createInterviewAction(
+         createInterviewAction(
           job.companyName,
           job.companyLogo,
           job.companyDescription,
@@ -37,6 +37,7 @@ const PostJobPageThree = ({
           userInfo.name,
           job.date,
           job.time,
+          job.timezone
         )
       );
       setPage(page+1);
@@ -78,6 +79,17 @@ const PostJobPageThree = ({
         <div style={{padding: '1rem'}} />
         <h1 className="job-companyDescription-title">Bonus Skills</h1>
         <h2 className="job-companyDescription">{job.jobDetails?.bonusSkills}</h2>
+        <div className="field my-5 buttons-field">
+          <button
+            className="button back-button"
+            onClick={() => setPage(page - 1)}
+          >
+            Go back
+          </button>
+          <button className="button next-button" onClick={(e) => createInterview(e)}>
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -7,37 +7,35 @@ import SavedHeader from "../../components/SavedHeader/SavedHeader";
 import PostJobPageOne from "../../components/PostJobPageOne/PostJobPageOne";
 import PostJobPageTwo from "../../components/PostJobPageTwo/PostJobPageTwo";
 import PostJobPageThree from "../../components/PostJobPageThree/PostJobPageThree";
+import PostJobSuccess from "../../components/PostJobSuccess/PostJobSuccess";
 
 const PostJob = ({ darkTheme, setDarkTheme }) => {
   const [page, setPage] = useState(1);
   const [selectedTimezone, setSelectedTimezone] = useState({});
   const [job, setJob] = useState({
-    companyName: "Marpipe",
-    companyLogo: "https://vuejobs.com/storage/avatars/WhAv15pkn3IzuIQBP3g75fRDS7Kpi5BZQ8sMu9nu.jpeg",
-    companyDescription: "The workflow behind advertising creative has been undisrupted for 60 years. Come join the platform that's changing that! Marpipe is a rapidly-growing, early stage technology company bringing data-driven decision making to the creative process in advertising. We are a team that’s obsessed with the science and data behind creativity.",
-    jobTitle: "Front-End Developer",
-    jobLength: "Full time",
-    jobLevel: "Senior",
+    companyName: "",
+    companyLogo: "",
+    jobTitle: "",
+    companyDescription: "",
+    jobLength: "",
+    jobLevel: "",
     jobDescription: "",
     jobDetails: {
-      responsibilities:
-        "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. ",
-      requirements:
-        "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. \nApple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. \nApple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. ",
-      bonusSkills:
-        "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. \nApple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. \nApple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services. ",
+      responsibilities: "",
+      requirements: "",
+      bonusSkills: "",
     },
-    currency: "$",
-    minSalary: "250,000",
-    date: "2022-03-31",
-    time: "15:45pm",
-    timezone: "GMT +0",
+    currency: "",
+    minSalary: "",
+    date: "",
+    time: "",
+    timezone: "",
   });
 
-  // useEffect(() => {
-  //   console.log("selectedTimezone");
-  //   setJob({ ...job, timezone: selectedTimezone.label });
-  // }, [selectedTimezone])
+  useEffect(() => {
+    console.log("selectedTimezone");
+    setJob({ ...job, timezone: selectedTimezone.label });
+  }, [selectedTimezone]);
 
   return (
     <div
@@ -77,6 +75,7 @@ const PostJob = ({ darkTheme, setDarkTheme }) => {
             setPage={setPage}
           />
         )}
+        {page == 4 && <PostJobSuccess />}
       </div>
     </div>
   );

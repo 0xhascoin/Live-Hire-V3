@@ -24,6 +24,8 @@ const Job = ({ darkTheme, job, id, page }) => {
     });
   }
 
+  console.log(job, "JOB")
+
   return (
     <>
     {page !== "applications" ? (
@@ -67,16 +69,20 @@ const Job = ({ darkTheme, job, id, page }) => {
       </div>
       </Link>
       {page === "applications" && (
+        <>
+        {job?.applications?.length !== 0 && (
         <div className="applications-container">
-          <h2 className="applications-title">Applications: {usersThatApplied?.length}</h2>
-          {usersThatApplied?.map((application) => (
+          <h2 className="applications-title">Applications: {job?.applications?.length}</h2>
+          {job?.applications?.map((application) => (
             <button className="company-name-tag">
-              {toTitleCase(application.name)}<br />
-              {application.userCV?.githubUrl && <a href={`http://github.com/${application.userCV?.githubUrl}`}>Github</a>}<br />
-              {application.userCV?.twitterUrl && <a href={`http://twitter.com/${application.userCV?.twitterUrl}`}>Twitter</a>}
+              {toTitleCase(application?.user?.name)}<br />
+              {application?.user?.userCV?.githubUrl && <a href={`http://github.com/${application.user?.userCV?.githubUrl}`}>Github</a>}<br />
+              {application?.user?.userCV?.twitterUrl && <a href={`http://twitter.com/${application?.user?.userCV?.twitterUrl}`}>Twitter</a>}
             </button>
           ))}
         </div>
+        )}
+        </>
       )}
       <BsFillArrowUpRightSquareFill className="icon" />
     </div>

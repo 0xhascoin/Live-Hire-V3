@@ -45,7 +45,7 @@ const JobApply = ({ darkTheme, id, date, time, job }) => {
     <div className={darkTheme ? "column job-apply dark" : "column job-apply"}>
       <div className="apply-box">
         <h1 className="apply-title">RSVP here</h1>
-        <p className="date">Date: {date}, {time}</p>
+        <p className="date">Date: {date}, {time} - {job.timezone && job.timezone}</p>
         {userInfo ? (
         <>
         {userInfo?.userType.toLowerCase() != "employer" && (

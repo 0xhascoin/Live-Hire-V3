@@ -140,7 +140,7 @@ import {
     };
   // Create an interview using these fields
   export const createInterviewAction =
-    (companyName, companyLogo, companyDescription, jobTitle, jobLength, jobLevel, jobDetails, currency, minSalary, personName, date, time) =>
+    (companyName, companyLogo, companyDescription, jobTitle, jobLength, jobLevel, jobDetails, currency, minSalary, personName, date, time, timezone) =>
     async (dispatch, getState) => {
       try {
         // Send the CREATE REQUEST state
@@ -161,7 +161,7 @@ import {
   
         // Run the API call with the new Interview & the bearer token
         const { data } = await api.createInterview(
-          { companyName, companyLogo, companyDescription, jobTitle, jobLength, jobLevel, jobDetails, currency, minSalary, personName, date, time },
+          { companyName, companyLogo, companyDescription, jobTitle, jobLength, jobLevel, jobDetails, currency, minSalary, personName, date, time, timezone },
           config
         );
   
