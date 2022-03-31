@@ -1,0 +1,93 @@
+.page-three-container {
+  // border: 1px solid black;
+  margin-top: 1rem;
+  //   min-height: 100%;
+  // background-color: #f8f9fa;
+
+  .page-three-title {
+    color: #0e1016;
+    font-family: "Noto Sans", sans-serif;
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-three-form {
+    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    padding: 2rem 3rem;
+    padding-right: 0px;
+    border-radius: 6px;
+    // margin: auto;
+    width: 90%;
+    // border: 1px solid black;
+    // padding-bottom: 2rem;
+
+    .job-title {
+      font-size: 1.2rem;
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .job-length {
+      color: #0e1016;
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
+      font-weight: 500;
+    }
+
+    .job-companyName {
+      color: #0e1016;
+      font-size: 1.1rem;
+      font-family: "Noto Sans", sans-serif;
+      font-weight: 600;
+    }
+
+    .job-salary {
+      font-weight: 400;
+    }
+
+    .job-date-time {
+      color: #0e1016;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      font-family: "Noto Sans", sans-serif;
+    }
+
+    .job-time {
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .job-companyDescription-title {
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+      font-size: 1.2rem;
+    }
+
+    .job-companyDescription {
+      color: #0e1016;
+      font-weight: 400;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      max-width: 70%;
+    }
+  }
+
+  &.dark {
+    .page-three-title,
+    .job-title,
+    .job-length,
+    .job-companyName,
+    .job-salary,
+    .job-date-time,
+    .job-time,
+    .job-companyDescription-title,
+    .job-companyDescription {
+      color: white;
+    }
+  }
+}

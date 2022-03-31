@@ -310,10 +310,9 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
                     value={job.currency}
                   >
                     <option value={null}>Select a currency</option>
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="EUR">EUR</option>
-                    <option value="CAD">CAD</option>
+                    <option value="$">USD</option>
+                    <option value="£">GBP</option>
+                    <option value="€">EUR</option>
                   </select>
                 </div>
               </div>
