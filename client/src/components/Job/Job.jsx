@@ -74,23 +74,6 @@ const Job = ({ darkTheme, job, id, page }) => {
         <button className="company-name-tag applied">Date: {job.date}</button>
       </div>
       </Link>
-      {page === "applications" && (
-        <>
-        {job?.applications?.length !== 0 && (
-        <div className="applications-container">
-          <h2 className="applications-title">Applications: {job?.applications?.length}</h2>
-          {job?.applications?.map((application) => (
-            <button className="company-name-tag">
-              {toTitleCase(application?.user?.name)}<br />
-              {application?.user?.userCV?.githubUrl && <a href={`http://github.com/${application.user?.userCV?.githubUrl}`}>Github</a>}<br />
-              {application?.user?.userCV?.twitterUrl && <a href={`http://twitter.com/${application?.user?.userCV?.twitterUrl}`}>Twitter</a>}
-            </button>
-          ))}
-        </div>
-        )}
-        </>
-      )}
-
 
 
       <BsFillArrowUpRightSquareFill className="icon" />

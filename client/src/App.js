@@ -14,6 +14,7 @@ import FindJobs from './pages/FindJobs/FindJobs';
 import ViewJob from './pages/ViewJob/ViewJob';
 import SavedJobs from './pages/SavedJobs/SavedJobs';
 import Applications from './pages/Applications/Applications';
+import ViewApplied from './pages/ViewApplied/ViewApplied';
 import PostJob from './pages/PostJob/PostJob';
 import EditProfile from './pages/EditProfile/EditProfile';
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/job/:id" element={<ViewJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/saved" element={<SavedJobs darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/applications" element={<Applications darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          <Route exact path="/applications/:jobId" element={<ViewApplied darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/post" element={<PostJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/account" element={<EditProfile darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>

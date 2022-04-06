@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import "./applications.scss";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getAllUserInterviews } from "../../actions/interviewActions";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { BsFillArrowRightSquareFill } from 'react-icons/bs'
 
 // Components
 import Navbar from "../../components/Navbar/Navbar";
@@ -43,7 +44,7 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
           darkTheme ? "jobs-list-container dark" : "jobs-list-container"
         }
       >
-        <div className="jobs-list">
+        {/* <div className="jobs-list">
           {usersInterviews ? (
             <>
               {usersInterviews?.map((job) => (
@@ -53,7 +54,33 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
           ) : (
             <Loader />
           )}
-        </div>
+        </div> */}
+
+        {usersInterviews ? (
+          <>
+            {usersInterviews?.map((job) => (
+              <div className="columns is-vcentered">
+                <div className="column is-7">
+                  <Job
+                    job={job}
+                    id={job._id}
+                    darkTheme={darkTheme}
+                    page="applications"
+                  />
+                </div>
+                <div className="column go-to-col has-text-centered">
+
+                  <Link className="go-to-link button" to={`/applications/${job._id}`}>
+                    <span className="icon"><BsFillArrowRightSquareFill /></span> 
+                    <span className="go-to-text">View {job.applicationsCount} applications</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <Loader />
+        )}
       </motion.div>
     </div>
   );

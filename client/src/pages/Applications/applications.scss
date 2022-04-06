@@ -25,5 +25,35 @@
       justify-content: space-evenly;
       /* border: 1px solid black; */
     }
+
+    .columns {
+      margin: 0 !important;
+      padding: 0 !important;
+      // border: 2px solid red;
+      .go-to-col {
+        // border: 1px solid black;
+        padding: 0 !important;
+        margin: 0 !important;
+        
+        .go-to-link {
+          // border: 1px solid black;
+          padding: 3.5rem 2rem;
+          color: #0e1016;
+          font-weight: 600;
+          font-family: "M PLUS Rounded 1c";
+          font-size: 1.4rem;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          border: none;
+          
+          .icon {
+
+          }
+
+          .go-to-text {
+
+          }
+        }
+      }
+    }
   }
 }
