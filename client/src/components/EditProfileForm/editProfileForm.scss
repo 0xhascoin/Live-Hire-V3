@@ -1,0 +1,120 @@
+.edit-profile-container {
+  // margin-top: 1rem;
+  padding: 2.5rem 2rem;
+
+  .edit-profile-form {
+    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    padding: 1.5rem 3rem;
+    padding-right: 0px;
+    border-radius: 6px;
+    // margin: auto;
+    width: 90%;
+    // border: 1px solid black;
+    // padding-bottom: 2rem;
+
+    .modal-card-head {
+      background-color: white;
+
+      .modal-card-title {
+        font-size: 0.9rem;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 400;
+      }
+    }
+
+    .modal-card-body {
+      padding: 0;
+    }
+
+    .submit-profile-box {
+      // border: 1px solid black;
+      margin-top: 20px;
+
+      .submit-profile-button {
+        height: 2.5rem;
+        width: 9rem;
+        background-color: #1a202c;
+        color: rgba(255, 255, 255, 0.92);
+        border: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-family: "Noto Sans", sans-serif;
+      }
+    }
+
+    &.create-form {
+      margin: 0 !important;
+    }
+
+    .title {
+      color: #0e1016;
+      font-weight: 600;
+      font-family: "M PLUS Rounded 1c";
+    }
+
+    .field {
+      // border: 1px solid black;
+      max-width: 90%;
+
+      // Label
+      .label {
+        color: #0e1016;
+        font-weight: 600;
+        font-family: "M PLUS Rounded 1c";
+
+        .required {
+          font-size: 13px;
+          font-weight: 300;
+        }
+
+        &.label-subtitle {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+
+      // error text
+      .error-text {
+        font-size: 0.8rem;
+      }
+
+      // Input
+      .input,
+      .textarea {
+        color: #0e1016;
+        font-weight: 400;
+        font-family: "Noto Sans", sans-serif;
+        border: none;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &.dark {
+    .edit-profile-form {
+      .submit-profile-button {
+        color: #1a202c;
+        background-color: rgba(255, 255, 255, 0.92);
+      }
+
+      .title {
+        color: white;
+      }
+
+      .label {
+        color: white;
+      }
+
+      .input,
+      .textarea {
+        color: white;
+        background-color: transparent;
+        border: 1px solid white;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.92);
+        }
+      }
+    }
+  }
+}

@@ -184,13 +184,13 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                       Applications
                     </Link>
                   )}
-                  <a href="#" class="dropdown-item">
+                  <Link to="/manage/interviews" class="dropdown-item">
                     Interview Manager
-                  </a>
+                  </Link>
                   {userInfo?.userType.toLowerCase() === "user" && (
-                    <a href="#" class="dropdown-item">
+                    <Link to="/account" class="dropdown-item">
                       Update Profile
-                    </a>
+                    </Link>
                   )}
                   <a href="#" class="dropdown-item" onClick={logoutHandler}>
                     Logout

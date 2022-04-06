@@ -12,10 +12,11 @@ const Job = ({ darkTheme, job, id, page }) => {
   const { userInfo } = userLogin;
 
   const getUsersThatApplied = useSelector((state) => state.getUsersThatApplied);
-  const { usersThatApplied } = getUsersThatApplied;
+  const { usersThatApplied, loading } = getUsersThatApplied;
 
   useEffect(() => {
     dispatch(getAllUsersThatApplied(id));
+    console.log("Dispatch")
   }, []);
 
   function toTitleCase(str) {
@@ -24,7 +25,12 @@ const Job = ({ darkTheme, job, id, page }) => {
     });
   }
 
-  console.log(job, "JOB")
+  if(loading) { 
+    return "Loading...."
+  } else {
+    // console.log(job.jobTitle, usersThatApplied);
+    // console.log(loading, "Loading")
+  }
 
   return (
     <>
@@ -84,6 +90,9 @@ const Job = ({ darkTheme, job, id, page }) => {
         )}
         </>
       )}
+
+
+
       <BsFillArrowUpRightSquareFill className="icon" />
     </div>
     )}

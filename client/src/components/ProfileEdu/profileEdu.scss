@@ -1,0 +1,159 @@
+.work-experience-section {
+    .label-subtitle {
+      max-width: 80%;
+      color: #0e1016;
+      font-weight: 400;
+      font-family: "Noto Sans", sans-serif;
+    }
+    .example-job {
+      // border: 1px solid black;
+      margin-top: 20px;
+      padding: 15px;
+      // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+      border-radius: 4px;
+      margin-bottom: 40px;
+      position: relative;
+      max-width: 80%;
+  
+      .example-job-company {
+        font-size: 1rem;
+        color: #0e1016;
+        font-weight: 600;
+        font-family: "M PLUS Rounded 1c";
+        padding-bottom: 5px;
+      }
+  
+      .example-job-title {
+        font-size: 0.9rem;
+        color: #0e1016;
+        font-weight: 400;
+        font-family: "Noto Sans", sans-serif;
+        padding-bottom: 4px;
+      }
+  
+      .example-job-desc {
+        font-size: 0.8rem;
+        color: #c3c5c9;
+        font-weight: 400;
+        font-family: "Noto Sans", sans-serif;
+      }
+  
+      .length-worked {
+        margin-top: 10px;
+        font-size: 0.8rem;
+      }
+  
+      .delete-work-exp {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-style: normal;
+        padding: 2px 6px;
+        color: white;
+        background-color: rgba(218, 43, 43, 0.751);
+        font-weight: 600;
+        font-size: 0.8rem;
+        border-radius: 2px;
+        //   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07), 0 3px 6px rgba(0, 0, 0, 0.11);
+  
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .add-section {
+      .subtitle {
+        color: #0e1016;
+        font-weight: 600;
+        font-family: "M PLUS Rounded 1c";
+      }
+  
+      .add-new {
+        font-size: 0.9rem;
+        height: 2.5rem;
+        width: 9rem;
+        background-color: #1a202c;
+        color: rgba(255, 255, 255, 0.92);
+        border: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-family: "Noto Sans", sans-serif;
+      }
+    }
+    .modal-card {
+      // border: 3px solid red;
+  
+      .modal-card-head {
+        // border: 2px solid blue;
+        border-bottom: 0;
+        padding-bottom: 1.5rem;
+  
+        .modal-card-title {
+          color: #0e1016;
+          font-weight: 600;
+          font-family: "M PLUS Rounded 1c";
+          font-size: 1rem;
+        }
+      }
+  
+      .modal-card-body {
+        // border: 2px solid green;
+        padding: 0.75rem 1.5rem;
+  
+        .subtitle.has-text-danger {
+          font-size: 0.9rem;
+          font-family: "Noto Sans", sans-serif;
+        }
+  
+        .label {
+          color: #0e1016;
+          font-weight: 600;
+          font-family: "M PLUS Rounded 1c";
+        }
+  
+        .label-subtitle {
+          font-size: 0.9rem;
+          font-family: "Noto Sans", sans-serif !important;
+        }
+  
+        .input,
+        .textarea {
+          border: 1px solid rgb(209, 209, 209);
+        }
+      }
+    }
+  
+    .save-modal-button {
+      height: 2.5rem;
+      width: 9rem;
+      background-color: #1a202c;
+      color: rgba(255, 255, 255, 0.92);
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
+  
+      &:hover {
+        color: white;
+      }
+    }
+  
+    .cancel-modal-button {
+      background-color: white;
+      // border: 1px solid #03071e;
+      color: #03071e;
+      height: 2.5rem;
+      width: 9rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: "Noto Sans", sans-serif;
+      border: 1px solid rgba(210, 210, 210, 0.92);
+  
+      &:hover {
+        color: #03071e;
+      }
+    }
+  }
+  
