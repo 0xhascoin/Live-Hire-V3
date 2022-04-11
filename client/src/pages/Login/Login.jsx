@@ -39,7 +39,18 @@ const Login = () => {
       history("/");
     }
 
+    if(sessionStorage.getItem("refreshError")) {
+      sessionStorage.removeItem("refreshError");
+      window.location.reload();
+    }
   }, [history, userInfo]);
+  
+  useEffect(() => {
+    if(error) {
+      console.log(error, "Error");
+      sessionStorage.setItem("refreshError", true);
+    }
+  }, [error])
 
   return (
     <div className="columns login-page">
@@ -51,6 +62,12 @@ const Login = () => {
         <p className="login-form-subtitle">
           Welcome back, please enter your details
         </p>
+        {error && (
+          <p className="login-form-subtitle has-text-danger">
+            Incorrect email or password
+          </p>
+        )}
+
         <form className="form my-5" onSubmit={loginHandler}>
           <div className="field">
             <label className="label">Email</label>
@@ -89,13 +106,7 @@ const Login = () => {
                 className="button login-button is-fullwidth"
                 type="submit"
               >
-                {loading ? (
-                  <span>
-                    Loading ...
-                  </span>
-                ) : (
-                  <span>Sign In</span>
-                )}
+                {loading ? <span>Loading ...</span> : <span>Sign In</span>}
               </button>
             </div>
           </div>

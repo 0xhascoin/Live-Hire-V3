@@ -25,12 +25,12 @@ const Job = ({ darkTheme, job, id, page }) => {
     });
   }
 
-  if(loading) { 
-    return "Loading...."
-  } else {
-    // console.log(job.jobTitle, usersThatApplied);
-    // console.log(loading, "Loading")
-  }
+  // if(loading) { 
+  //   return "Loading...."
+  // } else {
+  //   // console.log(job.jobTitle, usersThatApplied);
+  //   // console.log(loading, "Loading")
+  // }
 
   return (
     <>

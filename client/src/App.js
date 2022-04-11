@@ -17,6 +17,8 @@ import Applications from './pages/Applications/Applications';
 import ViewApplied from './pages/ViewApplied/ViewApplied';
 import PostJob from './pages/PostJob/PostJob';
 import EditProfile from './pages/EditProfile/EditProfile';
+import InterviewsManager from './pages/InterviewsManager/InterviewsManager';
+import InterviewLobby from './pages/InterviewLobby/InterviewLobby';
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
           <Route exact path="/applications/:jobId" element={<ViewApplied darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/post" element={<PostJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/account" element={<EditProfile darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          <Route exact path="/manage/interviews" element={<InterviewsManager darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          <Route exact path="/interview/:id/lobby" element={<InterviewLobby darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>
     </Router>
   );

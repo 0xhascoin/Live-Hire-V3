@@ -2,12 +2,7 @@
   background-color: #f8f8f8;
   min-height: 100vh;
 
-  &.dark {
-    background-color: #121420;
-  }
-
-
-.applications-profiles-container {
+  .applications-profiles-container {
     // border: 1px solid black;
     // height: 100vh;
     padding: 0 0.25rem;
@@ -28,7 +23,7 @@
         color: black;
       }
     }
-  
+
     .profiles {
       // border: 1px solid black;
       padding: 1rem;
@@ -36,12 +31,10 @@
       display: flex;
       flex-wrap: wrap;
       margin: 1rem;
-      justify-content: space-evenly;    
-    
-  
-  
+      justify-content: space-evenly;
+
       .user-profile {
-        border: 1px solid #EFEFEF;
+        border: 1px solid #efefef;
         // max-width: 35%;
         // padding: 0.75rem 0.75rem;
         border-radius: 6px;
@@ -53,18 +46,18 @@
         // padding: 0.75rem;
         margin: 0.75rem;
         margin-bottom: 0.2rem;
-  
+
         .user-profile-header {
           // border: 1px solid red;
           margin: 1.75rem;
           margin-top: 1.5rem;
-  
+
           .name {
             font-weight: 700;
             color: black;
             font-size: 1.1rem;
           }
-  
+
           .location {
             font-weight: 500;
             margin-top: 0.25rem;
@@ -74,7 +67,7 @@
           // border: 1px solid red;
           margin: 1.75rem;
           margin-top: 1.5rem;
-  
+
           .description {
             font-size: 0.8rem;
           }
@@ -83,7 +76,7 @@
           margin: 1.75rem;
           margin-top: 1.5rem;
           padding-top: 0.5rem;
-  
+
           .github-tag,
           .twitter-tag,
           .linkedin-tag {
@@ -92,23 +85,48 @@
               cursor: pointer;
             }
           }
-  
+
           .github-tag {
-            background-color: #2A2A2A;
+            background-color: #2a2a2a;
             color: white;
           }
-          
+
           .twitter-tag {
-            background-color: #BEE4FB;
+            background-color: #bee4fb;
             color: white;
           }
-  
+
           .linkedin-tag {
-            background-color: #64ADF7;
+            background-color: #64adf7;
             color: white;
           }
         }
-        
+      }
+    }
+  }
+  &.dark {
+    background-color: #121420;
+
+    .back-url {
+      p {
+        color: white;
+      }
+    }
+
+    .user-profile {
+      .user-profile-header {
+        .name {
+          color: white !important;
+        }
+
+        .location {
+          color: rgb(216, 216, 216) !important;
+        }
+      }
+      .user-profile-content {
+        .description {
+          color: rgb(216, 216, 216) !important;
+        }
       }
     }
   }
