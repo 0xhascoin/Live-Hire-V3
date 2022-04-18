@@ -5,7 +5,7 @@ import { HiOutlineSearchCircle } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-import HeroImage from "../../assets/images/RoomScreenshot.png";
+// import HeroImage from "../../assets/images/RoomScreenshot.png";
 
 const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
 
@@ -59,7 +59,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
           </button>
         </div>
       </div>
-      <div
+      {/* <div
         className={
           !darkTheme
             ? "column is-7 job-hero-image has-text-centered"
@@ -67,7 +67,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
         }
       >
         <img src={HeroImage} />
-      </div>
+      </div> */}
     </motion.div>
   );
 };

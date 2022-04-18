@@ -5,10 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAllJobsUserAppliedTo } from "../../actions/userActions";
 import { getAllUserInterviews } from '../../actions/interviewActions';
 
+import { BsFillArrowRightSquareFill } from 'react-icons/bs'
+import { motion } from "framer-motion";
+
+import { AiFillLock, AiFillUnlock } from 'react-icons/ai';
+
 
 // Components
 import Navbar from '../../components/Navbar/Navbar';
 import SavedHeader from '../../components/SavedHeader/SavedHeader';
+import Job from '../../components/Job/Job';
 
 
 const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
@@ -81,78 +87,74 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
 
         )}
       </div>
-      <div className="interviews-manager-container">
-      {userInfo?.userType.toLowerCase() == "employer" ? (
-        <div className="jobs-container">
-        {usersInterviews?.map((job) => (  
-          <div className="columns is-vcentered">
-          <div className="column is-8 job-col">
-          <div className="columns single-job is-vcentered">
-            <img className="column is-2 logo-col small" 
-              src={job.companyLogo} 
-            />
-            <div className="column content-col">
-              <p className="job-level has-text-centered">
-                {toTitleCase(job.jobLevel)}
-              </p>
-              <h2 className="job-title">{toTitleCase(job.jobTitle)}</h2>
-              <p className="company-details">
-                at <span className="company-name">{toTitleCase(job.companyName)}</span>
-                - Remote
-                <span className="application-count">
-                  {job.date} - {job.time} {job.timezone && job.timezone}
-                </span>
-              </p>
-            </div>
-          </div>
-          </div>
-          <div className="column go-col has-text-centered">
-            {todaysDate === job.date ? (
-              <button className="button is-info is-light">Go to room</button>
-              ) : (
-              <p className="is-warning is-light disable">Room will open on <br />{job.date}</p>
 
-            )}
-          </div>
-          </div>
-          ))}
-      </div>
-      ): (
-<div className="jobs-container">
-        {jobsAppliedTo?.map((job) => (  
-          <div className="columns is-vcentered">
-          <div className="column is-8 job-col">
-          <div className="columns single-job is-vcentered">
-            <img className="column is-2 logo-col small" 
-              src={job.companyLogo} 
-            />
-            <div className="column content-col">
-              <p className="job-level has-text-centered">
-                {toTitleCase(job.jobLevel)}
-              </p>
-              <h2 className="job-title">{toTitleCase(job.jobTitle)}</h2>
-              <p className="company-details">
-                at <span className="company-name">{toTitleCase(job.companyName)}</span>
-                - Remote
-                <span className="application-count">
-                  {job.date} - {job.time} {job.timezone && job.timezone}
-                </span>
-              </p>
+
+      <motion.div
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        mb={6}
+        className={
+          darkTheme ? "jobs-list-container dark" : "jobs-list-container"
+        }
+      >
+
+        {userInfo?.userType.toLowerCase() == "employer" ? (
+          <>
+          {usersInterviews?.map((job) => (
+            <div className="columns is-vcentered">
+              <div className="column is-7">
+                <Job
+                  job={job}
+                  id={job._id}
+                  darkTheme={darkTheme}
+                  page="applications"
+                />
+              </div>
+              <div className="column go-to-col has-text-centered">
+                {job.date === todaysDate ? (
+                <Link className="go-to-link button" to={`/interview/${job._id}/lobby`}>
+                  <span className="go-to-text">Join lobby</span>
+                  <span className="icon"><BsFillArrowRightSquareFill /></span> 
+                </Link>
+                ) : (
+                  <div className="go-to-link button no-hover">
+                  <span className="go-to-text">Room will be open on<br />{job.date} </span>
+                </div>
+                )}
+              </div>
             </div>
-          </div>
-          </div>
-          <div className="column go-col has-text-centered">
-            {todaysDate !== job.date ? (
-              <Link className="button is-info is-light" to={`/interview/${job._id}/lobby`} >Room will open on <br />{job.date}</Link>
-              ) : (
-              <p className="is-warning is-light disable">Room will open on <br />{job.date}</p>
-            )}
-          </div>
-          </div>
           ))}
-      </div>
-      )}
-    </div>
+        </>
+        ) : (
+          <>
+          {jobsAppliedTo?.map((job) => (
+            <div className="columns is-vcentered">
+              <div className="column is-7">
+                <Job
+                  job={job}
+                  id={job._id}
+                  darkTheme={darkTheme}
+                  page="applications"
+                />
+              </div>
+              <div className="column go-to-col has-text-centered">
+                {job.date === todaysDate ? (
+                <Link className="go-to-link button" to={`/interview/${job._id}/lobby`}>
+                  <span className="go-to-text">Join lobby</span>
+                  <span className="icon"><BsFillArrowRightSquareFill /></span> 
+                </Link>
+                ) : (
+                  <div className="go-to-link button no-hover">
+                  <span className="go-to-text">Room will be open on<br />{job.date} </span>
+                </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </>
+        )}
+      </motion.div>
     </div>
   )
 };
