@@ -68,7 +68,7 @@ const LobbyQueue = ({
                   <button
                     className="button is-primary is-outlined"
                     onClick={() =>
-                      callUser(user?._id, user?.socketId)
+                      callUser(user?._id, user?.socketId, user?.name)
                     }
                   >
                     Call

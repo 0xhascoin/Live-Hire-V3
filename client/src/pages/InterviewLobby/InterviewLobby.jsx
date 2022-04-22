@@ -15,13 +15,20 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import JobDetailsLobby from "../../components/JobDetailsLobby/JobDetailsLobby";
 import LobbyQueue from "../../components/LobbyQueue/LobbyQueue";
+import CallingModal from "../../components/Modals/CallingModal";
+import ReceivingCallModal from "../../components/Modals/ReceivingCallModal";
+import CallAcceptedModal from "../../components/Modals/CallAcceptedModal";
 
 const socket = io.connect("http://localhost:3001/");
 
 const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   const [interviewQueue, setInterviewQueue] = useState([]);
   const [showJoin, setShowJoin] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [showReceivingCallModal, setShowReceivingCallModal] = useState(false);
+  const [showCallAcceptedModal, setShowCallAcceptedModal] = useState(false);
   const [currentCalling, setCurrentCalling] = useState("");
+  const [callingUsername, setCallingUsername] = useState("");
   const [link, setLink] = useState("");
   const [hostId, setHostId] = useState("");
   const [userSocketId, setUserSocketId] = useState("");
@@ -84,7 +91,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     }
   };
 
-  const callUser = (userId, socketId) => {
+  const callUser = (userId, socketId, name) => {
     // console.log(userId);
     if (userInfo?.userType.toLowerCase() == "employer") {
       let data = {
@@ -96,6 +103,8 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       };
       socket.emit("callUser", data);
       // history.push(link);
+      setShowModal(true);
+      setCallingUsername(name);
     }
   };
 
@@ -117,6 +126,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         interviewId: id,
         userId: userInfo?._id,
       };
+      setShowJoin(true);
       const user = data;
       socket.emit("userJoinedCall", data);
       socket.emit("leaveInterviewQueue", user);
@@ -124,17 +134,6 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   };
 
   useEffect(() => {
-    socket.on("userJoinedInterviewQueue", (queue) => {
-      // console.log("user joined queue: ", queue);
-      // setInterviewQueue(queue);
-      // console.log("User joined queue: ", interviewQueue);
-    });
-    socket.on("userLeftInterviewQueue", (queue) => {
-      // console.log("Queue: ", queue);
-      // setInterviewQueue(queue)
-      // console.log("User left queue: ", interviewQueue);
-    });
-
     socket.on("loadedInterviewQueue", (queue) => {
       // console.log("Loaded Queue: ", queue);
       setInterviewQueue(queue);
@@ -147,13 +146,45 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         setHostId(hostId);
         setLink(link);
         setUserSocketId(socketId);
+        setShowReceivingCallModal(true);
       }
     );
 
     socket.on("userHasJoinedCall", ({ interviewId, calling }) => {
       setUserJoinedCall(true);
+      setShowModal(false);
+      setShowCallAcceptedModal(true);
     });
+
+    socket.on('hostCancelledCallEvent', () => {
+      setShowReceivingCallModal(false);
+      setShowModal(false);
+      setCallingUsername("");
+    });
+
+    socket.on('guestCancelledCallEvent', () => {
+      setShowModal(false);
+      setCallingUsername("");
+      setShowReceivingCallModal(false);
+    });
+
   }, [socket]);
+
+  const closeCallingModal = () => {
+    setShowModal(false);
+    setCallingUsername("");
+    socket.emit("hostCancelledCall", {interviewId: id});
+  }
+  const closeReceivingCallModal = () => {
+    setShowReceivingCallModal(false);
+    setCallingUsername("");
+    socket.emit("guestCancelledCall", {interviewId: id});
+  }
+
+  const closeCallAcceptedModal = () => {
+    setShowCallAcceptedModal(false);
+    setCallingUsername("");
+  }
 
   if (loading) return "Loading...";
 
@@ -176,6 +207,9 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
             interviewQueue={interviewQueue}
             callUser={callUser}
           />
+          <CallingModal showModal={showModal} closeCallingModal={closeCallingModal} name={callingUsername} />
+          <ReceivingCallModal currentCalling={currentCalling} id={userInfo?._id} closeReceivingCallModal={closeReceivingCallModal} showReceivingCallModal={showReceivingCallModal} userJoinedCallHandler={userJoinedCallHandler} />
+          <CallAcceptedModal userJoinedCall={userJoinedCall} id={userInfo?._id} hostId={hostId} closeCallAcceptedModal={closeCallAcceptedModal} showCallAcceptedModal={showCallAcceptedModal}/>
         </>
       ))}
     </div>
