@@ -112,7 +112,7 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
                 />
               </div>
               <div className="column go-to-col has-text-centered">
-                {job.date === todaysDate ? (
+                {job.date !== todaysDate ? (
                 <Link className="go-to-link button" to={`/interview/${job._id}/lobby`}>
                   <span className="go-to-text">Join lobby</span>
                   <span className="icon"><BsFillArrowRightSquareFill /></span> 
@@ -139,7 +139,7 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
                 />
               </div>
               <div className="column go-to-col has-text-centered">
-                {job.date === todaysDate ? (
+                {job.date !== todaysDate ? (
                 <Link className="go-to-link button" to={`/interview/${job._id}/lobby`}>
                   <span className="go-to-text">Join lobby</span>
                   <span className="icon"><BsFillArrowRightSquareFill /></span> 

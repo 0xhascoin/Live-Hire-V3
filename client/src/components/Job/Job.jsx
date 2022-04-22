@@ -16,7 +16,7 @@ const Job = ({ darkTheme, job, id, page }) => {
 
   useEffect(() => {
     dispatch(getAllUsersThatApplied(id));
-    console.log("Dispatch")
+    console.log("Dispatch");
   }, []);
 
   function toTitleCase(str) {
@@ -25,7 +25,7 @@ const Job = ({ darkTheme, job, id, page }) => {
     });
   }
 
-  // if(loading) { 
+  // if(loading) {
   //   return "Loading...."
   // } else {
   //   // console.log(job.jobTitle, usersThatApplied);
@@ -34,53 +34,61 @@ const Job = ({ darkTheme, job, id, page }) => {
 
   return (
     <>
-    {page !== "applications" ? (
-      <Link to={`/job/${id}`} className={!darkTheme ? "job" : "job dark"}>
-      <img className="img" src={job.companyLogo} />
-      <h5 className="job-title">{job.title}</h5>
-      <p className="job-desc">
-        {job.companyDescription.length > 150
-          ? job.companyDescription.substring(0, 150) + "...."
-          : job.companyDescription + "...."}
-      </p>
-      <div className="job-tags">
-        <button className="company-name-tag">{job.companyName}</button>
-        <button className="company-name-tag">{job.jobTitle}</button>
-        <button className="company-name-tag salary">${job.minSalary}</button>
-        <button className="company-name-tag applied">
-          {job.applicationsCount} Applied
-        </button>
-        <button className="company-name-tag applied">Date: {job.date}</button>
-      </div>
-      <BsFillArrowUpRightSquareFill className="icon" />
-    </Link>
-    ) : (
-<div className={!darkTheme ? "job" : "job dark"}>
-  <Link to={`/job/${id}`}>
-      <img className="img" src={job.companyLogo} />
-      <h5 className="job-title">{job.title}</h5>
-      <p className="job-desc">
-        {job.companyDescription.length > 150
-          ? job.companyDescription.substring(0, 150) + "...."
-          : job.companyDescription + "...."}
-      </p>
-      <div className="job-tags">
-        <button className="company-name-tag">{job.companyName}</button>
-        <button className="company-name-tag">{job.jobTitle}</button>
-        <button className="company-name-tag salary">${job.minSalary}</button>
-        <button className="company-name-tag applied">
-          {job.applicationsCount} Applied
-        </button>
-        <button className="company-name-tag applied">Date: {job.date}</button>
-      </div>
-      </Link>
+      {page !== "applications" ? (
+        <Link to={`/job/${id}`} className={!darkTheme ? "job" : "job dark"}>
+          <img className="img" src={job.companyLogo} />
+          <h5 className="job-title">{job.title}</h5>
+          <p className="job-desc">
+            {job.companyDescription.length > 150
+              ? job.companyDescription.substring(0, 150) + "...."
+              : job.companyDescription + "...."}
+          </p>
+          <div className="job-tags">
+            <button className="company-name-tag">{job.companyName}</button>
+            <button className="company-name-tag">{job.jobTitle}</button>
+            <button className="company-name-tag salary">
+              ${job.minSalary}
+            </button>
+            <button className="company-name-tag applied">
+              {job.applicationsCount} Applied
+            </button>
+            <button className="company-name-tag applied">
+              Date: {job.date}
+            </button>
+          </div>
+          {page !== "lobby" && (
+            <BsFillArrowUpRightSquareFill className="icon" />
+          )}
+        </Link>
+      ) : (
+        <div className={!darkTheme ? "job" : "job dark"}>
+          <Link to={`/job/${id}`}>
+            <img className="img" src={job.companyLogo} />
+            <h5 className="job-title">{job.title}</h5>
+            <p className="job-desc">
+              {job.companyDescription.length > 150
+                ? job.companyDescription.substring(0, 150) + "...."
+                : job.companyDescription + "...."}
+            </p>
+            <div className="job-tags">
+              <button className="company-name-tag">{job.companyName}</button>
+              <button className="company-name-tag">{job.jobTitle}</button>
+              <button className="company-name-tag salary">
+                ${job.minSalary}
+              </button>
+              <button className="company-name-tag applied">
+                {job.applicationsCount} Applied
+              </button>
+              <button className="company-name-tag applied">
+                Date: {job.date}
+              </button>
+            </div>
+          </Link>
 
-
-      <BsFillArrowUpRightSquareFill className="icon" />
-    </div>
-    )}
+          <BsFillArrowUpRightSquareFill className="icon" />
+        </div>
+      )}
     </>
-    
   );
 };
 
