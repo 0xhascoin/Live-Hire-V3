@@ -1,7 +1,9 @@
 import React from 'react';
 import './modal.scss';
 
-const ReceivingCallModal = ({ currentCalling, id, closeReceivingCallModal, showReceivingCallModal, userJoinedCallHandler }) => {
+import {Link} from 'react-router-dom';
+
+const ReceivingCallModal = ({ currentCalling, id, closeReceivingCallModal, showReceivingCallModal, userJoinedCallHandler, link }) => {
   return (
     <div class={currentCalling === id && showReceivingCallModal ? "modal is-active" : "modal"}>
       <div class="modal-background" 
@@ -15,7 +17,7 @@ const ReceivingCallModal = ({ currentCalling, id, closeReceivingCallModal, showR
             onClick={closeReceivingCallModal}></button>
         </header>
         <section class="modal-card-body has-text-centered">
-          <button className="button is-primary" onClick={userJoinedCallHandler}>Answer</button>
+          <Link className="button is-primary" onClick={userJoinedCallHandler} to={link}>Answer</Link>
         </section>
         <footer class="modal-card-foot">
 

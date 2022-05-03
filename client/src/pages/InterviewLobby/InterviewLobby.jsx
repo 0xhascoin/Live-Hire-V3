@@ -208,8 +208,8 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
             callUser={callUser}
           />
           <CallingModal showModal={showModal} closeCallingModal={closeCallingModal} name={callingUsername} />
-          <ReceivingCallModal currentCalling={currentCalling} id={userInfo?._id} closeReceivingCallModal={closeReceivingCallModal} showReceivingCallModal={showReceivingCallModal} userJoinedCallHandler={userJoinedCallHandler} />
-          <CallAcceptedModal userJoinedCall={userJoinedCall} id={userInfo?._id} hostId={hostId} closeCallAcceptedModal={closeCallAcceptedModal} showCallAcceptedModal={showCallAcceptedModal}/>
+          <ReceivingCallModal currentCalling={currentCalling} id={userInfo?._id} closeReceivingCallModal={closeReceivingCallModal} showReceivingCallModal={showReceivingCallModal} userJoinedCallHandler={userJoinedCallHandler} link={link}/>
+          <CallAcceptedModal userJoinedCall={userJoinedCall} id={userInfo?._id} hostId={hostId} closeCallAcceptedModal={closeCallAcceptedModal} showCallAcceptedModal={showCallAcceptedModal} link={link}/>
         </>
       ))}
     </div>
