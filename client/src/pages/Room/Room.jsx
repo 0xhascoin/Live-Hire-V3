@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./room.scss";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import Peer from "simple-peer";
 import { Socket } from "socket.io-client";
 import { io } from "socket.io-client";
@@ -26,14 +26,14 @@ import Edu from "./Edu/Edu";
 import Loader from "./Loaders/Loader";
 import GuestLoader from "./Loaders/GuestLoader";
 
-// const socket = io.connect("http://localhost:3001/");
-const socket = io.connect("https://v2lhbackend.herokuapp.com/");
-
+const socket = io.connect("http://localhost:3001/");
+// const socket = io.connect("https://v2lhbackend.herokuapp.com/");
 
 // Components
 
 const Room = ({ darkTheme, setDarkTheme }) => {
   const { userId, hostId, interviewId } = useParams();
+  const location = useLocation();
   const [stream, setStream] = useState(null);
   const [name, setName] = useState("");
   const [me, setMe] = useState("");
@@ -69,6 +69,8 @@ const Room = ({ darkTheme, setDarkTheme }) => {
   useEffect(() => {
     if (!userInfo) history(-1);
 
+    console.log(location.pathname, "HISTORY LOCATION")
+
     if (userInfo?.userType.toLowerCase() === "user" && userInfo?._id !== userId)
       history(-1);
     if (
@@ -101,16 +103,16 @@ const Room = ({ darkTheme, setDarkTheme }) => {
     socket.on("callEndedWebrtc", () => {
       console.log("User disconnected");
       if (
-        history.location.pathname ==
+        location.pathname ==
         `/interview/${interviewId}/${hostId}/${userId}`
       ) {
-        console.log(history.location, "Pathname");
+        // console.log(history.location, "Pathname");
+        alert("ENDED");
         // history.push("/interviews");
         setCallEnded(true);
         // connectionRef.current.destroy();
         sessionStorage.setItem("refresh", true);
         history(`/interview/${interviewId}/lobby`);
-        // alert("ENDED")
       }
       //   window.location.reload();
     });
@@ -119,7 +121,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
       // window.location.reload();
       // connectionRef.current.destroy();
       console.log(connectionRef, "connectionRef");
-      // alert("CALL HAS ENDED");
+      alert("CALL HAS ENDED");
       // history.goBack();
       sessionStorage.setItem("refresh", true);
       history(`/interview/${interviewId}/lobby`);
