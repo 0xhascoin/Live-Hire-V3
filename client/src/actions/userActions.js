@@ -193,7 +193,7 @@ export const getIsUserProfileUpdated = (id) => async (dispatch) => {
     // Send the LIST REQUEST state
     dispatch({ type: GET_ISUSERPROFILEUPDATE_REQUEST });
 
-    console.log(id, "User Profile ACTION")
+    // console.log(id, "User Profile ACTION")
 
     // Send the API call
     const { data } = await api.getIsUsersProfileUpdated(id);
@@ -214,7 +214,7 @@ export const addUserWorkExp =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: ADD_TO_WORKEXP_REQUEST });
-      console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.addToWorkExp(
@@ -239,7 +239,7 @@ export const addUserEducation =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: ADD_TO_EDU_REQUEST });
-      console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.addNewEducation(
@@ -264,7 +264,7 @@ export const addIntToFavs =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: ADD_TO_FAV_REQUEST });
-      console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.addToFavs(
@@ -292,7 +292,7 @@ export const deleteUserWorkExp =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: DELETE_WORKEXP_REQUEST });
-      console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.deleteWorkExp(
@@ -317,7 +317,7 @@ export const deleteUserEducation =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: DELETE_EDU_REQUEST });
-      console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.deleteEducation(
@@ -347,7 +347,7 @@ export const updateUsersCV =
       // Send the CREATE REQUEST state
       dispatch({ type: UPDATE_USER_CV_REQUEST });
 
-      console.log(aboutMe, "CV - ACTION")
+      // console.log(aboutMe, "CV - ACTION")
 
       // Run the API call with the new Interview & the bearer token
       const { data } = await api.updateUserCV(
@@ -375,7 +375,7 @@ export const getAllJobsUserAppliedTo = (id) => async (dispatch) => {
   try {
     // Send the LIST REQUEST state
     dispatch({ type: GET_JOBS_APPLIED_TO_REQUEST });
-    console.log(id, "getAllUsersThatApplied")
+    // console.log(id, "getAllUsersThatApplied")
     // Send the API call
     const { data } = await api.getAllJobsAppliedTo(id);
     // Send the LIST SUCCESS state and pass the interviews list

@@ -16,7 +16,7 @@ const Job = ({ darkTheme, job, id, page }) => {
 
   useEffect(() => {
     dispatch(getAllUsersThatApplied(id));
-    console.log("Dispatch");
+    // console.log("Dispatch");
   }, []);
 
   function toTitleCase(str) {

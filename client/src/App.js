@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/account" element={<EditProfile darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/manage/interviews" element={<InterviewsManager darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/interview/:id/lobby" element={<InterviewLobby darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
-          <Route exact path="/interview/:interviewId/:hostId/:userId" element={<Room darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>
     </Router>
   );

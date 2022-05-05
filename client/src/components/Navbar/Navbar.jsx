@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.scss";
 
 import { FaMoon } from "react-icons/fa";
@@ -9,7 +9,7 @@ import {
   AiFillCaretUp,
   AiFillCaretDown,
 } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";
 
@@ -19,6 +19,7 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
 
   const history = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -38,7 +39,28 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
     });
   }
 
-  console.log(jobsAppliedTo?.length, "jobsAppliedTo");
+  useEffect(() => {
+    if(location.pathname.substring(0, 16) === "/interview/room/") {
+      console.log("===========================")
+      console.log(location, 'Location changed');
+      console.log(location.pathname, 'Location changed');
+      console.log(location.pathname.substring(0, 16));
+      sessionStorage.setItem("locationChanged", true);
+    } else {
+      if(sessionStorage.getItem("locationChanged")) {
+        sessionStorage.removeItem("locationChanged")
+        window.location.reload();
+      }
+    }
+
+    // console.log(location.pathname.substring(0, 16), "Location PATHNAME")
+  }, [location]);
+
+  // useEffect(() => {
+
+  // })
+
+  // console.log(jobsAppliedTo?.length, "jobsAppliedTo");
 
   return (
     <nav

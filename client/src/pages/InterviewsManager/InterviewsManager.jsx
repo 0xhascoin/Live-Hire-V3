@@ -61,7 +61,7 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
     setTodaysDate(getToday())
   }, []);
 
-  console.log(usersInterviews, "usersInterviews");
+  // console.log(usersInterviews, "usersInterviews");
 
   if(userInfo?.userType.toLowerCase() == "employer") {
     if(loadingInterviews) {

@@ -39,7 +39,7 @@ const ProfileEdu = () => {
       newEdu.till == ""
     ) {
       setError(true);
-      console.log("Error should now be true");
+      // console.log("Error should now be true");
     } else {
       setError(false);
       const data = { newEdu, userId: userInfo._id };

@@ -19,7 +19,7 @@ import Loader from "../../components/Loader/Loader";
 
 const ViewJob = ({ darkTheme, setDarkTheme }) => {
   const { id } = useParams();
-  console.log(id, "props");
+  // console.log(id, "props");
   const dispatch = useDispatch();
 
   const oneInterview = useSelector((state) => state.oneInterview);
@@ -42,7 +42,7 @@ const ViewJob = ({ darkTheme, setDarkTheme }) => {
       dispatch(getAUser(userInfo?._id));
       // console.log("User favs loaded.")
     }
-    console.log(interview, "interview");
+    // console.log(interview, "interview");
   }, []);
 
   return (

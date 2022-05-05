@@ -1,7 +1,8 @@
 .room-page {
   padding-bottom: 2rem;
   background-color: #f8f8f8;
-  // height: 100vh;
+  min-height: 100vh;
+  border: 2px solid #f8f8f8;;
 
   &.dark {
     background-color: #121420;

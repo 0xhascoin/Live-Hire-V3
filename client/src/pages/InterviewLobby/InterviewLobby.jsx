@@ -7,7 +7,7 @@ import {
   getOneInterview,
   getAllUsersThatApplied,
 } from "../../actions/interviewActions";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getAUser } from "../../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -35,6 +35,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   const [userSocketId, setUserSocketId] = useState("");
   const [userJoinedCall, setUserJoinedCall] = useState(false);
   const history = useNavigate();
+  const location = useLocation();
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -48,6 +49,11 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   const getUsersThatApplied = useSelector((state) => state.getUsersThatApplied);
   const { usersThatApplied } = getUsersThatApplied;
 
+  // useEffect(() => {
+  //   console.log('LOCATION CHANGED');
+  //   // sessionStorage.setItem("locationChanged", true);
+  // }, [location]);
+
   useEffect(() => {
     if (!userInfo) {
       history("/login");
@@ -56,7 +62,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     id && dispatch(getAllUsersThatApplied(id));
     id && socket.emit("loadQueue", { interviewId: id });
 
-    console.log(interview, "interview");
+    // console.log(interview, "interview");
 
     if (sessionStorage.getItem("refresh")) {
       sessionStorage.clear();
@@ -99,7 +105,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         userId,
         interviewId: id,
         hostId: userInfo?._id,
-        link: `/interview/${id}/${userInfo?._id}/${userId}`,
+        link: `/interview/room/${id}/${userInfo?._id}/${userId}`,
         socketId: socketId,
       };
       socket.emit("callUser", data);

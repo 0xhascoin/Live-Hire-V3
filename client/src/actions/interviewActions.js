@@ -42,7 +42,7 @@ import {
     try {
       // Send the LIST REQUEST state
       dispatch({ type: INTERVIEW_LIST_REQUEST });
-      console.log("getAllInterviews()")
+      // console.log("getAllInterviews()")
   
       // Send the API call
       const { data } = await api.getAllInterviews(page);
@@ -62,8 +62,8 @@ import {
   
       // Run the API call with the passed ID
       const { data } = await api.getOneInterview(id);
-      console.log(id, "id")
-      console.log(data, "One Interview")
+      // console.log(id, "id")
+      // console.log(data, "One Interview")
       // Dispatch the State SUCCESS & send the payload
       dispatch({ type: INTERVIEW_GET_SUCCESS, payload: data });
     } catch (error) {
@@ -124,7 +124,7 @@ import {
           {user}
         );
         
-        console.log(user, "USER")
+        // console.log(user, "USER")
   
         // Send the CREATE SUCCESS state and pass the data
         dispatch({ type: ADD_TO_APPLICATIONS_SUCCESS, payload: data });
@@ -212,7 +212,7 @@ import {
     try {
       // Send the LIST REQUEST state
       dispatch({ type: USER_INTERVIEW_LIST_REQUEST });
-      console.log(id, "getAllUserInterviews")
+      // console.log(id, "getAllUserInterviews")
       // Send the API call
       const { data } = await api.getAllUserInterviews(id);
       // Send the LIST SUCCESS state and pass the interviews list
@@ -228,7 +228,7 @@ import {
     try {
       // Send the LIST REQUEST state
       dispatch({ type: GET_ALL_USERS_THAT_APPLIED_REQUEST });
-      console.log(id, "getAllUsersThatApplied")
+      // console.log(id, "getAllUsersThatApplied")
       // Send the API call
       const { data } = await api.getAllUsersThatApplied(id);
       // Send the LIST SUCCESS state and pass the interviews list
@@ -244,7 +244,7 @@ import {
     try {
       // Send the LIST REQUEST state
       dispatch({ type: HAS_USER_APPLIED_REQUEST });
-      console.log("hasUserApplied()", userId)
+      // console.log("hasUserApplied()", userId)
   
       // Send the API call
       const { data } = await api.hasUserApplied(id, userId);

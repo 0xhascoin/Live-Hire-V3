@@ -46,7 +46,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
   const [guestConnected, setGuestConnected] = useState(false);
   const [startCall, setStartCall] = useState(false);
   const [loadingMyVideo, setLoadingMyVideo] = useState(true);
-  console.log(userId, hostId, interviewId);
+  // console.log(userId, hostId, interviewId);
 
   const [callWaiting, setCallWaiting] = useState(false);
 
@@ -66,10 +66,15 @@ const Room = ({ darkTheme, setDarkTheme }) => {
   const getUser = useSelector((state) => state.getUser);
   const { user, loading } = getUser;
 
+  // useEffect(() => {
+  //   console.log('Location changed');
+  //   // sessionStorage.setItem("locationChanged", true);
+  // }, [location]);
+
   useEffect(() => {
     if (!userInfo) history(-1);
 
-    console.log(location.pathname, "HISTORY LOCATION")
+    // console.log(location.pathname, "HISTORY LOCATION")
 
     if (userInfo?.userType.toLowerCase() === "user" && userInfo?._id !== userId)
       history(-1);
@@ -86,28 +91,30 @@ const Room = ({ darkTheme, setDarkTheme }) => {
     }
 
     if (sessionStorage.getItem("userEnded")) {
-      console.log("User ended");
+      // console.log("User ended");
       sessionStorage.clear();
       sessionStorage.setItem("refresh", true);
       history(`/interview/${interviewId}/lobby`);
     }
 
+    
+
     dispatch(getAUser(userId));
-    console.log(user, "User");
+    // console.log(user, "User");
 
     socket.on("callUserWebrtc2", ({ from, name: callerName, signal }) => {
-      console.log(signal, "Signal Data");
+      // console.log(signal, "Signal Data");
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
 
     socket.on("callEndedWebrtc", () => {
-      console.log("User disconnected");
+      // console.log("User disconnected");
       if (
         location.pathname ==
-        `/interview/${interviewId}/${hostId}/${userId}`
+        `/interview/room/${interviewId}/${hostId}/${userId}`
       ) {
         // console.log(history.location, "Pathname");
-        alert("ENDED");
+        // alert("ENDED");
         // history.push("/interviews");
         setCallEnded(true);
         // connectionRef.current.destroy();
@@ -120,8 +127,8 @@ const Room = ({ darkTheme, setDarkTheme }) => {
     socket.on("tellUsersCallHasEnded", () => {
       // window.location.reload();
       // connectionRef.current.destroy();
-      console.log(connectionRef, "connectionRef");
-      alert("CALL HAS ENDED");
+      // console.log(connectionRef, "connectionRef");
+      // alert("CALL HAS ENDED");
       // history.goBack();
       sessionStorage.setItem("refresh", true);
       history(`/interview/${interviewId}/lobby`);
@@ -132,7 +139,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
 
       // Listen for your socket ID and set it to the state
       socket.on("sendHostHisId", (id) => {
-        console.log(`Host ID: ${id}`);
+        // console.log(`Host ID: ${id}`);
         // Set hosts ID to HostsID
         setHostsId(id);
         setHostConnected(true);
@@ -144,7 +151,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
             myVideo.current.srcObject = currentStream;
           });
 
-        console.log("Show Host His Camera");
+        // console.log("Show Host His Camera");
       });
 
       // Request the guests ID
@@ -152,8 +159,8 @@ const Room = ({ darkTheme, setDarkTheme }) => {
 
       // Receive the guests ID
       socket.on("hostReceiveGuestsId", ({ room, id }) => {
-        console.log("Guests ID: ", id);
-        console.log("Reload");
+        // console.log("Guests ID: ", id);
+        // console.log("Reload");
         // window.location.reload();
         setGuestsId(id);
       });
@@ -162,14 +169,14 @@ const Room = ({ darkTheme, setDarkTheme }) => {
       socket.emit("guestHasJoinedInterviewRoom", { room: interviewId });
 
       socket.on("sendHostHisId", (id) => {
-        console.log(`Host ID: ${id}`);
+        // console.log(`Host ID: ${id}`);
         // Set hosts ID to HostsID
         setHostConnected(true);
       });
 
       // Listen for your socket ID and set it to the state
       socket.on("sendGuestHisId", (id) => {
-        console.log(`Guest ID: ${id}`);
+        // console.log(`Guest ID: ${id}`);
         // Set hosts ID to HostsID
         setGuestsId(id);
         setGuestConnected(true);
@@ -181,7 +188,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
             myVideo.current.srcObject = currentStream;
           });
 
-        console.log("Show Guest His Camera");
+        // console.log("Show Guest His Camera");
       });
 
       // Send Guests ID to the HOST
@@ -194,7 +201,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
   const answerCallWebrtc = () => {
     setCallAccepted(true);
 
-    console.log("ANSWER CALL");
+    // console.log("ANSWER CALL");
 
     const peer = new Peer({ initiator: false, trickle: false, stream });
 
@@ -258,7 +265,7 @@ const Room = ({ darkTheme, setDarkTheme }) => {
 
   return (
     <div className={darkTheme ? "room-page dark" : "room-page"}>
-      <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      {/* <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} /> */}
       <div className={darkTheme ? "columns room dark" : "columns room"}>
         <div className="column is-8 webcam-col">
           <div className="cam-container">
@@ -344,19 +351,15 @@ const Room = ({ darkTheme, setDarkTheme }) => {
             </div>
             <div className="cv-section">
               <div className="cv-content">
-                <h2 className="cv-name">Hasan Elmi Hasan</h2>
+                <h2 className="cv-name">{user?.name}</h2>
                 <p className="cv-subtitle">
-                  <GoGlobe /> United Kingdom
+                  <GoGlobe /> {user?.location}
                 </p>
                 <p className="cv-subtitle">
-                  <HiOutlineMail /> hasanelmi678@gmail.com
+                  <HiOutlineMail /> {user?.email}
                 </p>
                 <div className="cv-aboutme">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries
+                  {user?.userCV?.aboutMe}
                 </div>
               </div>
               <WorkExp darkTheme={darkTheme} user={user} />
