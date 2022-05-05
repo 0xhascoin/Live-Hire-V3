@@ -19,8 +19,8 @@ import CallingModal from "../../components/Modals/CallingModal";
 import ReceivingCallModal from "../../components/Modals/ReceivingCallModal";
 import CallAcceptedModal from "../../components/Modals/CallAcceptedModal";
 
-const socket = io.connect("http://localhost:3001/");
-// const socket = io.connect("https://v2lhbackend.herokuapp.com/");
+// const socket = io.connect("http://localhost:3001/");
+const socket = io.connect("https://v2lhbackend.herokuapp.com/");
 
 const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   const [interviewQueue, setInterviewQueue] = useState([]);
