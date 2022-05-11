@@ -64,14 +64,11 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
 
     // console.log(interview, "interview");
 
-    if (sessionStorage.getItem("refresh")) {
-      sessionStorage.clear();
-      window.location.reload();
-    }
-
-    if (sessionStorage.getItem("userEnded")) {
-      sessionStorage.clear();
-    }
+    return () => {
+      // alert("DISCONNECT");
+      leaveQueue();
+      socket.disconnect();
+    };
   }, []);
 
   const joinQueue = () => {

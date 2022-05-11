@@ -19,7 +19,8 @@ import PostJob from './pages/PostJob/PostJob';
 import EditProfile from './pages/EditProfile/EditProfile';
 import InterviewsManager from './pages/InterviewsManager/InterviewsManager';
 import InterviewLobby from './pages/InterviewLobby/InterviewLobby';
-import Room from './pages/Room/Room';
+// import Room from './pages/Room/Room';
+import Room2 from './pages/Room/Room2';
 
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
           <Route exact path="/account" element={<EditProfile darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/manage/interviews" element={<InterviewsManager darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/interview/:id/lobby" element={<InterviewLobby darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
-          <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          {/* <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} /> */}
+          <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room2 darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>
     </Router>
   );
