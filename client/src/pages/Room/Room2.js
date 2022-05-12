@@ -12,6 +12,7 @@ import { BsFillFileTextFill } from "react-icons/bs";
 import { GoGlobe } from "react-icons/go";
 import { HiOutlineMail } from "react-icons/hi";
 
+import GuestLoader from './Loaders/GuestLoader';
 import WorkExp from "./WorkExp/WorkExp";
 import Edu from "./Edu/Edu";
 import Navbar from "../../components/Navbar/Navbar";
@@ -195,8 +196,16 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
           <div className="cam-container">
             {showEndCallButton && (
               <div className="call-options">
-                <button className="button is-danger" onClick={endCall}>End Call</button>
+                <button className="button is-danger" onClick={endCall}>
+                  End Call
+                </button>
               </div>
+            )}
+            {roomView === 1 && (
+              <h1 className="loading-text">
+                Waiting for user to connect
+                <GuestLoader />
+              </h1>
             )}
             <video
               className="my-video"
