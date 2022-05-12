@@ -38,6 +38,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
   const peersRef = useRef([]);
   // const roomID = props.match.params.roomID;
   const [roomView, setRoomView] = useState(1);
+  const [showEndCallButton, setShowEndCallButton] = useState(false);
   const { interviewId, hostId, userId } = useParams();
   const history = useNavigate();
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
       userInfo?._id !== hostId
     )
       history(-1);
-      
+
     dispatch(getAUser(userId));
     // socketRef.current = io.connect("http://localhost:3001/");
     socketRef.current = io.connect("https://v2lhbackend.herokuapp.com/");
@@ -102,6 +103,16 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
           setPeers([]);
           setRoomView(1);
           playLeaveSound();
+          setShowEndCallButton(false);
+        });
+
+        socketRef.current.on("call ended", () => {
+          alert("CALL ENDED");
+          socketRef.current.disconnect();
+          userVideo.current.srcObject
+            .getTracks()
+            .forEach((track) => track.stop());
+          history(-1);
         });
 
         socketRef.current.on("user joined", (payload) => {
@@ -114,12 +125,14 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
           setPeers((users) => [...users, peer]);
           playJoinSound();
           setRoomView(2);
+          setShowEndCallButton(true);
           // alert("JOINED ROOM")
         });
 
         socketRef.current.on("receiving returned signal", (payload) => {
           const item = peersRef.current.find((p) => p.peerID === payload.id);
           item.peer.signal(payload.signal);
+          setShowEndCallButton(true);
         });
       });
 
@@ -150,6 +163,13 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
     return peer;
   }
 
+  function endCall() {
+    socketRef.current.emit("end call");
+    socketRef.current.disconnect();
+    userVideo.current.srcObject.getTracks().forEach((track) => track.stop());
+    history(-1);
+  }
+
   function addPeer(incomingSignal, callerID, stream) {
     console.log("addPeer");
     const peer = new Peer({
@@ -173,6 +193,11 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
       <div className={darkTheme ? "columns room dark" : "columns room"}>
         <div className="column is-8 webcam-col">
           <div className="cam-container">
+            {showEndCallButton && (
+              <div className="call-options">
+                <button className="button is-danger" onClick={endCall}>End Call</button>
+              </div>
+            )}
             <video
               className="my-video"
               muted
@@ -202,16 +227,14 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
                 <p className="cv-subtitle">
                   <HiOutlineMail /> {user?.email}
                 </p>
-                <div className="cv-aboutme">
-                  {user?.userCV?.aboutMe}
-                </div>
+                <div className="cv-aboutme">{user?.userCV?.aboutMe}</div>
               </div>
               {loading ? (
                 <Loader />
               ) : (
                 <>
-                <WorkExp darkTheme={darkTheme} user={user} />
-                <Edu darkTheme={darkTheme} user={user}/>
+                  <WorkExp darkTheme={darkTheme} user={user} />
+                  <Edu darkTheme={darkTheme} user={user} />
                 </>
               )}
             </div>
