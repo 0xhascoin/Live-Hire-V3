@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 // Component
 import Job from "../Job/Job";
 import Loader from '../Loader/Loader';
+import LoadingJob from '../LoadingJob/LoadingJob';
 
 
 const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
@@ -55,7 +56,10 @@ const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
               }
               </>
             ) : (
-              <Loader />
+              <>
+                <LoadingJob />
+                <LoadingJob />
+              </>
             )}
           </>
           )
