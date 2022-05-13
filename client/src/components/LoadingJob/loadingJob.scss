@@ -1,5 +1,5 @@
 .job.box {
-  border: 1px solid rgba(156, 156, 156, 0.349);
+  border: 1px solid #F9F9F9;
   flex: 100%;
   border-radius: 6px;
   position: relative;
@@ -9,16 +9,13 @@
   padding: 0.75rem;
   margin: 0.75rem;
   margin-bottom: 0.2rem;
-  //   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.06);
-  background: linear-gradient(
-      90deg,
-      #0000 33%,
-      rgba(255, 255, 255, 0.3) 50%,
-      #0000 66%
-    )
-    #adb5bd;
-  background-size: 300% 100%;
-  animation: shine 1s infinite;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.06);
+    background: 
+    linear-gradient(90deg,#F9F9F9 33%,rgba(255,255,255,0.3) 50%,#F9F9F9 66%)
+    #E8E8E8;
+  background-size:300% 100%;
+  animation: shine 2s infinite;
+
 
   &.dark {
     background-color: #ffffff40 !important;
@@ -79,17 +76,23 @@
       margin-right: 0.7rem;
       // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
       //   0 1px 2px rgba(0, 0, 0, 0.24);
-      border: 1px solid rgba(156, 156, 156, 0.349);
+      // border: 1px solid rgba(156, 156, 156, 0.349);
       background-color: #ffffff40;
       font-family: "Noto Sans", sans-serif;
       color: black;
       margin-bottom: 0.5rem;
+          background: 
+    linear-gradient(90deg,#ffffff40 33%,rgba(255,255,255,0.3) 50%,#ffffff40 66%)
+    #E8E8E8;
+  background-size:300% 100%;
+  animation: shine 1.5s infinite;
 
       &.salary {
         background-color: #43f3b8c7;
       }
     }
   }
+
 
   .applications-container {
     // border: 1px solid black;
@@ -99,9 +102,9 @@
 
     .applications-title {
       color: #0e1016 !important;
-      font-family: "Noto Sans", sans-serif;
-      text-decoration: underline;
-      margin-bottom: 0.5rem;
+    font-family: "Noto Sans", sans-serif;
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
     }
 
     .company-name-tag {
@@ -125,12 +128,15 @@
     }
   }
 
-  @keyframes shine {
-    0% {
-      background-position: right;
-    }
-    /*100% {
-      background-position: left; it's the default value, no need to define it
-    }*/
+  
+
+@keyframes shine {
+  0% {
+    background-position: right;    
   }
+  /*100% {
+    background-position: left; it's the default value, no need to define it
+  }*/
+}
+
 }
