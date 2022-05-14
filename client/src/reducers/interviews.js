@@ -77,12 +77,12 @@ import {
   };
   
   // Create Interview Reducer 
-  export const interviewCreateReducer = (state = { }, action) => {
+  export const interviewCreateReducer = (state = { interview: [] }, action) => {
     switch (action.type) {
       case INTERVIEW_CREATE_REQUEST:
         return { loading: true };
       case INTERVIEW_CREATE_SUCCESS:
-        return { loading: false, success: true };
+        return { loading: false, success: true, interview: action.payload };
       case INTERVIEW_CREATE_FAIL:
         return { loading: false, error: action.payload };
       default:
