@@ -63,15 +63,15 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
 
   // console.log(usersInterviews, "usersInterviews");
 
-  if (userInfo?.userType.toLowerCase() == "employer") {
-    if (loadingInterviews) {
-      return "Loading....";
-    }
-  } else if (userInfo?.userType.toLowerCase() == "user") {
-    if (loadingApplied) {
-      return "Loading....";
-    }
-  }
+  // if (userInfo?.userType.toLowerCase() == "employer") {
+  //   if (loadingInterviews) {
+  //     return "Loading....";
+  //   }
+  // } else if (userInfo?.userType.toLowerCase() == "user") {
+  //   if (loadingApplied) {
+  //     return "Loading....";
+  //   }
+  // }
 
   return (
     <div

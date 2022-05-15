@@ -190,7 +190,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     setCallingUsername("");
   };
 
-  if (loading) return "Loading...";
+  // if (loading) return "Loading...";
 
   return (
     <div className={darkTheme ? "lobby dark" : "lobby"}>
