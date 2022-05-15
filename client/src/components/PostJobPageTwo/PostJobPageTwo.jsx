@@ -188,9 +188,9 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
                     style={{ minWidth: "100%" }}
                   >
                     <option value={null}>Select from dropdown</option>
-                    <option value="Full time">Junior</option>
-                    <option value="Part time">Mid-level</option>
-                    <option value="Part time">Senior</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Mid">Mid-level</option>
+                    <option value="Senior">Senior</option>
                   </select>
                 </div>
               </div>
