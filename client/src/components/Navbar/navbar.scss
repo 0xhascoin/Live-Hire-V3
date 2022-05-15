@@ -12,7 +12,7 @@
   }
 
   .navbar-brand {
-    font-family: "M PLUS Rounded 1c";
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     margin-left: 2rem;
@@ -69,7 +69,7 @@
   // Navbar Menu
   .navbar-menu {
     /* border: 1px solid black; */
-    font-family: "M PLUS Rounded 1c";
+    font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
     color: #1a202c;
@@ -91,7 +91,7 @@
         &.dropdown {
           // border: 1px solid black !important;
           padding: 0;
-          font-family: "M PLUS Rounded 1c" !important;
+          font-family: 'Inter', sans-serif !important;
           background-color: transparent;
           width: 25%;
 
@@ -102,7 +102,7 @@
           .button {
             background-color: transparent;
             width: 100%;
-            font-family: "M PLUS Rounded 1c" !important;
+            font-family: 'Inter', sans-serif !important;
             font-size: 0.85rem;
             font-weight: 500;
             color: #1a202c;
@@ -163,7 +163,7 @@
               background-color: #1a202c;
               padding: 0 0.5rem;
               color: white;
-              font-family: "M PLUS Rounded 1c" !important;
+              font-family: 'Inter', sans-serif !important;
             font-size: 0.85rem;
             border-radius: 3px;
             }
