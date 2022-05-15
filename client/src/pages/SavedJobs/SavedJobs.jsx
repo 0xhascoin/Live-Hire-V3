@@ -12,6 +12,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import SavedHeader from "../../components/SavedHeader/SavedHeader";
 import Job from "../../components/Job/Job";
 import Loader from "../../components/Loader/Loader";
+import LoadingJob from "../../components/LoadingJob/LoadingJob";
 
 const SavedJobs = ({ darkTheme, setDarkTheme }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const SavedJobs = ({ darkTheme, setDarkTheme }) => {
   const { userInfo } = userLogin;
 
   const getAllJobsAppliedTo = useSelector((state) => state.getAllJobsAppliedTo);
-  const { jobsAppliedTo } = getAllJobsAppliedTo;
+  const { jobsAppliedTo, loading } = getAllJobsAppliedTo;
 
   useEffect(() => {
     if (!userInfo || userInfo?.userType.toLowerCase() !== "user") {
@@ -49,7 +50,16 @@ const SavedJobs = ({ darkTheme, setDarkTheme }) => {
         }
       >
         <div className="jobs-list">
-          {jobsAppliedTo ? (
+          {loading ? (
+            <LoadingJob />
+          ) : (
+            <>
+            {jobsAppliedTo?.map((job) => (
+              <Job darkTheme={darkTheme} job={job} id={job._id} />
+            ))}
+          </>
+          )}
+          {/* {jobsAppliedTo ? (
             <>
               {jobsAppliedTo?.map((job) => (
                 <Job darkTheme={darkTheme} job={job} id={job._id} />
@@ -57,7 +67,7 @@ const SavedJobs = ({ darkTheme, setDarkTheme }) => {
             </>
           ) : (
             <Loader />
-          )}
+          )} */}
         </div>
       </motion.div>
     </div>

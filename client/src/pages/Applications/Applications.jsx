@@ -21,7 +21,7 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
   const { userInfo } = userLogin;
 
   const userInterviewList = useSelector((state) => state.userInterviewList);
-  const { usersInterviews } = userInterviewList;
+  const { usersInterviews, loading } = userInterviewList;
 
   useEffect(() => {
     if (!userInfo || userInfo?.userType.toLowerCase() !== "employer") {
@@ -56,7 +56,9 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
           )}
         </div> */}
 
-        {usersInterviews ? (
+        {loading ? (
+          <LoadingJob />
+        ) : (
           <>
             {usersInterviews?.map((job) => (
               <div className="columns is-vcentered">
@@ -78,8 +80,6 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
               </div>
             ))}
           </>
-        ) : (
-          <Loader />
         )}
       </motion.div>
     </div>
