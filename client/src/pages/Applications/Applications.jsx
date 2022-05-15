@@ -12,6 +12,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import SavedHeader from "../../components/SavedHeader/SavedHeader";
 import Job from "../../components/Job/Job";
 import Loader from "../../components/Loader/Loader";
+import LoadingJob from "../../components/LoadingJob/LoadingJob";
 
 const Applications = ({ darkTheme, setDarkTheme }) => {
   const dispatch = useDispatch();

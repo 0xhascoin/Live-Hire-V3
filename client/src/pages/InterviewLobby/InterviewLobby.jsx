@@ -18,6 +18,7 @@ import LobbyQueue from "../../components/LobbyQueue/LobbyQueue";
 import CallingModal from "../../components/Modals/CallingModal";
 import ReceivingCallModal from "../../components/Modals/ReceivingCallModal";
 import CallAcceptedModal from "../../components/Modals/CallAcceptedModal";
+import LoadingJob from "../../components/LoadingJob/LoadingJob";
 
 // const socket = io.connect("http://localhost:3001/");
 const socket = io.connect("https://v2lhbackend.herokuapp.com/");
@@ -160,62 +161,85 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       setShowCallAcceptedModal(true);
     });
 
-    socket.on('hostCancelledCallEvent', () => {
+    socket.on("hostCancelledCallEvent", () => {
       setShowReceivingCallModal(false);
       setShowModal(false);
       setCallingUsername("");
     });
 
-    socket.on('guestCancelledCallEvent', () => {
+    socket.on("guestCancelledCallEvent", () => {
       setShowModal(false);
       setCallingUsername("");
       setShowReceivingCallModal(false);
     });
-
   }, [socket]);
 
   const closeCallingModal = () => {
     setShowModal(false);
     setCallingUsername("");
-    socket.emit("hostCancelledCall", {interviewId: id});
-  }
+    socket.emit("hostCancelledCall", { interviewId: id });
+  };
   const closeReceivingCallModal = () => {
     setShowReceivingCallModal(false);
     setCallingUsername("");
-    socket.emit("guestCancelledCall", {interviewId: id});
-  }
+    socket.emit("guestCancelledCall", { interviewId: id });
+  };
 
   const closeCallAcceptedModal = () => {
     setShowCallAcceptedModal(false);
     setCallingUsername("");
-  }
+  };
 
   if (loading) return "Loading...";
 
   return (
     <div className={darkTheme ? "lobby dark" : "lobby"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      {interview.map((job) => (
+      {loading ? (
+        <LoadingJob />
+      ) : (
         <>
-          <JobDetailsLobby
-            darkTheme={darkTheme}
-            setDarkTheme={setDarkTheme}
-            job={job}
-          />
-          <LobbyQueue
-            darkTheme={darkTheme}
-            interviewId={id}
-            showJoin={showJoin}
-            joinQueue={joinQueue}
-            leaveQueue={leaveQueue}
-            interviewQueue={interviewQueue}
-            callUser={callUser}
-          />
-          <CallingModal showModal={showModal} closeCallingModal={closeCallingModal} name={callingUsername} />
-          <ReceivingCallModal currentCalling={currentCalling} id={userInfo?._id} closeReceivingCallModal={closeReceivingCallModal} showReceivingCallModal={showReceivingCallModal} userJoinedCallHandler={userJoinedCallHandler} link={link}/>
-          <CallAcceptedModal userJoinedCall={userJoinedCall} id={userInfo?._id} hostId={hostId} closeCallAcceptedModal={closeCallAcceptedModal} showCallAcceptedModal={showCallAcceptedModal} link={link}/>
+          {interview.map((job) => (
+            <>
+              <JobDetailsLobby
+                darkTheme={darkTheme}
+                setDarkTheme={setDarkTheme}
+                job={job}
+              />
+              <LobbyQueue
+                darkTheme={darkTheme}
+                interviewId={id}
+                showJoin={showJoin}
+                joinQueue={joinQueue}
+                leaveQueue={leaveQueue}
+                interviewQueue={interviewQueue}
+                callUser={callUser}
+              />
+              <CallingModal
+                showModal={showModal}
+                closeCallingModal={closeCallingModal}
+                name={callingUsername}
+              />
+              <ReceivingCallModal
+                currentCalling={currentCalling}
+                id={userInfo?._id}
+                closeReceivingCallModal={closeReceivingCallModal}
+                showReceivingCallModal={showReceivingCallModal}
+                userJoinedCallHandler={userJoinedCallHandler}
+                link={link}
+              />
+              <CallAcceptedModal
+                userJoinedCall={userJoinedCall}
+                id={userInfo?._id}
+                hostId={hostId}
+                closeCallAcceptedModal={closeCallAcceptedModal}
+                showCallAcceptedModal={showCallAcceptedModal}
+                link={link}
+              />
+            </>
+          ))}
         </>
-      ))}
+      )}
     </div>
   );
 };
