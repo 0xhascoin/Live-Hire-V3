@@ -9,6 +9,8 @@ import {
   AiFillCaretUp,
   AiFillCaretDown,
 } from "react-icons/ai";
+import Logo from './L.png';
+
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";
@@ -78,7 +80,8 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               : { color: "#1A202C" }
           }
         >
-          <MdImportantDevices style={{ marginRight: "1rem" }} />
+          {/* <MdImportantDevices style={{ marginRight: "1rem" }} /> */}
+          <img src={Logo} style={{marginRight: "1rem", borderRadius: '3px'}}/>
           Live Hire
         </Link>
 
