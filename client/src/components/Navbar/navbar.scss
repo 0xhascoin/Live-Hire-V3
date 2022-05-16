@@ -1,6 +1,7 @@
 .navbar {
   &.navbar-light {
     background-color: #ffffff40;
+    // background-color: #fff;
   }
 
   &.navbar-dark {
@@ -10,6 +11,9 @@
       color: #e2e8f0;
     }
   }
+  // border: 2px solid black;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   .navbar-brand {
     font-family: 'Inter', sans-serif;
@@ -21,7 +25,7 @@
   // Navbar Burger
   .navbar-burger {
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    border-radius: 3px;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-right: 10px;
@@ -107,7 +111,7 @@
             font-weight: 500;
             color: #1a202c;
             height: 2.5rem;
-            border-radius: 6px;
+            border-radius: 3px;
             border: none;
 
             .first-letter {
@@ -201,7 +205,7 @@
           background-color: #805ad5;
           color: white;
           border: none;
-          border-radius: 6px;
+          border-radius: 3px;
 
           &:hover {
             cursor: pointer;
@@ -216,7 +220,7 @@
           background-color: #fbd38d;
           color: #1a202c;
           border: none;
-          border-radius: 6px;
+          border-radius: 3px;
 
           &:hover {
             cursor: pointer;
@@ -233,7 +237,7 @@
           background-color: #1a202c;
           color: rgba(255, 255, 255, 0.92);
           border: none;
-          border-radius: 6px;
+          border-radius: 3px;
 
           &:hover {
             cursor: pointer;

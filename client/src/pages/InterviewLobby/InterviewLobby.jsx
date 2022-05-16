@@ -196,7 +196,10 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     <div className={darkTheme ? "lobby dark" : "lobby"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       {loading ? (
-        <LoadingJob />
+        <>
+          <LoadingJob />
+          <LoadingJob />
+        </>
       ) : (
         <>
           {interview.map((job) => (

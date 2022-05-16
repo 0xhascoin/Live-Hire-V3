@@ -51,7 +51,10 @@ const SavedJobs = ({ darkTheme, setDarkTheme }) => {
       >
         <div className="jobs-list">
           {loading ? (
-            <LoadingJob />
+                      <>          
+                      <LoadingJob />
+                      <LoadingJob />
+                      </>
           ) : (
             <>
             {jobsAppliedTo?.map((job) => (

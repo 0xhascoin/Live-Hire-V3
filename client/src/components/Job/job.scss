@@ -1,7 +1,7 @@
 .job {
-  border: 1px solid rgba(156, 156, 156, 0.349);
+  border: 1px solid rgba(156, 156, 156, 0.173);
   flex: 45%;
-  border-radius: 6px;
+  border-radius: 3px;
   position: relative;
   cursor: pointer;
   transition: all 400ms ease;
@@ -9,7 +9,7 @@
   padding: 0.75rem;
   margin: 0.75rem;
   margin-bottom: 0.2rem;
-  //   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.06);
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.06);
 
   &:hover {
     background-color: #ffffff40 !important;
@@ -43,7 +43,7 @@
   .img {
     height: 60px;
     width: 60px;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 0.75rem;
   }
 
@@ -68,20 +68,22 @@
     .company-name-tag {
       /* border: 1px solid red; */
       border: none;
-      border-radius: 6px;
+      border-radius: 3px;
       height: 2rem !important;
       min-width: 6rem !important;
       margin-right: 0.7rem;
       // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
       //   0 1px 2px rgba(0, 0, 0, 0.24);
-      border: 1px solid rgba(156, 156, 156, 0.349);
+      border: 1px solid rgba(156, 156, 156, 0.16);
       background-color: #ffffff40;
       font-family: "Noto Sans", sans-serif;
-      color: black;
+      color: rgba(0, 0, 0, 0.848);
       margin-bottom: 0.5rem;
 
       &.salary {
-        background-color: #43f3b8c7;
+        background-color: #43f3b853;
+        color: #1a5b45;
+        border: none;
       }
     }
   }
@@ -103,7 +105,7 @@
     .company-name-tag {
       /* border: 1px solid red; */
       border: none;
-      border-radius: 6px;
+      border-radius: 3px;
       min-height: 2rem !important;
       min-width: 6rem !important;
       margin-right: 0.7rem;

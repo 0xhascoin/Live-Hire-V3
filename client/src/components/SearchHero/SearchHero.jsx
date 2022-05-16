@@ -37,7 +37,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
         </p>
         <input
           className="job-search-input"
-          placeholder="Web developer"
+          placeholder="E.g. Web developer, software engineer, graphic designer etc."
           onChange={(e) => setSearch(e.target.value)}
           value={search}
         />
@@ -47,15 +47,9 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
             onClick={() => searchHandler(search)}
           >
             <span>Search job</span>
-            <span class="icon">
-              <HiOutlineSearchCircle />
-            </span>
           </button>
           <button className="clear-button" onClick={clearSearch}>
             <span>Clear input</span>
-            <span class="icon">
-              <AiOutlineCloseCircle />
-            </span>
           </button>
         </div>
       </div>

@@ -58,7 +58,10 @@ const Applications = ({ darkTheme, setDarkTheme }) => {
         </div> */}
 
         {loading ? (
+          <>          
           <LoadingJob />
+          <LoadingJob />
+          </>
         ) : (
           <>
             {usersInterviews?.map((job) => (

@@ -99,7 +99,10 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
         {userInfo?.userType.toLowerCase() == "employer" ? (
           <>
             {loadingInterviews ? (
-              <LoadingJob />
+                        <>          
+                        <LoadingJob />
+                        <LoadingJob />
+                        </>
             ) : (
               <>
                 {usersInterviews?.map((job) => (
@@ -141,7 +144,10 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
         ) : (
           <>
             {loadingApplied ? (
-              <LoadingJob />
+                        <>          
+                        <LoadingJob />
+                        <LoadingJob />
+                        </>
             ) : (
               <>
                 {jobsAppliedTo?.map((job) => (
