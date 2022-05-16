@@ -106,19 +106,21 @@
       /* border: 1px solid red; */
       border: none;
       border-radius: 3px;
-      min-height: 2rem !important;
+      height: 2rem !important;
       min-width: 6rem !important;
       margin-right: 0.7rem;
       // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
       //   0 1px 2px rgba(0, 0, 0, 0.24);
-      border: 1px solid rgba(156, 156, 156, 0.349);
+      border: 1px solid rgba(156, 156, 156, 0.16);
       background-color: #ffffff40;
       font-family: "Noto Sans", sans-serif;
-      color: black;
+      color: rgba(0, 0, 0, 0.848);
       margin-bottom: 0.5rem;
 
       &.salary {
-        background-color: #43f3b8c7;
+        background-color: #43f3b853;
+        color: #1a5b45;
+        border: none;
       }
     }
   }
