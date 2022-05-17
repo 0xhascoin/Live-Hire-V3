@@ -160,7 +160,7 @@ import {
   export const addToWorkExpReducer = (state = { workExp: [] }, action) => {
     switch (action.type) {
       case ADD_TO_WORKEXP_REQUEST:
-        return { loading: true };
+        return { loading: true, success: false };
       case ADD_TO_WORKEXP_SUCCESS:
         return { loading: false, success: true, workExp: action.payload };
       case ADD_TO_WORKEXP_FAIL:

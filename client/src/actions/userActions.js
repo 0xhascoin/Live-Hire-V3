@@ -151,6 +151,7 @@ export const getUserWorkExp = (uid) => async (dispatch) => {
     dispatch({ type: USER_WORKEXP_LIST_REQUEST });
     // Send the API call
     const { data } = await api.getAllUserWorkExp(uid);
+    console.log("DATA", data)
     // Send the LIST SUCCESS state and pass the interviews list
     dispatch({ type: USER_WORKEXP_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -214,15 +215,20 @@ export const addUserWorkExp =
     try {
       // Send the CREATE REQUEST state
       dispatch({ type: ADD_TO_WORKEXP_REQUEST });
-      // console.log("ZXXXXXX", data);
+      // console.log("ZXXXXXX", data.userId);
 
       // Run the API call with the new Interview & the bearer token
       const { res } = await api.addToWorkExp(
          data
       );
 
+      dispatch(getUserWorkExp(data.userId));
+
+      // console.log("RES", res);
       // Send the CREATE SUCCESS state and pass the data
       dispatch({ type: ADD_TO_WORKEXP_SUCCESS, payload: res });
+      // getUserWorkExp(data.userId);
+
     } catch (err) {
       const message =
         err.response && err.response.data.message
@@ -248,6 +254,7 @@ export const addUserEducation =
 
       // Send the CREATE SUCCESS state and pass the data
       dispatch({ type: ADD_TO_EDU_SUCCESS, payload: res });
+      dispatch(getUserEducation(data.userId));
     } catch (err) {
       const message =
         err.response && err.response.data.message
@@ -301,6 +308,7 @@ export const deleteUserWorkExp =
 
       // Send the CREATE SUCCESS state and pass the data
       dispatch({ type: DELETE_WORKEXP_SUCCESS, payload: res });
+      dispatch(getUserWorkExp(data.userId));
     } catch (err) {
       const message =
         err.response && err.response.data.message
@@ -326,6 +334,7 @@ export const deleteUserEducation =
 
       // Send the CREATE SUCCESS state and pass the data
       dispatch({ type: DELETE_EDU_SUCCESS, payload: res });
+      dispatch(getUserEducation(data.userId));
     } catch (err) {
       const message =
         err.response && err.response.data.message

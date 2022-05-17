@@ -9,8 +9,9 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillCalendar } from "react-icons/ai";
+import Loader from "../Loader/Loader";
 
-const ProfileEdu = () => {
+const ProfileEdu = ({darkTheme}) => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -78,7 +79,7 @@ const ProfileEdu = () => {
   };
 
   return (
-    <div className="work-experience-section">
+    <div className={darkTheme ? "work-experience-section dark" : "work-experience-section"}>
       <div className="field">
         <label className="label">Education & diplomas</label>
         {/* Example Job */}
@@ -95,7 +96,7 @@ const ProfileEdu = () => {
         </div>
 
         {loading ? (
-          "Loading..."
+          <Loader />
         ) : (
           <>
             {education?.map((edu) => (

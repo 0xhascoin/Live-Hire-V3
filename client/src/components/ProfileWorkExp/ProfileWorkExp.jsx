@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {AiFillCalendar} from 'react-icons/ai';
 import "./profileWorkExp.scss";
 
-const ProfileWorkExp = () => {
+import Loader from '../Loader/Loader';
+
+const ProfileWorkExp = ({darkTheme}) => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -57,7 +59,10 @@ const ProfileWorkExp = () => {
         started: "",
         ended: "",
       });
-      dispatch(getUserWorkExp(userInfo?._id));
+      // if(success) {
+
+      //   dispatch(getUserWorkExp(userInfo?._id));
+      // }
     }
   };
 
@@ -90,10 +95,11 @@ const ProfileWorkExp = () => {
     setError(false);
   };
   
-  if(success) window.location.reload();
-
+  if(loading) {
+    return "Loading ...."
+  }
   return (
-    <div className="work-experience-section">
+    <div className={darkTheme ? "work-experience-section dark" : "work-experience-section"}>
       <div className="field">
         <label className="label">Professional Experience</label>
         <label className="label label-subtitle">
@@ -121,7 +127,7 @@ const ProfileWorkExp = () => {
         </div>
 
         {loading ? (
-          "Loading...."
+          <Loader />
         ) : (
         <>
         {workExp?.map((work) => (

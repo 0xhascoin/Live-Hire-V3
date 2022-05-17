@@ -122,9 +122,9 @@ const EditProfileForm = ({
           </div>
         </div>
         <hr />
-        <ProfileWorkExp />
+        <ProfileWorkExp darkTheme={darkTheme} />
         <hr />
-        <ProfileEdu />
+        <ProfileEdu darkTheme={darkTheme} />
         <hr />
         <div className="submit-profile-box">
           <button

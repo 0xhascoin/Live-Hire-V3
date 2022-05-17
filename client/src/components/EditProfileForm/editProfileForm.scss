@@ -3,10 +3,10 @@
   padding: 2.5rem 2rem;
 
   .edit-profile-form {
-    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
     padding: 1.5rem 3rem;
     padding-right: 0px;
-    border-radius: 6px;
+    border-radius: 3px;
     // margin: auto;
     width: 90%;
     // border: 1px solid black;
@@ -36,7 +36,7 @@
         background-color: #1a202c;
         color: rgba(255, 255, 255, 0.92);
         border: none;
-        border-radius: 6px;
+        border-radius: 3px;
         font-size: 0.9rem;
         font-family: "Noto Sans", sans-serif;
       }
@@ -98,21 +98,21 @@
       }
 
       .title {
-        color: white;
+        color: white !important;
       }
 
       .label {
-        color: white;
+        color: white !important;
       }
 
       .input,
       .textarea {
-        color: white;
+        color: white !important;
         background-color: transparent;
         border: 1px solid white;
 
         &::placeholder {
-          color: rgba(255, 255, 255, 0.92);
+          color: rgba(255, 255, 255, 0.92) !important;
         }
       }
     }
