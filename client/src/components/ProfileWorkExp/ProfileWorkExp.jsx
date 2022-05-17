@@ -17,6 +17,9 @@ const ProfileWorkExp = () => {
   const usersWorkExp = useSelector((state) => state.usersWorkExp);
   const { workExp, loading } = usersWorkExp;
 
+  const addToWorkExp = useSelector((state) => state.addToWorkExp);
+  const { workExp: addWorkExp, loading: loadingAddWorkExp, success } = addToWorkExp;
+
   const [showModal, setShowModal] = useState(false);
   const [newWorkExp, setNewWorkExp] = useState({
     companyName: "",
@@ -86,6 +89,8 @@ const ProfileWorkExp = () => {
     });
     setError(false);
   };
+  
+  if(success) window.location.reload();
 
   return (
     <div className="work-experience-section">
