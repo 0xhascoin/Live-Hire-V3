@@ -6,8 +6,8 @@
 
 
   .page-one-form {
-    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
-    padding: 1rem 3rem;
+    // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    padding: .5rem 1rem;
     padding-right: 0px;
     border-radius: 6px;
     // margin: auto;
@@ -35,7 +35,7 @@
 
     .label {
       color: #0e1016;
-      font-weight: 600;
+      font-weight: 400;
       font-family: 'Inter', sans-serif;
     }
 
@@ -51,9 +51,10 @@
       .textarea, 
       .timezone {
         color: #0e1016;
-        font-weight: 500;
+        font-weight: 400;
         font-family: 'Inter', sans-serif;
         border: none;
+        font-size: .8rem;
 
         &.is-danger {
           border: 1px solid #f14668 !important;
@@ -68,7 +69,7 @@
       background-color: #1a202c;
       color: rgba(255, 255, 255, 0.92);
       border: none;
-      border-radius: 6px;
+      border-radius: 3px;
     }
   }
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./postJobPageOne.scss";
 
+import {AiOutlineCloudUpload} from 'react-icons/ai';
+
+
 const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
   const [companyNameError, setCompanyNameError] = useState(false);
   const [companyDescError, setCompanyDescError] = useState(false);
@@ -22,6 +25,22 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
       } else {
         setCompanyDescError(false);
         console.log("Company description VALID", companyDescError);
+        const data = new FormData();
+        data.append("file", job.companyLogo);
+        data.append("upload_preset", "livehirelogos");
+        data.append("cloud_name", "hasan029512");
+        fetch("https://api.cloudinary.com/v1_1/hasan029512/image/upload", {
+          method: "POST",
+          body: data
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data.url);
+          setJob({ ...job, companyLogo: data.url })
+        })
+        .catch(error => {
+          console.log(error, "ERROR")
+        })
         setPage(page + 1);
       }
     }
@@ -55,7 +74,7 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
             />
           </div>
         </div>
-        <div className="field my-3">
+        {/* <div className="field my-3">
           <label className="label">Company logo</label>
           <div className="control">
             <input
@@ -66,6 +85,23 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
               onChange={(e) => setJob({ ...job, companyLogo: e.target.value })}
             />
           </div>
+        </div> */}
+        <div className="field my-3">
+          <label className="label">Company logo</label>
+          <div class="file is-boxed">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume" 
+              onChange={(e) => setJob({ ...job, companyLogo: e.target.files[0] })}/>
+            <span class="file-cta">
+              <span class="file-icon">
+                <AiOutlineCloudUpload />
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
         </div>
         <div className="field my-5">
           <label className="label">Company Description</label>

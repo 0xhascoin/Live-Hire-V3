@@ -13,7 +13,7 @@
   }
 
   .page-three-form {
-    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
     padding: 2rem 3rem;
     padding-right: 0px;
     border-radius: 6px;
@@ -25,7 +25,7 @@
     .job-title {
       font-size: 1.2rem;
       color: #0e1016;
-      font-weight: 600;
+      font-weight: 400;
       font-family: 'Inter', sans-serif;
     }
 
@@ -40,7 +40,7 @@
       color: #0e1016;
       font-size: 1.1rem;
       font-family: "Noto Sans", sans-serif;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .job-salary {
@@ -62,7 +62,7 @@
 
     .job-companyDescription-title {
       color: #0e1016;
-      font-weight: 600;
+      font-weight: 500;
       font-family: 'Inter', sans-serif;
       font-size: 1.2rem;
     }
@@ -71,7 +71,7 @@
       color: #0e1016;
       font-weight: 400;
       font-family: "Noto Sans", sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       margin-top: 0.5rem;
       max-width: 70%;
     }
@@ -101,7 +101,7 @@
           background-color: #1a202c;
           color: rgba(255, 255, 255, 0.92);
           border: none;
-          border-radius: 6px;
+          border-radius: 3px;
           font-size: 0.9rem;
           font-family: "Noto Sans", sans-serif;
         }

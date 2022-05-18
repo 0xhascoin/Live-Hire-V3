@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./postJobPageThree.scss";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +20,7 @@ const PostJobPageThree = ({
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const [imageUrl, setImageUrl] = useState("")
 
   const createInterview = (e) => {
     e.preventDefault();
@@ -52,6 +53,7 @@ const PostJobPageThree = ({
       <h2 className="page-three-title">Job post preview</h2>
       <hr />
       <div className="page-three-form">
+        <img src={job.companyLogo} style={{height: '60px', width: '60px'}} />
         <h2 className="job-title">
           {job.jobTitle} - <span className="job-length">{job.jobLength}</span>
         </h2>

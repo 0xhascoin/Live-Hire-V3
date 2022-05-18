@@ -5,8 +5,8 @@
   // background-color: #f8f9fa;
 
   .page-two-form {
-    box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
-    padding: 1rem 3rem;
+    // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
+    padding: 0.5rem 1rem;
     padding-right: 0px;
     border-radius: 6px;
     // margin: auto;
@@ -51,8 +51,8 @@
 
     .label {
       color: #0e1016;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      // font-family: 'Inter', sans-serif;
 
       .required {
         font-size: 0.9rem;
@@ -83,6 +83,7 @@
         font-family: "Noto Sans", sans-serif;
         border: none;
         font-size: 0.9rem;
+        border-radius: 3px;
 
         &.is-danger {
           border: 1px solid #f14668 !important;
@@ -97,7 +98,7 @@
       background-color: #1a202c;
       color: rgba(255, 255, 255, 0.92);
       border: none;
-      border-radius: 6px;
+      border-radius: 3px;
       font-size: 0.9rem;
       font-family: "Noto Sans", sans-serif;
     }
