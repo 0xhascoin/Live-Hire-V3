@@ -89,7 +89,7 @@ const PostJobPageThree = ({
             Go back
           </button>
           <button className="button next-button" onClick={(e) => createInterview(e)}>
-            Next
+            Post job
           </button>
         </div>
       </div>

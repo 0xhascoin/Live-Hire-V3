@@ -95,9 +95,9 @@ const ProfileWorkExp = ({darkTheme}) => {
     setError(false);
   };
   
-  if(loading) {
-    return "Loading ...."
-  }
+  // if(loading) {
+  //   return "Loading ...."
+  // }
   return (
     <div className={darkTheme ? "work-experience-section dark" : "work-experience-section"}>
       <div className="field">

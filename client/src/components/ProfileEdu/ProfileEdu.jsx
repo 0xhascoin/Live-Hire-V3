@@ -52,7 +52,7 @@ const ProfileEdu = ({darkTheme}) => {
         started: "",
         ended: "",
       });
-      dispatch(getUserEducation(userInfo?._id));
+      // dispatch(getUserEducation(userInfo?._id));
     }
   };
 

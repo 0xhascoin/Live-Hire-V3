@@ -88,7 +88,26 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
         </div> */}
         <div className="field my-3">
           <label className="label">Company logo</label>
-          <div class="file is-boxed">
+
+          <div class="file is-normal has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume"
+                onChange={(e) => setJob({ ...job, companyLogo: e.target.files[0] })} />
+              <span class="file-cta">
+                <span class="file-icon">
+                  <AiOutlineCloudUpload />
+                </span>
+                <span class="file-label">
+                  Upload logo
+                </span>
+              </span>
+              <span class="file-name">
+                {job.companyLogo == "" ? "File name" : job.companyLogo.name}
+              </span>
+            </label>
+          </div>
+
+          {/* <div class="file is-boxed">
           <label class="file-label">
             <input class="file-input" type="file" name="resume" 
               onChange={(e) => setJob({ ...job, companyLogo: e.target.files[0] })}/>
@@ -101,7 +120,7 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
               </span>
             </span>
           </label>
-        </div>
+        </div> */}
         </div>
         <div className="field my-5">
           <label className="label">Company Description</label>
