@@ -82,6 +82,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       socket.emit("joinInterviewQueue", user);
       setShowJoin(false);
     }
+    console.log("INT QUEUE", interviewQueue);
   };
 
   const leaveQueue = () => {
@@ -94,6 +95,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       socket.emit("leaveInterviewQueue", user);
       setShowJoin(true);
     }
+    console.log("INT QUEUE", interviewQueue);
   };
 
   const callUser = (userId, socketId, name) => {
@@ -142,7 +144,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     socket.on("loadedInterviewQueue", (queue) => {
       // console.log("Loaded Queue: ", queue);
       setInterviewQueue(queue);
-      console.log(interviewQueue, "Interview Queue");
+      console.log(queue, "queue");
     });
 
     socket.on(
