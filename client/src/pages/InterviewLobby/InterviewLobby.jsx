@@ -142,6 +142,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     socket.on("loadedInterviewQueue", (queue) => {
       // console.log("Loaded Queue: ", queue);
       setInterviewQueue(queue);
+      console.log(interviewQueue, "Interview Queue");
     });
 
     socket.on(

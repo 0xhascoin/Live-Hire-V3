@@ -91,7 +91,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
             peerss.push(peer);
           });
           setPeers(peerss);
-          alert("ONE");
+          // alert("ONE");
           if (users.length === 0) {
             setRoomView(1);
           } else {
@@ -108,7 +108,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
         });
 
         socketRef.current.on("call ended", () => {
-          alert("CALL ENDED");
+          // alert("CALL ENDED");
           socketRef.current.disconnect();
           userVideo.current.srcObject
             .getTracks()
