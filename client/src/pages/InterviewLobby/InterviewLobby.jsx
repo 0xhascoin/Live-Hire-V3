@@ -9,6 +9,7 @@ import {
 } from "../../actions/interviewActions";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getAUser } from "../../actions/userActions";
+import { removeUserFromQueue } from "../../actions/interviewActions";
 import { useDispatch, useSelector } from "react-redux";
 
 // Components
@@ -50,28 +51,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   const getUsersThatApplied = useSelector((state) => state.getUsersThatApplied);
   const { usersThatApplied } = getUsersThatApplied;
 
-  // useEffect(() => {
-  //   console.log('LOCATION CHANGED');
-  //   // sessionStorage.setItem("locationChanged", true);
-  // }, [location]);
-
-  useEffect(() => {
-    if (!userInfo) {
-      history("/login");
-    }
-    id && dispatch(getOneInterview(id));
-    id && dispatch(getAllUsersThatApplied(id));
-    id && socket.emit("loadQueue", { interviewId: id });
-
-    // console.log(interview, "interview");
-
-    return () => {
-      // alert("DISCONNECT");
-      leaveQueue();
-      socket.disconnect();
-    };
-  }, []);
-
+  
   const joinQueue = () => {
     if (userInfo && id) {
       const user = {
@@ -141,10 +121,25 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
   };
 
   useEffect(() => {
+    if (!userInfo) {
+      history("/login");
+    }
+    id && dispatch(getOneInterview(id));
+    id && dispatch(getAllUsersThatApplied(id));
+    id && socket.emit("loadQueue", { interviewId: id });
+
+    // console.log(interview, "interview");
+
+
     socket.on("loadedInterviewQueue", (queue) => {
       // console.log("Loaded Queue: ", queue);
       setInterviewQueue(queue);
-      console.log(queue, "queue");
+      // queue.map((one) => {
+      //   console.log(one);
+      // })
+      let newQueue = queue.sort((a,b) =>  a.place - b.place);
+      console.log(newQueue, "New Queue");
+      setInterviewQueue(newQueue);
     });
 
     socket.on(
@@ -157,6 +152,14 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         setShowReceivingCallModal(true);
       }
     );
+    // io.to(user.interviewId).emit("userLeftInterviewQueue", usersData);
+
+    socket.on('userJoinedInterviewQueue', (queue) => {
+      // alert("USER JOINED");
+      let newQueue = queue.sort((a,b) =>  a.place - b.place);
+      console.log(newQueue, "New Queue");
+      setInterviewQueue(newQueue);
+    });
 
     socket.on("userHasJoinedCall", ({ interviewId, calling }) => {
       setUserJoinedCall(true);
@@ -175,7 +178,28 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       setCallingUsername("");
       setShowReceivingCallModal(false);
     });
-  }, [socket]);
+
+    // return () => {
+    //   // leaveQueue();
+    //   alert("DISCONNECT");
+    //   if (userInfo && id) {      
+    //     dispatch(removeUserFromQueue(id, userInfo?._id))
+    //   }
+    //   socket.disconnect();
+    // }
+
+    socket.on('user left queue', (user) => {
+      alert("USER LEFT QUEUE");
+      console.log(user, "user left queue");
+    });
+
+
+    return () => {
+        leaveQueue();
+        socket.disconnect();
+  }
+
+  }, []);
 
   const closeCallingModal = () => {
     setShowModal(false);

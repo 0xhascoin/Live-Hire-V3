@@ -137,6 +137,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
         });
       });
 
+      
     return () => {
       // alert("DISCONNECT");
       socketRef.current.emit("user left");

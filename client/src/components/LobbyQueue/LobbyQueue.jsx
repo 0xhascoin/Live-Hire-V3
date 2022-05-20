@@ -59,7 +59,7 @@ const LobbyQueue = ({
           </tr>
         </thead>
         <tbody>
-          {interviewQueue.map((user) => (
+          {interviewQueue.sort((a,b) =>  a.place - b.place).map((user) => (
             <tr>
               <th>{user?.name}</th>
               <th>{user?.location}</th>
