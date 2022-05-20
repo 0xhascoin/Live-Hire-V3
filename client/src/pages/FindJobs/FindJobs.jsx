@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllJobsUserAppliedTo } from "../../actions/userActions";
 
-
 import "./findJobs.scss";
 
 // Components
@@ -28,7 +27,9 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const isUserProfileUpdated = useSelector((state) => state.isUserProfileUpdated);
+  const isUserProfileUpdated = useSelector(
+    (state) => state.isUserProfileUpdated
+  );
   const { userProfileUpdated } = isUserProfileUpdated;
 
   const [filteredInterviews, setFilteredInterviews] = useState(interviews);
@@ -48,14 +49,13 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   useEffect(() => {
     dispatch(getAllInterviews(page));
     dispatch(getIsUserProfileUpdated(userInfo?._id));
-    if(userInfo?.userType.toLowerCase() == "user") {
+    if (userInfo?.userType.toLowerCase() == "user") {
       dispatch(getAllJobsUserAppliedTo(userInfo?._id));
     }
     // if(userInfo?.isUserUpdatedProfile == false) {
     //   history("/job/621b7818473d6ae6bd530cdb")
     // }
   }, []);
-
 
   // useEffect(() => {
   //   console.log("Page changed to, ", page);
@@ -65,14 +65,24 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
   return (
     <div className={darkTheme ? "find-jobs dark" : "find-jobs light"}>
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      {userProfileUpdated == false && userInfo?.userType.toLowerCase() === "user" && <UpdateProfileNotification darkTheme={darkTheme} /> }
-      <SearchHero
+      {userProfileUpdated == false &&
+        userInfo?.userType.toLowerCase() === "user" && (
+          <UpdateProfileNotification darkTheme={darkTheme} />
+        )}
+      <div className="search-hero-section">
+        <SearchHero
+          darkTheme={darkTheme}
+          search={search}
+          setSearch={setSearch}
+          searchHandler={searchHandler}
+        />
+      </div>
+      <JobsList
         darkTheme={darkTheme}
-        search={search}
-        setSearch={setSearch}
-        searchHandler={searchHandler}
+        filteredInterviews={filteredInterviews}
+        page={page}
+        setPage={setPage}
       />
-      <JobsList darkTheme={darkTheme} filteredInterviews={filteredInterviews} page={page} setPage={setPage} />
     </div>
   );
 };
