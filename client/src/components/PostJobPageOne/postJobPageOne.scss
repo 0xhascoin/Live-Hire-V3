@@ -54,7 +54,9 @@
         font-weight: 400;
         font-family: 'Inter', sans-serif;
         border: none;
-        font-size: .8rem;
+        font-size: .9rem;
+        border-radius: 3px;
+      border: 1px solid #eaf4f4;
 
         &.is-danger {
           border: 1px solid #f14668 !important;
