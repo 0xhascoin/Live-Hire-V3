@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./postJob.scss";
 
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 // Components
 import Navbar from "../../components/Navbar/Navbar";
 import SavedHeader from "../../components/SavedHeader/SavedHeader";
@@ -32,8 +35,18 @@ const PostJob = ({ darkTheme, setDarkTheme }) => {
     timezone: "",
   });
 
+  const history = useNavigate();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   useEffect(() => {
-    console.log("selectedTimezone");
+    if(userInfo?.userType.toLowerCase() !== "employer") {
+      history("/")
+    } 
+  }, []);
+
+  useEffect(() => {
     setJob({ ...job, timezone: selectedTimezone.label });
   }, [selectedTimezone]);
 

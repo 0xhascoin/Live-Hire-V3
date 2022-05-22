@@ -3,6 +3,7 @@ import "./editProfile.scss";
 
 import { useSelector, useDispatch } from "react-redux";
 import {updateUsersCV} from '../../actions/userActions'
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 // Components
 import Navbar from "../../components/Navbar/Navbar";
@@ -11,6 +12,7 @@ import EditProfileForm from "../../components/EditProfileForm/EditProfileForm";
 
 const EditProfile = ({ darkTheme, setDarkTheme }) => {
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const [userDetails, setUserDetails] = useState({
     title: "",
@@ -47,6 +49,12 @@ const EditProfile = ({ darkTheme, setDarkTheme }) => {
       );
     }
   };
+
+  useEffect(() => {
+    if(userInfo?.userType.toLowerCase() !== "user") {
+      history("/")
+    } 
+  }, []);
 
   return (
     <div className={darkTheme ? "edit-profile dark" : "edit-profile"}>
