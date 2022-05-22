@@ -21,6 +21,9 @@ import ReceivingCallModal from "../../components/Modals/ReceivingCallModal";
 import CallAcceptedModal from "../../components/Modals/CallAcceptedModal";
 import LoadingJob from "../../components/LoadingJob/LoadingJob";
 
+import ringingAudio from "./ringing.wav";
+
+
 // const socket = io.connect("http://localhost:3001/");
 const socket = io.connect("https://v2lhbackend.herokuapp.com/");
 
@@ -95,6 +98,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     }
   };
 
+
   const removeUserFromQueue = (userId) => {
     if (userId && id) {
       // console.log("userId: " + userId);
@@ -128,6 +132,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     id && dispatch(getAllUsersThatApplied(id));
     id && socket.emit("loadQueue", { interviewId: id });
 
+
     // console.log(interview, "interview");
 
 
@@ -150,6 +155,10 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         setLink(link);
         setUserSocketId(socketId);
         setShowReceivingCallModal(true);
+        if(userId === userInfo?._id) {
+          alert("HERE")
+          document.getElementById("ringing-audio").play()
+        }
       }
     );
     // io.to(user.interviewId).emit("userLeftInterviewQueue", usersData);
@@ -221,6 +230,8 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
 
   return (
     <div className={darkTheme ? "lobby dark" : "lobby"}>
+              <audio id="ringing-audio" src={ringingAudio}></audio>
+
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       {loading ? (
         <>

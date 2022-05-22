@@ -40,6 +40,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
             placeholder="E.g. Web developer, software engineer, graphic designer etc."
             onChange={(e) => setSearch(e.target.value)}
             value={search}
+            autoFocus
           />
           <div className="job-search-buttons">
             <button
