@@ -21,7 +21,7 @@ const flags = {
 const ViewApplied = ({ darkTheme, setDarkTheme }) => {
   const dispatch = useDispatch();
   const { jobId } = useParams();
-  console.log(jobId, "props");
+  // console.log(jobId, "props");
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -47,13 +47,11 @@ const ViewApplied = ({ darkTheme, setDarkTheme }) => {
   if (loading || loadingInterview) return "Loading...";
   return (
     <div className={darkTheme ? "view-applied dark" : "view-applied"}>
-      {console.log(usersThatApplied, "usersThatApplied")}
       <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <SavedHeader title="View applicants details" darkTheme={darkTheme} />
       <div className="applications-profiles-container">
         {interview?.map((job) => (
         <div className="back-url">
-          {console.log(job, "Int")}
           <Link to="/applications">Applications</Link> / <p>{job?.jobTitle} - {job?.companyName}</p>
         </div>
         ))}

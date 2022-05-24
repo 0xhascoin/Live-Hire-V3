@@ -73,7 +73,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
                         setTimeError(true);
                         // console.log("Please select a time");
                       } else {
-                        console.log(job);
+                        // console.log(job);
                         if(!job.timezone) {
                           setTimezoneError(true);
                           // console.log("Please select a timezone");

@@ -21,7 +21,7 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
       if (job.companyDescription.length < 100) {
         setCompanyDescError(true);
         // console.log("Company description INVALID", companyDescError);
-        console.log(companyDescError);
+        // console.log(companyDescError);
       } else {
         setCompanyDescError(false);
         // console.log("Company description VALID", companyDescError);

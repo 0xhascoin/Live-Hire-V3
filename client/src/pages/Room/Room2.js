@@ -73,7 +73,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
     dispatch(getAUser(userId));
     // socketRef.current = io.connect("http://localhost:3001/");
     socketRef.current = io.connect("https://v2lhbackend.herokuapp.com/");
-    console.log(socketRef.current);
+    // console.log(socketRef.current);
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
