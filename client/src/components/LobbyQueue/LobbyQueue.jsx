@@ -2,20 +2,6 @@ import React, { useState } from "react";
 import "./lobbyQueue.scss";
 import { useSelector } from "react-redux";
 
-const users = [
-  {
-    name: "Hasan Elmi",
-    location: "United Kingdom",
-  },
-  {
-    name: "John Smith",
-    location: "United States",
-  },
-  {
-    name: "Mohammed Bilal",
-    location: "Pakistan",
-  },
-];
 
 const LobbyQueue = ({
   darkTheme,
@@ -50,7 +36,7 @@ const LobbyQueue = ({
         </div>
       )}
 
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th>Name</th>

@@ -35,7 +35,7 @@ const ViewApplied = ({ darkTheme, setDarkTheme }) => {
   useEffect(() => {
     dispatch(getAllUsersThatApplied(jobId));
     dispatch(getOneInterview(jobId));
-    console.log("Dispatch");
+    // console.log("Dispatch");
   }, []);
 
   function toTitleCase(str) {

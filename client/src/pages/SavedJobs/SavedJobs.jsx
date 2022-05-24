@@ -58,7 +58,7 @@ const SavedJobs = ({ darkTheme, setDarkTheme }) => {
           ) : (
             <>
             {jobsAppliedTo?.map((job) => (
-              <Job darkTheme={darkTheme} job={job} id={job._id} />
+              <Job darkTheme={darkTheme} job={job} id={job._id} key={job._id} />
             ))}
           </>
           )}

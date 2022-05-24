@@ -106,7 +106,7 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
             ) : (
               <>
                 {usersInterviews?.map((job) => (
-                  <div className="columns is-vcentered">
+                  <div className="columns is-vcentered" key={job._id}>
                     <div className="column is-7">
                       <Job
                         job={job}
@@ -151,7 +151,7 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
             ) : (
               <>
                 {jobsAppliedTo?.map((job) => (
-                  <div className="columns is-vcentered">
+                  <div className="columns is-vcentered" key={job._id}>
                     <div className="column is-7">
                       <Job
                         job={job}

@@ -65,7 +65,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       socket.emit("joinInterviewQueue", user);
       setShowJoin(false);
     }
-    console.log("INT QUEUE", interviewQueue);
+    // console.log("INT QUEUE", interviewQueue);
   };
 
   const leaveQueue = () => {
@@ -78,7 +78,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       socket.emit("leaveInterviewQueue", user);
       setShowJoin(true);
     }
-    console.log("INT QUEUE", interviewQueue);
+    // console.log("INT QUEUE", interviewQueue);
   };
 
   const callUser = (userId, socketId, name) => {
@@ -129,7 +129,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       history("/login");
     }
     id && dispatch(getOneInterview(id));
-    id && dispatch(getAllUsersThatApplied(id));
+    // id && dispatch(getAllUsersThatApplied(id));
     id && socket.emit("loadQueue", { interviewId: id });
 
 
@@ -143,7 +143,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       //   console.log(one);
       // })
       let newQueue = queue.sort((a,b) =>  a.place - b.place);
-      console.log(newQueue, "New Queue");
+      // console.log(newQueue, "New Queue");
       setInterviewQueue(newQueue);
     });
 
@@ -156,7 +156,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
         setUserSocketId(socketId);
         setShowReceivingCallModal(true);
         if(userId === userInfo?._id) {
-          alert("HERE")
+          // alert("HERE")
           document.getElementById("ringing-audio").play()
         }
       }
@@ -166,7 +166,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     socket.on('userJoinedInterviewQueue', (queue) => {
       // alert("USER JOINED");
       let newQueue = queue.sort((a,b) =>  a.place - b.place);
-      console.log(newQueue, "New Queue");
+      // console.log(newQueue, "New Queue");
       setInterviewQueue(newQueue);
     });
 
@@ -198,8 +198,8 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     // }
 
     socket.on('user left queue', (user) => {
-      alert("USER LEFT QUEUE");
-      console.log(user, "user left queue");
+      // alert("USER LEFT QUEUE");
+      // console.log(user, "user left queue");
     });
 
 
@@ -241,7 +241,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       ) : (
         <>
           {interview.map((job) => (
-            <>
+            <div key={job._id} >
               <JobDetailsLobby
                 darkTheme={darkTheme}
                 setDarkTheme={setDarkTheme}
@@ -277,7 +277,7 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
                 showCallAcceptedModal={showCallAcceptedModal}
                 link={link}
               />
-            </>
+            </div>
           ))}
         </>
       )}

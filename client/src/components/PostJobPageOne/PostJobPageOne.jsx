@@ -13,18 +13,18 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
 
     if (job.companyName.length <= 2) {
       setCompanyNameError(true);
-      console.log("Company Name INVALID", companyNameError);
+      // console.log("Company Name INVALID", companyNameError);
     } else {
       setCompanyNameError(false);
-      console.log("Company Name VALID", companyNameError);
+      // console.log("Company Name VALID", companyNameError);
 
       if (job.companyDescription.length < 100) {
         setCompanyDescError(true);
-        console.log("Company description INVALID", companyDescError);
+        // console.log("Company description INVALID", companyDescError);
         console.log(companyDescError);
       } else {
         setCompanyDescError(false);
-        console.log("Company description VALID", companyDescError);
+        // console.log("Company description VALID", companyDescError);
         const data = new FormData();
         data.append("file", job.companyLogo);
         data.append("upload_preset", "livehirelogos");
@@ -35,11 +35,11 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data.url);
+          // console.log(data.url);
           setJob({ ...job, companyLogo: data.url })
         })
         .catch(error => {
-          console.log(error, "ERROR")
+          // console.log(error, "ERROR")
         })
         setPage(page + 1);
       }

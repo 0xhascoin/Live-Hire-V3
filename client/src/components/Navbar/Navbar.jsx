@@ -43,10 +43,10 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
 
   useEffect(() => {
     if(location.pathname.substring(0, 16) === "/interview/room/") {
-      console.log("===========================")
-      console.log(location, 'Location changed');
-      console.log(location.pathname, 'Location changed');
-      console.log(location.pathname.substring(0, 16));
+      // console.log("===========================")
+      // console.log(location, 'Location changed');
+      // console.log(location.pathname, 'Location changed');
+      // console.log(location.pathname.substring(0, 16));
       sessionStorage.setItem("locationChanged", true);
     } else {
       if(sessionStorage.getItem("locationChanged")) {
@@ -174,16 +174,16 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
 
           {userInfo && (
             <div
-              class={
+            className={
                 showDropdown
                   ? "navbar-item dropdown is-active"
                   : "navbar-item dropdown"
               }
               onClick={() => setShowDropdown(!showDropdown)}
             >
-              <div class="dropdown-trigger">
+              <div className="dropdown-trigger">
                 <button
-                  class={darkTheme ? "button dark" : "button"}
+                  className={darkTheme ? "button dark" : "button"}
                   aria-haspopup="true"
                   aria-controls="dropdown-menu"
                 >
@@ -191,33 +191,33 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                     <p>{userInfo?.name[0].toUpperCase()}</p>
                   </span>
                   <span>{toTitleCase(userInfo?.name)}</span>
-                  <span class="icon is-small">
+                  <span className="icon is-small">
                     {showDropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
                   </span>
                 </button>
               </div>
-              <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
+              <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                <div className="dropdown-content">
                   {userInfo?.userType.toLowerCase() === "user" && (
-                    <Link to="/saved" class="dropdown-item">
+                    <Link to="/saved" className="dropdown-item">
                       Saved jobs{" "}
                       <span className="count">{jobsAppliedTo?.length}</span>
                     </Link>
                   )}
                   {userInfo?.userType.toLowerCase() === "employer" && (
-                    <Link to="/applications" class="dropdown-item">
+                    <Link to="/applications" className="dropdown-item">
                       Applications
                     </Link>
                   )}
-                  <Link to="/manage/interviews" class="dropdown-item">
+                  <Link to="/manage/interviews" className="dropdown-item">
                     Interview Manager
                   </Link>
                   {userInfo?.userType.toLowerCase() === "user" && (
-                    <Link to="/account" class="dropdown-item">
+                    <Link to="/account" className="dropdown-item">
                       Update Profile
                     </Link>
                   )}
-                  <a href="#" class="dropdown-item" onClick={logoutHandler}>
+                  <a href="#" className="dropdown-item" onClick={logoutHandler}>
                     Logout
                   </a>
                 </div>

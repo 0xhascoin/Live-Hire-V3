@@ -15,7 +15,7 @@ const Job = ({ darkTheme, job, id, page }) => {
   const { usersThatApplied, loading } = getUsersThatApplied;
 
   useEffect(() => {
-    dispatch(getAllUsersThatApplied(id));
+    // dispatch(getAllUsersThatApplied(id));
     // console.log("Dispatch");
   }, []);
 

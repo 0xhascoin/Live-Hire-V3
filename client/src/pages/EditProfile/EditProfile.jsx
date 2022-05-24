@@ -28,7 +28,7 @@ const EditProfile = ({ darkTheme, setDarkTheme }) => {
 
   const updateProfileHandler = async (e) => {
     e.preventDefault();
-    console.log("Updating Profile");
+    // console.log("Updating Profile");
     if (
       userDetails.title == "" ||
       userDetails.aboutMe == "" ||

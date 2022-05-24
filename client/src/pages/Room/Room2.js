@@ -79,7 +79,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
       .then((stream) => {
         userVideo.current.srcObject = stream;
         socketRef.current.emit("join-room", interviewId);
-        console.log("EMIT");
+        // console.log("EMIT");
         socketRef.current.on("all users", (users) => {
           const peerss = [];
           users.forEach((userID) => {
@@ -147,7 +147,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
   }, []);
 
   function createPeer(userToSignal, callerID, stream) {
-    console.log("createPeer");
+    // console.log("createPeer");
     const peer = new Peer({
       initiator: true,
       trickle: false,
@@ -173,7 +173,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
   }
 
   function addPeer(incomingSignal, callerID, stream) {
-    console.log("addPeer");
+    // console.log("addPeer");
     const peer = new Peer({
       initiator: false,
       trickle: false,

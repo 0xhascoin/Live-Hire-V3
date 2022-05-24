@@ -14,7 +14,7 @@ const UpdateProfileNotification = ({ darkTheme }) => {
       }
     >
       <span>Update your profile</span>
-      <span class="icon">
+      <span className="icon">
         <BsFillArrowUpRightSquareFill />
       </span>
     </motion.div>

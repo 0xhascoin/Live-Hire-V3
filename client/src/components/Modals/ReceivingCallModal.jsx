@@ -8,21 +8,21 @@ const ReceivingCallModal = ({ currentCalling, id, closeReceivingCallModal, showR
 
   
   return (
-    <div class={currentCalling === id && showReceivingCallModal ? "modal is-active" : "modal"}>
-      <div class="modal-background" 
+    <div className={currentCalling === id && showReceivingCallModal ? "modal is-active" : "modal"}>
+      <div className="modal-background" 
         onClick={closeReceivingCallModal}></div>
-      <div class="modal-card">
-        <header class="modal-card-head has-text-centered">
-          <p class="modal-card-title loading-text">
+      <div className="modal-card">
+        <header className="modal-card-head has-text-centered">
+          <p className="modal-card-title loading-text">
             Receiving call from host<br />
           </p>
-          <button class="delete" aria-label="close"
+          <button className="delete" aria-label="close"
             onClick={closeReceivingCallModal}></button>
         </header>
-        <section class="modal-card-body has-text-centered">
+        <section className="modal-card-body has-text-centered">
           <Link className="button is-primary" onClick={userJoinedCallHandler} to={link}>Answer</Link>
         </section>
-        <footer class="modal-card-foot">
+        <footer className="modal-card-foot">
         </footer>
       </div>
     </div>

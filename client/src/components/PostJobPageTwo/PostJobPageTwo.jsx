@@ -19,23 +19,23 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
     e.preventDefault();
 
     if (job.jobTitle.length < 3) {
-      console.log("Job title must be more than 3 chars");
+      // console.log("Job title must be more than 3 chars");
       setJobTitleError(true);
     } else {
       setJobTitleError(false);
       if (!job.jobLength || job.jobLength == "") {
-        console.log("Choose a job length");
+        // console.log("Choose a job length");
         setJobLengthError(true);
       } else {
         setJobLengthError(false);
         if (!job.jobLevel || job.jobLevel == "") {
-          console.log("Choose a job level");
+          // console.log("Choose a job level");
           setJobLevelError(true);
         } else {
           setJobLevelError(false);
           if (job.jobDetails.responsibilities.length < 100) {
             setResponsibilitiesError(true);
-            console.log("Responsibilities must be more than 100 chars");
+            // console.log("Responsibilities must be more than 100 chars");
           } else {
             setResponsibilitiesError(false);
             if (
@@ -43,7 +43,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
               job.jobDetails.requirements.length < 100
             ) {
               setRequirementsError(true);
-              console.log("Requirements must be more than 100 char");
+              // console.log("Requirements must be more than 100 char");
             } else {
               setRequirementsError(false);
               if (
@@ -51,32 +51,32 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
                 job.jobDetails.bonusSkills.length < 30
               ) {
                 setBonusSkillsError(true);
-                console.log("Bonus skills must be more than 30 char");
+                // console.log("Bonus skills must be more than 30 char");
               } else {
                 setBonusSkillsError(false);
                 if (!job.currency || job.currency == "") {
                   setCurrencyError(true);
-                  console.log("Please select a currency");
+                  // console.log("Please select a currency");
                 } else {
                   setCurrencyError(false);
                   if (!job.minSalary) {
                     setMinSalaryError(true);
-                    console.log("Please enter the minimum salary");
+                    // console.log("Please enter the minimum salary");
                   } else {
                     setMinSalaryError(false);
                     if (!job.date) {
                       setDateError(true);
-                      console.log("Please select a date");
+                      // console.log("Please select a date");
                     } else {
                       setDateError(false);
                       if (!job.time) {
                         setTimeError(true);
-                        console.log("Please select a time");
+                        // console.log("Please select a time");
                       } else {
                         console.log(job);
                         if(!job.timezone) {
                           setTimezoneError(true);
-                          console.log("Please select a timezone");
+                          // console.log("Please select a timezone");
                         } else {
                           setPage(page + 1);
                         }

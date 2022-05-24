@@ -44,14 +44,14 @@ const ProfileWorkExp = ({darkTheme}) => {
       newWorkExp.ended == ""
     ) {
       setError(true);
-      console.log("Error should now be true");
+      // console.log("Error should now be true");
     } else {
       setError(false);
       const data = { newWorkExp, userId: userInfo._id };
       // console.log(data, "DATA");
       dispatch(addUserWorkExp(data));
       setShowModal(false);
-      console.log("Added new WorkExp");
+      // console.log("Added new WorkExp");
       setNewWorkExp({
         companyName: "",
         jobTitle: "",
@@ -80,7 +80,7 @@ const ProfileWorkExp = ({darkTheme}) => {
 
   useEffect(() => {
     dispatch(getUserWorkExp(userInfo?._id));
-    console.log("Dispatch")
+    // console.log("Dispatch")
   }, [dispatch]);
 
   const closeModal = () => {

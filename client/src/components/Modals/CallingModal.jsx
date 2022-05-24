@@ -3,21 +3,21 @@ import './modal.scss';
 
 const CallingModal = ({ showModal, closeCallingModal, name }) => {
   return (
-    <div class={showModal ? "modal is-active" : "modal"}>
-      <div class="modal-background" 
+    <div className={showModal ? "modal is-active" : "modal"}>
+      <div className="modal-background" 
         onClick={closeCallingModal}></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title"></p>
-          <button class="delete" aria-label="close"
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title"></p>
+          <button className="delete" aria-label="close"
             onClick={closeCallingModal}></button>
         </header>
-        <section class="modal-card-body has-text-centered">
+        <section className="modal-card-body has-text-centered">
           <div className="loading-text">
             Calling {name}<br/>
           </div>
         </section>
-        <footer class="modal-card-foot">
+        <footer className="modal-card-foot">
 
         </footer>
       </div>

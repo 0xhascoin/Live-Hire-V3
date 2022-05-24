@@ -45,7 +45,7 @@ const EditProfileForm = ({
             Please fill in all the details
           </p>
         )}
-        <h1 className="title">Name: {toTitleCase(userInfo?.name)}</h1>
+        <h1 className="title">{toTitleCase(userInfo?.name)}</h1>
         <div className="field my-5">
           <label className="label">Professional title</label>
           <div className="control">

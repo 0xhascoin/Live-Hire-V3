@@ -274,7 +274,7 @@ import {
           { uid }
         );
 
-        console.log("Removed from queue, ", data);
+        // console.log("Removed from queue, ", data);
   
         // Send the CREATE SUCCESS state and pass the data
         dispatch({ type: REMOVE_FROM_QUEUE_SUCCESS, payload: data });

@@ -5,23 +5,22 @@ import {Link} from 'react-router-dom';
 
 
 const CallAcceptedModal = ({ userJoinedCall, id, hostId, closeCallAcceptedModal, showCallAcceptedModal, link }) => {
-  console.log("Link", link)
   return (
-    <div class={userJoinedCall && id == hostId && showCallAcceptedModal ? "modal is-active" : "modal"}>
-      <div class="modal-background" 
+    <div className={userJoinedCall && id == hostId && showCallAcceptedModal ? "modal is-active" : "modal"}>
+      <div className="modal-background" 
         onClick={closeCallAcceptedModal}></div>
-      <div class="modal-card">
-        <header class="modal-card-head has-text-centered">
-          <p class="modal-card-title loading-text">
+      <div className="modal-card">
+        <header className="modal-card-head has-text-centered">
+          <p className="modal-card-title loading-text">
             User has joined the room<br />
           </p>
-          <button class="delete" aria-label="close"
+          <button className="delete" aria-label="close"
             onClick={closeCallAcceptedModal}></button>
         </header>
-        <section class="modal-card-body has-text-centered">
+        <section className="modal-card-body has-text-centered">
           <Link className="button is-primary is-outlined" to={link}>Enter room</Link>
         </section>
-        <footer class="modal-card-foot">
+        <footer className="modal-card-foot">
 
         </footer>
       </div>

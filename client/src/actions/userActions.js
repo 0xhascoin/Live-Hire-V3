@@ -151,7 +151,7 @@ export const getUserWorkExp = (uid) => async (dispatch) => {
     dispatch({ type: USER_WORKEXP_LIST_REQUEST });
     // Send the API call
     const { data } = await api.getAllUserWorkExp(uid);
-    console.log("DATA", data)
+    // console.log("DATA", data)
     // Send the LIST SUCCESS state and pass the interviews list
     dispatch({ type: USER_WORKEXP_LIST_SUCCESS, payload: data });
   } catch (error) {
