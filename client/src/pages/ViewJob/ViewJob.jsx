@@ -65,7 +65,7 @@ const ViewJob = ({ darkTheme, setDarkTheme }) => {
                 companyName={int.companyName}
                 jobTitle={int.jobTitle}
               />
-              <JobBanner darkTheme={darkTheme} jobLevel={int.jobLevel} jobLength={int.jobLength} />
+              <JobBanner darkTheme={darkTheme} jobLevel={int.jobLevel} jobLength={int.jobLength} minSalary={int.minSalary} />
               <div className="columns">
                 <JobDetails darkTheme={darkTheme} companyDescription={int.companyDescription} jobDetails={int.jobDetails} />
                 <JobApply
