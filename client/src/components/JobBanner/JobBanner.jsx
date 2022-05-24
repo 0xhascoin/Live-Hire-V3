@@ -18,7 +18,7 @@ const JobBanner = ({ darkTheme, jobLevel, jobLength, minSalary, currency }) => {
       </div>
       <div className="column">
         <p className="detail-title">Salary</p>
-        <p className="detail-description">{currency}{minSalary}</p>
+        <p className="detail-description has-text-primary">{currency}{minSalary}</p>
       </div>
     </div>
   )
