@@ -1,7 +1,9 @@
 .navbar {
   &.navbar-light {
-    background-color: #ffffff40;
-    // background-color: #fff;
+    // background-color: #ffffff40;
+    background-color: #fafafa;
+    border-bottom: 6px solid #fafafa;
+    
   }
 
   &.navbar-dark {
@@ -87,6 +89,8 @@
       // Navbar Items
       .navbar-item {
         background-color: transparent;
+        transition: all .3s ease-in-out;
+
 
         &:focus {
           outline: none !important;
@@ -185,6 +189,7 @@
             background-color: transparent;
             color: rgba(255, 255, 255, 0.92);
             text-decoration: underline;
+            background-color: #eaeaea;
           }
         }
 
@@ -195,6 +200,7 @@
             background-color: transparent;
             color: #1a202c;
             text-decoration: underline;
+            background-color: #eaeaea;
           }
         }
 

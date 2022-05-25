@@ -1,6 +1,8 @@
 .edit-profile-container {
   // margin-top: 1rem;
   padding: 2.5rem 2rem;
+  background-color: #fafafa;
+  // border: 2px solid red;
 
   .edit-profile-form {
     // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
@@ -86,7 +88,7 @@
         font-family: "Noto Sans", sans-serif;
         font-size: 0.9rem;
       border-radius: 3px;
-      border: 1px solid #eaf4f4;
+      border: 1px solid #eaeaea;
       }
     }
   }
@@ -110,7 +112,7 @@
       .textarea {
         color: white !important;
         background-color: transparent;
-        border: 1px solid white;
+        border: 1px solid rgb(197, 197, 197);
 
         &::placeholder {
           color: rgba(255, 255, 255, 0.92) !important;

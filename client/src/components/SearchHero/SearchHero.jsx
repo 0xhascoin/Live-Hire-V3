@@ -17,8 +17,8 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
 
   return (
     <div className="search-hero-container">
-      <img src={bg} className="bg" />
-      <img src={bg2} className="bg2" />
+      {/* <img src={bg} className="bg" />
+      <img src={bg2} className="bg2" /> */}
       <div className="columns search-hero">
         <div className="column job-search-hero is-12">
           <h5
