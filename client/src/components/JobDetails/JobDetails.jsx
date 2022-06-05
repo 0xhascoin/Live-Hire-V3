@@ -15,20 +15,20 @@ const JobDetails = ({darkTheme, companyDescription, jobDetails}) => {
       <div className="my-6"/>
       <h1 className="job-details-title">Job description</h1>
       <hr />
-      <h1 className="job-details-title2">Responsibilities</h1>
+      {/* <h1 className="job-details-title2">Responsibilities</h1>
       <p className="job-details-subtitle">
       {jobDetails.responsibilities}
-      </p>
-      <div className="my-6"/>
-      <h1 className="job-details-title2">Requirements</h1>
+      </p> */}
+      {/* <div className="my-6"/> */}
+      {/* <h1 className="job-details-title2">Requirements</h1> */}
       <p className="job-details-subtitle">
       {parse(jobDetails.requirements)}
       </p>
-      <div className="my-6"/>
+      {/* <div className="my-6"/>
       <h1 className="job-details-title2">Bonus skills</h1>
       <p className="job-details-subtitle">
       {jobDetails.bonusSkills}
-      </p>
+      </p> */}
     </div>
   );
 };
