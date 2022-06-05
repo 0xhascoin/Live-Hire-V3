@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./postJobPageThree.scss";
+import parse from 'html-react-parser';
 
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -77,7 +78,7 @@ const PostJobPageThree = ({
         <h2 className="job-companyDescription">{job.jobDetails?.responsibilities}</h2>
         <div style={{padding: '1rem'}} />
         <h1 className="job-companyDescription-title">Requirements</h1>
-        <h2 className="job-companyDescription">{job.jobDetails?.requirements}</h2>
+        <h2 className="job-companyDescription">{parse(job.jobDetails?.requirements)}</h2>
         <div style={{padding: '1rem'}} />
         <h1 className="job-companyDescription-title">Bonus Skills</h1>
         <h2 className="job-companyDescription">{job.jobDetails?.bonusSkills}</h2>

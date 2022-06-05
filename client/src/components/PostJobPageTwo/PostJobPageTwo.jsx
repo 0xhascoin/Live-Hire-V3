@@ -1,6 +1,9 @@
-import React, { useState } from "react";
 import "./postJobPageTwo.scss";
 import TimezoneSelect from "react-timezone-select";
+import ReactQuill from "react-quill"
+import 'react-quill/dist/quill.snow.css'
+import React, {useState, useEffect} from 'react';
+import parse from 'html-react-parser';
 
 const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTimezone, selectedTimezone }) => {
   const [jobTitleError, setJobTitleError] = useState(false);
@@ -14,6 +17,18 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
   const [dateError, setDateError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const [timezoneError, setTimezoneError] = useState(false);
+
+  const [convertedText, setConvertedText] = useState("");
+
+
+  useEffect(() => {
+    setJob({
+      ...job,
+      jobDetails: {
+        requirements: convertedText
+      },
+    })
+  }, [convertedText])
 
   const nextPage = (e) => {
     e.preventDefault();
@@ -33,26 +48,26 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
           setJobLevelError(true);
         } else {
           setJobLevelError(false);
-          if (job.jobDetails.responsibilities.length < 100) {
-            setResponsibilitiesError(true);
-            // console.log("Responsibilities must be more than 100 chars");
-          } else {
-            setResponsibilitiesError(false);
-            if (
-              !job.jobDetails.requirements ||
-              job.jobDetails.requirements.length < 100
-            ) {
-              setRequirementsError(true);
-              // console.log("Requirements must be more than 100 char");
-            } else {
-              setRequirementsError(false);
-              if (
-                !job.jobDetails.bonusSkills ||
-                job.jobDetails.bonusSkills.length < 30
-              ) {
-                setBonusSkillsError(true);
-                // console.log("Bonus skills must be more than 30 char");
-              } else {
+          // if (job.jobDetails.responsibilities.length < 100) {
+          //   setResponsibilitiesError(true);
+          //   // console.log("Responsibilities must be more than 100 chars");
+          // } else {
+          //   setResponsibilitiesError(false);
+          //   if (
+          //     !job.jobDetails.requirements ||
+          //     job.jobDetails.requirements.length < 100
+          //   ) {
+          //     setRequirementsError(true);
+          //     // console.log("Requirements must be more than 100 char");
+          //   } else {
+          //     setRequirementsError(false);
+          //     if (
+          //       !job.jobDetails.bonusSkills ||
+          //       job.jobDetails.bonusSkills.length < 30
+          //     ) {
+          //       setBonusSkillsError(true);
+          //       // console.log("Bonus skills must be more than 30 char");
+              // } else {
                 setBonusSkillsError(false);
                 if (!job.currency || job.currency == "") {
                   setCurrencyError(true);
@@ -86,10 +101,11 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
                 }
               }
             }
+            
           }
-        }
-      }
-    }
+        // }
+      // }
+    // }
   };
 
   return (
@@ -198,6 +214,15 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
           </div>
         </div>
         <div className="field my-5">
+          <label className="label">Job Description <span className="required">(required)</span> </label>
+          <ReactQuill
+            theme='snow'
+            value={convertedText}
+            onChange={setConvertedText}
+            style={{minHeight: '400px'}}
+          />
+        </div>
+        {/* <div className="field my-5">
           <label className="label">
             Responsibilities <span className="required">(required)</span>
           </label>
@@ -277,7 +302,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
               }
             ></textarea>
           </div>
-        </div>
+        </div> */}
         <hr />
         <div className="field my-5">
           <label className="label my-3">
