@@ -21,6 +21,10 @@
     color: #0e1016;
     font-family: "Noto Sans", sans-serif;
     font-size: 0.9rem;
+
+    ul {
+      list-style-type: circle;
+    }
   }
 
   &.dark {
