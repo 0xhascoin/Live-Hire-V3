@@ -169,6 +169,9 @@ const Register = () => {
                       <option value="EU">
                         Europe
                     </option>
+                      <option value="OTHER">
+                        Other
+                    </option>
                     </select>
                   </div>
                 </div>

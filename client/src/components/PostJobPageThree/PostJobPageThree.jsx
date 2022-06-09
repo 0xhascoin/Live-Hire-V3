@@ -73,7 +73,6 @@ const PostJobPageThree = ({
         <div style={{padding: '1rem'}} />
         <h1 className="job-companyDescription-title">Company Description</h1>
         <h2 className="job-companyDescription">{job.companyDescription}</h2>
-        <div style={{padding: '1.2rem'}} />
         {/* <h1 className="job-companyDescription-title">Responsibilities</h1>
         <h2 className="job-companyDescription">{job.jobDetails?.responsibilities}</h2> */}
         <div style={{padding: '1rem'}} />

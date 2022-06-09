@@ -16,6 +16,7 @@ const flags = {
   UK: "🇬🇧",
   USA: "🇺🇸",
   EU: "🇪🇺",
+  OTHER: "OTHER"
 };
 
 const ViewApplied = ({ darkTheme, setDarkTheme }) => {
