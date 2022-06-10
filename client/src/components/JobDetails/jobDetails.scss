@@ -20,16 +20,17 @@
   .job-details-subtitle {
     color: #0e1016;
     font-family: "Noto Sans", sans-serif;
-    // font-size: 0.9rem;
+    font-size: 0.9rem;
 
     ul {
       list-style-type: circle;
       font-size: 0.8rem;
       margin-top: 0.5rem;
+      font-family: "Noto Sans", sans-serif;
     }
 
     em {
-      padding-top: 0.5rem;
+      padding-top: 0.8rem;
     }
 
     b {
