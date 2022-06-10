@@ -23,11 +23,17 @@
     font-size: 0.9rem;
 
     ul {
-      list-style-type: circle;
+      list-style-type: dash;
       font-size: 0.8rem;
       margin-top: 0.5rem;
       font-family: "Noto Sans", sans-serif;
-      list-style-position: inside;
+      list-style-position: outside;
+    }
+    ol {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      font-family: "Noto Sans", sans-serif;
+      list-style-position: outside;
     }
 
     em {
