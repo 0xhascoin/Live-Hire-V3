@@ -65,5 +65,11 @@
     .job-details-title, .job-details-title2, .job-details-subtitle {
       color: white;
     }
+    
+    .job-details-subtitle {
+      ul, ol, li, em, b, strong {
+        color: white;
+      }
+    }
   }
 }
