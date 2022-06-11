@@ -475,20 +475,21 @@ const Register = () => {
               {/*            
             // TODO: CHANGE THIS TO COMPANY NAME
             // TODO: CREATE THE COMPANYNAMERROR STATE
+            
+                          {user.userType == "employer" && (
+                <div class="field">
+                  <label class="label">Company Name</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Enter your company name"
+                      value={user.companyName}
+                      onChange={(e) => setUser({ ...user, companyName: e.target.value })} />
+                  </div>
+                </div>
+              )}
             */}
-//               {user.userType == "employer" && (
-//                 <div class="field">
-//                   <label class="label">Company Name</label>
-//                   <div class="control">
-//                     <input
-//                       class="input"
-//                       type="text"
-//                       placeholder="Enter your company name"
-//                       value={user.companyName}
-//                       onChange={(e) => setUser({ ...user, companyName: e.target.value })} />
-//                   </div>
-//                 </div>
-//               )}
 
               <div class="field my-3">
                 <div class="control">
