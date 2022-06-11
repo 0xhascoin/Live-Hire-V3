@@ -215,6 +215,7 @@ const PostJobPageTwo = ({ darkTheme, job, setJob, page, setPage, setSelectedTime
         </div>
         <div className="field my-5">
           <label className="label">Job Description <span className="required">(required)</span> </label>
+          <label className="label"><span className="required">Including requirements, responsiblities and benefits.</span> </label>
           <ReactQuill
             theme='snow'
             value={convertedText}
