@@ -99,7 +99,7 @@ const Login = () => {
               />
             </div>
           </div>
-          <a className="forgot-password">Forgot password</a>
+{/*<a className="forgot-password">Forgot password</a>*/}
           <div className="field my-3">
             <div className="control">
               <button
