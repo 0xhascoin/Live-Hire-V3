@@ -10,7 +10,7 @@ const JobDetails = ({darkTheme, companyDescription, jobDetails}) => {
       <h1 className="job-details-title">Company description</h1>
       <hr />
       <p className="job-details-subtitle">
-        {companyDescription}
+        {parse(companyDescription)}
       </p>
       <div className="my-6"/>
       <h1 className="job-details-title">Job description</h1>

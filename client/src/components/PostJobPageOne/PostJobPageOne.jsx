@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./postJobPageOne.scss";
-
+import ReactQuill from "react-quill"
+import 'react-quill/dist/quill.snow.css'
 import {AiOutlineCloudUpload} from 'react-icons/ai';
 
 
 const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
   const [companyNameError, setCompanyNameError] = useState(false);
   const [companyDescError, setCompanyDescError] = useState(false);
+  const [convertedText, setConvertedText] = useState("");
+
+
+  useEffect(() => {
+    setJob({ ...job, companyDescription: convertedText })
+  }, [convertedText])
 
   const nextPage = (e) => {
     e.preventDefault();
@@ -130,7 +137,7 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
             </span>
           )}
           <div className="control">
-            <textarea
+{/*            <textarea
               className={companyDescError ? "textarea is-danger" : "textarea"}
               placeholder="Company description"
               rows="10"
@@ -138,7 +145,13 @@ const PostJobPageOne = ({ darkTheme, job, setJob, page, setPage }) => {
               onChange={(e) =>
                 setJob({ ...job, companyDescription: e.target.value })
               }
-            ></textarea>
+            ></textarea>*/}
+            <ReactQuill
+            theme='snow'
+            value={convertedText}
+            onChange={setConvertedText}
+            style={{minHeight: '400px'}}
+          />
           </div>
         </div>
         <div className="field has-text-centered">
