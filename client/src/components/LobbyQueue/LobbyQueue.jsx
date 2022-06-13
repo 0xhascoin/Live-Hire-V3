@@ -16,6 +16,14 @@ const LobbyQueue = ({
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  function getFlagEmoji(countryCode) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char =>  127397 + char.charCodeAt());
+  return String.fromCodePoint(...codePoints);
+}
+
   return (
     <div className={darkTheme ? "table-container dark" : "table-container"}>
       <h1>Queue</h1>
@@ -48,7 +56,7 @@ const LobbyQueue = ({
           {interviewQueue.sort((a,b) =>  a.place - b.place).map((user) => (
             <tr>
               <th>{user?.name}</th>
-              <th>{user?.location}</th>
+              <th>{getFlagEmoji(user?.location)}</th>
               <th>
                 {userInfo?.userType.toLowerCase() == "employer" ? (
                   <button
