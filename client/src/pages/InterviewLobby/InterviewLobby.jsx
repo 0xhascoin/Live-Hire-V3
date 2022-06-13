@@ -206,7 +206,6 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
     return () => {
         leaveQueue();
         socket.disconnect();
-        window.location.reload();
   }
 
   }, []);

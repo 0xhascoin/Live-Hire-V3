@@ -59,6 +59,11 @@ const InterviewsManager = ({ darkTheme, setDarkTheme }) => {
       dispatch(getAllUserInterviews(userInfo?._id));
     }
     setTodaysDate(getToday());
+
+    return () => {
+      window.location.reload();
+    }
+    
   }, []);
 
   // console.log(usersInterviews, "usersInterviews");
