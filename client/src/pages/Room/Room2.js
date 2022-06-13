@@ -165,6 +165,14 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
     return peer;
   }
 
+  function getFlagEmoji(countryCode) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char =>  127397 + char.charCodeAt());
+  return String.fromCodePoint(...codePoints);
+}
+
   function endCall() {
     socketRef.current.emit("end call");
     socketRef.current.disconnect();
@@ -232,7 +240,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
               <div className="cv-content">
                 <h2 className="cv-name">{user?.name}</h2>
                 <p className="cv-subtitle">
-                  <GoGlobe /> {user?.location}
+                  <GoGlobe /> {getFlagEmoji(user?.location)}
                 </p>
                 <p className="cv-subtitle">
                   <HiOutlineMail /> {user?.email}
