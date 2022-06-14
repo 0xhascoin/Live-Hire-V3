@@ -95,7 +95,7 @@ const Login = () => {
         <p className="login-form-subtitle">
           Welcome back, please enter your details
         </p>
-        {takenError && (
+        {error && (
           <p className="login-form-subtitle has-text-danger">
             Incorrect email or password
           </p>
