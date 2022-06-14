@@ -83,7 +83,7 @@ import {
       case USER_LOGIN_FAIL:
         return { loading: false, error: action.payload };
       case "USER_LOGIN_RESET":
-        return { loading: false, error: undefined };
+        return { loading: false, error: undefined, userInfo: action.payload };
       case USER_LOGOUT:
         return {};
       default:
