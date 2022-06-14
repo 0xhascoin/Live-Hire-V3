@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 
 import "./login.scss";
 
@@ -10,12 +10,17 @@ const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [takenError, setTakenError] = useState(false);
+
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const history = useNavigate();
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
   let { loading, error, userInfo } = userLogin;
+
+  const { registerSuccess } = useParams();
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -38,19 +43,26 @@ const Login = () => {
     if (userInfo) {
       history("/");
     }
-
-    if(sessionStorage.getItem("refreshError")) {
-      sessionStorage.removeItem("refreshError");
-      window.location.reload();
-    }
   }, [history, userInfo]);
   
+
   useEffect(() => {
-    if(error) {
-      console.log(error, "Error");
-      sessionStorage.setItem("refreshError", true);
+    if(error == "INCORRECT PASSWORD") {
+      // alert("Email already exists");
+      setTakenError(true);
+    } 
+  }, [error]);
+
+  useEffect(() => {
+    if(registerSuccess === "1") {
+      setLoginSuccess(true);
     }
-  }, [error])
+
+    return () => {
+     // alert("UNMOUNTING")
+     dispatch({ type: "USER_LOGIN_RESET" });
+  }
+  }, [])
 
   return (
     <div className="columns login-page">
@@ -62,9 +74,14 @@ const Login = () => {
         <p className="login-form-subtitle">
           Welcome back, please enter your details
         </p>
-        {error && (
+        {takenError && (
           <p className="login-form-subtitle has-text-danger">
             Incorrect email or password
+          </p>
+        )}
+        {loginSuccess && (
+          <p className="login-form-subtitle has-text-primary">
+            Register success! You can now login.
           </p>
         )}
 

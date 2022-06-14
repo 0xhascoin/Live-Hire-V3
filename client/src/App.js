@@ -28,6 +28,7 @@ function App() {
   return (
     <Router>
         <Switch>
+          <Route exact path="/login/:registerSuccess" element={<Login />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/" element={<FindJobs darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
@@ -38,9 +39,9 @@ function App() {
           <Route exact path="/post" element={<PostJob darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/account" element={<EditProfile darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           <Route exact path="/manage/interviews" element={<InterviewsManager darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
-          <Route exact path="/interview/:id/lobby" element={<InterviewLobby darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          // <Route exact path="/interview/:id/lobby" element={<InterviewLobby darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
           {/* <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} /> */}
-          <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room2 darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
+          // <Route exact path="/interview/room/:interviewId/:hostId/:userId" element={<Room2 darkTheme={darkTheme} setDarkTheme={setDarkTheme} />} />
         </Switch>
     </Router>
   );

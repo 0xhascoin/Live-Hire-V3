@@ -66,6 +66,8 @@ import {
         return { loading: true, userInfo: action.payload };
       case USER_REGISTER_FAIL:
         return { loading: false, error: action.payload };
+      case "USER_REGISTER_RESET":
+        return { loading: false, error: undefined };
       default:
         return state;
     }
@@ -80,6 +82,8 @@ import {
         return { loading: true, userInfo: action.payload };
       case USER_LOGIN_FAIL:
         return { loading: false, error: action.payload };
+      case "USER_LOGIN_RESET":
+        return { loading: false, error: undefined };
       case USER_LOGOUT:
         return {};
       default:

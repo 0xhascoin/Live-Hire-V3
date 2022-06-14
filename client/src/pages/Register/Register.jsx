@@ -21,12 +21,17 @@ const Register = () => {
     userType: ""
   });
 
+  // userRegister
+  const userRegister = useSelector((state) => state.userRegister);
+  let { loading, error } = userRegister;
+
 
   const [nameError, setNameError] = useState(false)
   const [locationError, setLocationError] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
   const [confirmPasswordError, setConfirmPasswordError] = useState(false)
+  const [emailExists, setEmailExists] = useState(false)
   
 
   const chooseUserType = (e, uType) => {
@@ -56,18 +61,20 @@ const Register = () => {
         } else {
           setPasswordError(false)
           if (user.confirmPassword == "" || user.confirmPassword.length < 5 || user.confirmPassword !== user.password) {
-            setConfirmPasswordError(false);
-          } else {
             setConfirmPasswordError(true);
+            // alert("PASSWORDS DO NOT MATCH");
+          } else {
+            setConfirmPasswordError(false);
             if(user.location == "") {
               setLocationError(true);
             } else {
               setLocationError(false);
               dispatch(registerUser(user));
-              history("/login")
+
+              history("/login/1")
             }
           }
-          ;
+          
         }
       }
     }
@@ -78,7 +85,7 @@ const Register = () => {
 
   // Gets the userRegister state from redux & stores it as userInfo
   const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  const { userInfo } = userLogin;
 
   useEffect(() => {
     // If a user is already logged in, redirect to the profile page
@@ -88,6 +95,19 @@ const Register = () => {
   }, [history, userInfo]);
 
 
+  useEffect(() => {
+    if(error == "EXISTS") {
+      // alert("Email already exists");
+      setEmailExists(true);
+    } 
+  }, [error]);
+
+  useEffect(() => {
+    return () => {
+     // alert("UNMOUNTING")
+     dispatch({ type: "USER_REGISTER_RESET" });
+  }
+  },[])
 
 
   return (
@@ -98,6 +118,11 @@ const Register = () => {
     </Link>
         <h1 className="login-form-title">Welcome to Live Hire</h1>
         <p className="login-form-subtitle">Welcome! please enter your details to create an account</p>
+        {emailExists && (
+          <p className="login-form-subtitle has-text-danger">
+            Email already in use.
+          </p>
+        )}
         <form className="form my-5" onSubmit={registerHandler}>
           <label class="label user-type-text">Are you an employer or looking for a job?</label>
           <div class="field is-grouped">
@@ -448,7 +473,7 @@ const Register = () => {
                   <label class="label">Confirm Password</label>
                   {confirmPasswordError && (
                     <p className="error-text has-text-danger">
-                      Confirm password error
+                      Passwords do not match.
                   </p>
                   )}
                   <input
