@@ -109,7 +109,7 @@ const Register = () => {
 
   useEffect(() => {
     if(didRegister === "registered") {
-      history("login/1")
+      history("/login/1")
     }
   }, [didRegister])
 
