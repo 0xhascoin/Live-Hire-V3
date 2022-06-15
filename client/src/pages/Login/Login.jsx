@@ -38,31 +38,52 @@ const Login = () => {
     }
   };
 
+//   useEffect(() => {
+//     // If they are already logged in then redirect to the profile page.
+//     if (userInfo) {
+//       history("/");
+//     }
+//   }, [history, userInfo]);
+  
   useEffect(() => {
     // If they are already logged in then redirect to the profile page.
     if (userInfo) {
       history("/");
     }
+
+    if(sessionStorage.getItem("refreshError")) {
+      sessionStorage.removeItem("refreshError");
+      window.location.reload();
+    }
   }, [history, userInfo]);
   
-
   useEffect(() => {
-    if(error == "INCORRECT PASSWORD") {
-      // alert("Email already exists");
-      setTakenError(true);
-    } 
-  }, [error]);
+    if(error) {
+      console.log(error, "Error");
+      sessionStorage.setItem("refreshError", true);
+    }
+  }, [error])
+  
+
+//   useEffect(() => {
+//     if(error == "INCORRECT PASSWORD") {
+//       // alert("Email already exists");
+//       setTakenError(true);
+//     } 
+//   }, [error]);
 
   useEffect(() => {
     if(registerSuccess === "1") {
       setLoginSuccess(true);
     }
 
-    return () => {
-     // alert("UNMOUNTING")
-     dispatch({ type: "USER_LOGIN_RESET" });
-  }
+//     return () => {
+//      // alert("UNMOUNTING")
+//      dispatch({ type: "USER_LOGIN_RESET" });
+//   }
   }, [])
+  
+  
 
   return (
     <div className="columns login-page">
@@ -74,7 +95,7 @@ const Login = () => {
         <p className="login-form-subtitle">
           Welcome back, please enter your details
         </p>
-        {takenError && (
+        {error && (
           <p className="login-form-subtitle has-text-danger">
             Incorrect email or password
           </p>
