@@ -61,13 +61,13 @@ import {
   export const userRegisterReducer = (state = {}, action) => {
     switch (action.type) {
       case USER_REGISTER_REQUEST:
-        return { loading: true };
+        return { loading: true, didRegister: "notRegistered" };
       case USER_REGISTER_SUCCESS:
-        return { loading: true, userInfo: action.payload };
+        return { loading: true, userInfo: action.payload, didRegister: "registered" };
       case USER_REGISTER_FAIL:
-        return { loading: false, error: action.payload };
+        return { loading: false, error: action.payload, didRegister: "notRegistered" };
       case "USER_REGISTER_RESET":
-        return { loading: false, error: undefined };
+        return { loading: false, error: undefined, didRegister: "notRegistered" };
       default:
         return state;
     }

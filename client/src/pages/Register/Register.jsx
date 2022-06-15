@@ -23,7 +23,7 @@ const Register = () => {
 
   // userRegister
   const userRegister = useSelector((state) => state.userRegister);
-  let { loading, error } = userRegister;
+  let { loading, error, didRegister } = userRegister;
 
 
   const [nameError, setNameError] = useState(false)
@@ -70,8 +70,6 @@ const Register = () => {
             } else {
               setLocationError(false);
               dispatch(registerUser(user));
-
-              history("/login/1")
             }
           }
           
@@ -108,6 +106,12 @@ const Register = () => {
      dispatch({ type: "USER_REGISTER_RESET" });
   }
   },[])
+
+  useEffect(() => {
+    if(didRegister === "registered") {
+      history("login/1")
+    }
+  }, [didRegister])
 
 
   return (
