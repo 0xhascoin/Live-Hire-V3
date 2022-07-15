@@ -85,10 +85,12 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
           Live Hire
         </Link>
 
+        
         {!darkTheme ? (
           <FaMoon
             className="navbar-burger dark-theme-button"
             onClick={() => setDarkTheme(!darkTheme)}
+
           />
         ) : (
           <RiSunLine
@@ -96,6 +98,7 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
             onClick={() => setDarkTheme(!darkTheme)}
           />
         )}
+        
 
         <a
           role="button"
@@ -224,7 +227,7 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               </div>
             </div>
           )}
-
+        
           {!darkTheme ? (
             <a className="navbar-item">
               <button
@@ -244,6 +247,7 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
               </button>
             </a>
           )}
+          
         </div>
       </div>
     </nav>
