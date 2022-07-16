@@ -35,9 +35,9 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
             with passion
           </h1>
           <p className={darkTheme ? "hero-description-text dark" : "hero-description-text"}>
-            Job search platform worldwide 🌍. 
+            Job search platform worldwide 🌍. <br/>
             We connect job seekers and companies 
-            in an easy on stop hiring solution. 🎯
+            in an easy one stop hiring solution. 🎯
           </p>
         {/*
           <div className={darkTheme ? "tags-container dark " : "tags-container"}>

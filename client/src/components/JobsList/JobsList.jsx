@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./jobsList.scss";
 import { BsFillArrowUpRightSquareFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-
+import { AiOutlineSearch } from 'react-icons/ai'
 
 // Component
 import Job from "../Job/Job";
@@ -29,6 +29,9 @@ const JobsList = ({ darkTheme, filteredInterviews, setPage, page, search, setSea
 
   return (
     <div className={darkTheme ? "jobs-list-container dark" : "jobs-list-container"}>
+    <div className="has-text-centered mt-4">
+      <AiOutlineSearch className="search-icon" style={{fontSize: '2rem'}} />
+    </div>
     <div className="search">
               <input
             className="job-search-input"

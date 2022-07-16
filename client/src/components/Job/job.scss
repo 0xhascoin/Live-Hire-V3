@@ -1,16 +1,18 @@
 .job {
   // border: 1px solid rgba(156, 156, 156, 0.173);
-  flex: 45%;
-  border-radius: 8px;
+  flex: 25%;
+  //border-radius: 8px;
   position: relative;
   cursor: pointer;
   transition: all 400ms ease;
   width: 100%;
-  padding: 0.75rem;
+  padding: 1.5rem;
+  padding-bottom: 1.75rem;
   margin: 0.75rem;
   margin-bottom: 0.2rem;
   box-shadow: 0px 2px 4px rgba(0,0,0,.1);
   background-color: white;
+  //max-width: 30%;
 
   &:hover {
     background-color: #ffffff40 !important;
@@ -42,6 +44,15 @@
     border-radius: 50%;
   }
 
+  .apply-button {
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+  border-radius: 0px;
+  //padding: 0px;
+  font-size: 0.8rem;
+  }
+
   .img {
     height: 60px;
     width: 60px;
@@ -49,12 +60,55 @@
     padding: 0.75rem;
   }
 
-  .job-title {
-    margin-top: 1rem;
-    color: #0e1016;
-    font-weight: 600;
+  .names {
+    //border: 1px solid black;
+    padding: 0;
+    margin-left: 0.75rem;
     font-family: 'Inter', sans-serif;
   }
+
+  .job-title {
+    // margin-top: 1rem;
+    color: #0e1016;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+
+  }
+
+  .location {
+    //border: 1px solid black;
+    margin-left: 0.75rem;
+    margin-top: 1rem;
+    color: grey;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+  }
+
+  .price {
+    //border: 1px solid black;
+    margin-left: 0.75rem;
+    color: black;
+    margin-top: 0.7rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .type {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .job-company-name {
+    color: grey;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
 
   .job-desc {
     color: #0e1016 !important;
