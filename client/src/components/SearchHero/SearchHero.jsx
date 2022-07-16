@@ -39,6 +39,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
             We connect job seekers and companies 
             in an easy on stop hiring solution. 🎯
           </p>
+        {/*
           <div className={darkTheme ? "tags-container dark " : "tags-container"}>
             <button className="tag">front-end</button>
             <button className="tag">solidity</button>
@@ -51,7 +52,8 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
             <button className="tag">react js</button>
 
           </div>
-
+          */}
+        {/*
           <input
             className="job-search-input"
             placeholder="E.g. Web developer, software engineer, graphic designer etc."
@@ -70,6 +72,7 @@ const SearchHero = ({ darkTheme, search, setSearch, searchHandler }) => {
               <span>Clear input</span>
             </button>
           </div>
+          */}
         </div>
       </div>
     </div>

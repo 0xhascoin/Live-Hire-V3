@@ -37,12 +37,14 @@ const Job = ({ darkTheme, job, id, page }) => {
       {page !== "applications" ? (
         <Link to={`/job/${id}`} className={!darkTheme ? "job" : "job dark"}>
           <img className="img" src={job.companyLogo} />
-          <h5 className="job-title">{job.title}</h5>
+          <h5 className="job-title">{job.jobTitle}</h5>
+        {/*
           <p className="job-desc">
             {job.companyDescription.length > 150
               ? job.companyDescription.substring(0, 150) + "...."
               : job.companyDescription + "...."}
           </p>
+          */}
           <div className="job-tags">
             <button className="company-name-tag">{job.companyName}</button>
             <button className="company-name-tag">{job.jobTitle}</button>
@@ -65,6 +67,7 @@ const Job = ({ darkTheme, job, id, page }) => {
           <Link to={`/job/${id}`}>
             <img className="img" src={job.companyLogo} />
             <h5 className="job-title">{job.title}</h5>
+
             <p className="job-desc">
               {job.companyDescription.length > 150
                 ? job.companyDescription.substring(0, 150) + "...."

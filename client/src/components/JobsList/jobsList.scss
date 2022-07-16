@@ -5,11 +5,96 @@
   background-color: #fafafa;
   // background-color: transparent;
   border-top: 1px solid #fafafa;
+  padding-bottom: 2rem;
 
   &.dark {
     background-color: #121420;
     border-top: 1px solid #121420;
   }
+
+.search {
+  //border: 1px solid red;
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+    .job-search-input {
+      //margin-top: 1rem;
+      width: 70%;
+      padding: 0.75rem;
+      font-family: "Noto Sans", sans-serif;
+      border-radius: 3px;
+      //border: 1px solid #eaeaea;
+      border: 1px solid #ced4da;
+      text-align: center;
+      transition: all .2s ease-in-out;
+      // z-index:11;
+      // transform: scale(1.03);
+      
+      // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .job-search-buttons {
+      /* border: 1px solid black; */
+      padding: 0;
+      margin-top: 1.5rem;
+
+      button {
+        margin: 0;
+        border-radius: 3px;
+        height: 2rem !important;
+        width: 7rem !important;
+        border: none;
+        margin-right: 1rem;
+        font-family: "Noto Sans", sans-serif;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .icon {
+          font-size: 1rem;
+          margin-left: 0.3rem;
+        }
+
+        &.search-button {
+          background-color: #0e1016;
+          color: white;
+          font-size: 0.9rem;
+          transition: all .2s ease-in;
+
+          &.dark {
+            background-color: white;
+            color: black;
+          }
+
+          &:hover {
+            background-color: white;
+            color: #0e1016;
+            border: 1px solid #0e1016;
+          }
+        }
+
+        &.clear-button {
+          background-color: #fff;
+          color: #0e1016;
+          font-size: 0.9rem;
+          border: 1px solid #eaeaea;
+          // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+          //   0 1px 2px rgba(0, 0, 0, 0.24);
+          transition: all .2s ease-in;
+
+          &:hover {
+            border: 1px solid #0e1016;
+            color: #0e1016;
+          }
+        }
+      }
+      }
+}
+
 
   .jobs-list {
     margin: 0;

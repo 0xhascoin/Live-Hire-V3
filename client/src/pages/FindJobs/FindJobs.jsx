@@ -82,6 +82,9 @@ const FindJobs = ({ darkTheme, setDarkTheme }) => {
         filteredInterviews={filteredInterviews}
         page={page}
         setPage={setPage}
+        search={search}
+        setSearch={setSearch}
+        searchHandler={searchHandler}
       />
     </div>
   );

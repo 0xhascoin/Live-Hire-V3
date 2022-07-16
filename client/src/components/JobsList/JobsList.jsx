@@ -10,7 +10,7 @@ import Loader from '../Loader/Loader';
 import LoadingJob from '../LoadingJob/LoadingJob';
 
 
-const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
+const JobsList = ({ darkTheme, filteredInterviews, setPage, page, search, setSearch, searchHandler }) => {
 
   const dispatch = useDispatch();
 
@@ -21,10 +21,35 @@ const JobsList = ({ darkTheme, filteredInterviews, setPage, page }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const clearSearch = () => {
+    setSearch("");
+    searchHandler("");
+  };
   
 
   return (
     <div className={darkTheme ? "jobs-list-container dark" : "jobs-list-container"}>
+    <div className="search">
+              <input
+            className="job-search-input"
+            placeholder="E.g. Web developer, software engineer, etc."
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            autoFocus
+          />
+          <div className="job-search-buttons">
+            <button
+              className={darkTheme ? "search-button dark" : "search-button"}
+              onClick={() => searchHandler(search)}
+            >
+              <span>Search job</span>
+            </button>
+            <button className="clear-button" onClick={clearSearch}>
+              <span>Clear input</span>
+            </button>
+          </div>
+          </div>
+
       <div className="jobs-list">
       {
           filteredInterviews?.length > 0 ? (
