@@ -82,6 +82,21 @@ const Job = ({ darkTheme, job, id, page }) => {
         <div className={!darkTheme ? "job" : "job dark"}>
           <Link to={`/job/${id}`}>
             <img className="img" src={job.companyLogo} />
+            <div className="names">
+          <h5 className="job-title">{job.jobTitle}</h5>
+          <h5 className="job-company-name">{job.companyName}</h5>
+          </div>
+          <div className="location">
+            <GrLocation style={{color: 'grey', fontSize: '1.1rem'}}/> - Remote
+          </div>
+          <div className="price">
+          ${job.minSalary} / <span style={{color: 'grey'}}>Year</span>
+          </div>
+          <div className="type">
+          <p className="tag is-info is-light">{job.jobLength}</p>
+          <p className="tag is-info is-light mx-2">{job.date}</p>
+          </div>
+          {/*
             <h5 className="job-title">{job.title}</h5>
 
             <p className="job-desc">
@@ -102,9 +117,10 @@ const Job = ({ darkTheme, job, id, page }) => {
                 Date: {job.date}
               </button>
             </div>
+            */}
           </Link>
 
-          <BsFillArrowUpRightSquareFill className="icon" />
+            <button className="button is-link apply-button" style={{backgroundColor: '#2541b2', fontWeight: 'bold'}}>Apply Now</button>
         </div>
       )}
     </>

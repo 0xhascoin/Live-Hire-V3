@@ -48,7 +48,7 @@ const Register = () => {
 
   const registerHandler = (e) => {
     e.preventDefault();
-    if (user.name.length < 5 || user.name == "") {
+    if (user.name.length < 3 || user.name == "") {
       setNameError(true);
     } else {
       setNameError(false);
