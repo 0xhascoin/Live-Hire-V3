@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./editProfileForm.scss";
 
 import { useSelector, useDispatch } from "react-redux";
-import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
+import { AiFillGithub, AiOutlineTwitter, AiOutlineCloudUpload } from "react-icons/ai";
 import {
   addUserWorkExp,
   getUserWorkExp,
@@ -24,6 +24,7 @@ const EditProfileForm = ({
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const [cv, setCV] = useState("");
   
 
   function toTitleCase(str) {
@@ -79,6 +80,26 @@ const EditProfileForm = ({
             ></textarea>
           </div>
         </div>
+        <div className="field my-3">
+          <label className="label">Upload CV</label>
+
+          <div class="file is-normal has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume"
+                onChange={(e) => setCV( e.target.files[0])} />
+              <span class="file-cta">
+                <span class="file-icon">
+                  <AiOutlineCloudUpload />
+                </span>
+                <span class="file-label">
+                  Upload CV
+                </span>
+              </span>
+              <span class="file-name">
+                {cv == "" ? "File name" : cv.name}
+              </span>
+            </label>
+          </div>
         <div className="columns">
           <div className="field column is-4">
             <label className="label">Twitter Username </label>
