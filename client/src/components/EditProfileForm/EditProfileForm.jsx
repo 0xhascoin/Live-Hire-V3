@@ -100,6 +100,7 @@ const EditProfileForm = ({
               </span>
             </label>
           </div>
+</div>
         <div className="columns">
           <div className="field column is-4">
             <label className="label">Twitter Username </label>
