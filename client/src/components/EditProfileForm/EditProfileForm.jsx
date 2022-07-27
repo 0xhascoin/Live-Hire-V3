@@ -33,8 +33,8 @@ const EditProfileForm = ({
   const uploadCV = async (file) => {
 
     const get = async (cv) => {
-      const getData = () => axios.patch(`https://v2lhbackend.herokuapp.com/api/uploadcv/${userInfo?._id}`, { cv });
       try {
+        const getData = () => axios.patch(`https://v2lhbackend.herokuapp.com/api/uploadcv/${userInfo?._id}`, { cv });
         const { data } = await getData();
         console.log("CV LINK: ", data);
         setMyCV(data);
