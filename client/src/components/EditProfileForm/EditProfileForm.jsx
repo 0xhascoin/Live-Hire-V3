@@ -78,7 +78,7 @@ const EditProfileForm = ({
 
       if(response.ok) {
         console.log("JSON: ", json);
-        setCV(json);
+        setMyCV(json);
       }
     }
 
@@ -142,14 +142,14 @@ const EditProfileForm = ({
             </span>
           </span>
           <span class="file-name">
-            {cv == "" ? "File name" : cv}
+            {myCV == "" ? "File name" : myCV}
           </span>
         </label>
       </div>
 </div>
 {cv && (
 <div className="my-5">
-  <a href={cv.slice(0, -3) + "jpg"} download>View CV</a>
+  <a href={myCV.slice(0, -3) + "jpg"} download>View CV</a>
 </div>
   )}
 
