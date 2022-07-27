@@ -75,9 +75,9 @@ const EditProfileForm = ({
     const getUserCV = async () => {
       const response = await fetch(`https://v2lhbackend.herokuapp.com/api/getcv/${userInfo?._id}`);
       const json = await response.json();
-
+      console.log("JSON: ", json);
+      console.log("Response: ", response);
       if(response.ok) {
-        console.log("JSON: ", json);
         setMyCV(json);
       } else {
         return;
