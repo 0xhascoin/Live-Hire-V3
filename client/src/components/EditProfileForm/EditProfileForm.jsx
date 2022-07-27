@@ -79,6 +79,8 @@ const EditProfileForm = ({
       if(response.ok) {
         console.log("JSON: ", json);
         setMyCV(json);
+      } else {
+        return;
       }
     }
 
