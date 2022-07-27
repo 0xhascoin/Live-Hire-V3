@@ -147,7 +147,7 @@ const EditProfileForm = ({
         </label>
       </div>
 </div>
-{cv && (
+{myCV && (
 <div className="my-5">
   <a href={myCV.slice(0, -3) + "jpg"} download>View CV</a>
 </div>
