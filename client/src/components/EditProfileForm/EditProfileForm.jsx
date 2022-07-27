@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./editProfileForm.scss";
+import axios from 'axios';
 
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillGithub, AiOutlineTwitter, AiOutlineCloudUpload } from "react-icons/ai";
@@ -24,7 +25,40 @@ const EditProfileForm = ({
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const [myCV, setMyCV] = useState("");
   const [cv, setCV] = useState("");
+
+
+
+  const uploadCV = async (file) => {
+
+    const get = async (cv) => {
+      const getData = () => axios.patch(`https://v2lhbackend.herokuapp.com/api/uploadcv/${userInfo?._id}`, { cv });
+      try {
+        const { data } = await getData();
+        console.log("CV LINK: ", data);
+        setMyCV(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "livehirelogos");
+    data.append("cloud_name", "hasan029512");
+    fetch("https://api.cloudinary.com/v1_1/hasan029512/image/upload", {
+      method: "POST",
+      body: data
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("My CV: ", data.url);
+        get(data.url)
+      })
+      .catch(error => {
+        console.log("ERROR: ", error);
+      })
+  }
   
 
   function toTitleCase(str) {
@@ -36,6 +70,19 @@ const EditProfileForm = ({
   useEffect(() => {
     // console.log("addUserWorkExp")
     dispatch(getUserWorkExp(userInfo?._id));
+    console.log(userInfo)
+
+    const getUserCV = async () => {
+      const response = await fetch(`https://v2lhbackend.herokuapp.com/api/getcv/${userInfo?._id}`);
+      const json = await response.json();
+
+      if(response.ok) {
+        console.log("JSON: ", json);
+        setCV(json);
+      }
+    }
+
+    getUserCV()
   }, [dispatch])
 
   return (
@@ -80,27 +127,32 @@ const EditProfileForm = ({
             ></textarea>
           </div>
         </div>
-        <div className="field my-3">
+        <div className="field my-3 upload-cv is-small">
           <label className="label">Upload CV</label>
 
-          <div class="file is-normal has-name">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume"
-                onChange={(e) => setCV( e.target.files[0])} />
-              <span class="file-cta">
-                <span class="file-icon">
-                  <AiOutlineCloudUpload />
-                </span>
-                <span class="file-label">
-                  Upload CV
-                </span>
-              </span>
-              <span class="file-name">
-                {cv == "" ? "File name" : cv.name}
-              </span>
-            </label>
-          </div>
+          <div class="file has-name is-small">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume" onChange={(e) => uploadCV(e.target.files[0])} />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name">
+            {cv == "" ? "File name" : cv}
+          </span>
+        </label>
+      </div>
 </div>
+{cv && (
+<div className="my-5">
+  <a href={cv.slice(0, -3) + "jpg"} download>View CV</a>
+</div>
+  )}
+
         <div className="columns">
           <div className="field column is-4">
             <label className="label">Twitter Username </label>
