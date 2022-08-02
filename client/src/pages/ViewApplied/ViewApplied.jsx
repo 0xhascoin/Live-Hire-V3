@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsersThatApplied } from "../../actions/interviewActions";
 import { useParams, Link } from "react-router-dom";
 import { getOneInterview } from "../../actions/interviewActions";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 
 import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";
 
@@ -22,6 +24,7 @@ const flags = {
 const ViewApplied = ({ darkTheme, setDarkTheme }) => {
   const dispatch = useDispatch();
   const { jobId } = useParams();
+  const history = useNavigate();
   // console.log(jobId, "props");
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -37,6 +40,9 @@ const ViewApplied = ({ darkTheme, setDarkTheme }) => {
     dispatch(getAllUsersThatApplied(jobId));
     dispatch(getOneInterview(jobId));
     // console.log("Dispatch");
+    if(userInfo?.userType.toLowerCase() !== "employer") {
+      history("/")
+    } 
   }, []);
 
   function toTitleCase(str) {

@@ -65,6 +65,8 @@ const InterviewLobby = ({ darkTheme, setDarkTheme }) => {
       socket.emit("joinInterviewQueue", user);
       setShowJoin(false);
     }
+
+    
     // console.log("INT QUEUE", interviewQueue);
   };
 
