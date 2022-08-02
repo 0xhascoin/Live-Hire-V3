@@ -39,6 +39,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
   const peersRef = useRef([]);
   // const roomID = props.match.params.roomID;
   const [roomView, setRoomView] = useState(1);
+  const [cv, setCV] = useState('');
   const [showEndCallButton, setShowEndCallButton] = useState(false);
   const { interviewId, hostId, userId } = useParams();
   const history = useNavigate();
@@ -146,6 +147,23 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
     };
   }, []);
 
+  useEffect(() => {
+
+    const getUserCV = async () => {
+      const response = await fetch(`https://v2lhbackend.herokuapp.com/api/getcv/${user?._id}`);
+      console.log("JSON: ", json);
+      console.log("Response: ", response);
+      const json = await response.json();
+      if(response.ok) {
+        setCV(json);
+      } else {
+        return;
+      }
+    }
+
+    getUserCV()
+  }, [dispatch])
+
   function createPeer(userToSignal, callerID, stream) {
     // console.log("createPeer");
     const peer = new Peer({
@@ -238,6 +256,9 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
                 </p>
                 <p className="cv-subtitle">
                   <HiOutlineMail /> {user?.email}
+                </p>
+                <p className="cv-subtitle">
+                {cv && ( <a href={cv.slice(0, -3) + "jpg"} download>View Full CV</a> )}
                 </p>
                 <div className="cv-aboutme">{user?.userCV?.aboutMe}</div>
               </div>
