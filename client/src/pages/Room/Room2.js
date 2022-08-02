@@ -72,6 +72,22 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
       history(-1);
 
     dispatch(getAUser(userId));
+
+
+    const getUserCV = async () => {
+      const response = await fetch(`https://v2lhbackend.herokuapp.com/api/getcv/${userId}`);
+      console.log("JSON: ", json);
+      console.log("Response: ", response);
+      const json = await response.json();
+      if(response.ok) {
+        setCV(json);
+      } else {
+        return;
+      }
+    }
+
+    getUserCV()
+
     // socketRef.current = io.connect("http://localhost:3001/");
     socketRef.current = io.connect("https://v2lhbackend.herokuapp.com/");
     // console.log(socketRef.current);
@@ -149,19 +165,7 @@ const Room2 = ({ darkTheme, setDarkTheme }) => {
 
   useEffect(() => {
 
-    const getUserCV = async () => {
-      const response = await fetch(`https://v2lhbackend.herokuapp.com/api/getcv/${user?._id}`);
-      console.log("JSON: ", json);
-      console.log("Response: ", response);
-      const json = await response.json();
-      if(response.ok) {
-        setCV(json);
-      } else {
-        return;
-      }
-    }
 
-    getUserCV()
   }, [dispatch])
 
   function createPeer(userToSignal, callerID, stream) {
