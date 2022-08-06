@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsersThatApplied } from "../../actions/interviewActions";
 import { useParams, Link } from "react-router-dom";
 import { getOneInterview } from "../../actions/interviewActions";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";

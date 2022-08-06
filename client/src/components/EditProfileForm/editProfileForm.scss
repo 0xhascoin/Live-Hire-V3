@@ -4,6 +4,10 @@
   background-color: #fafafa;
   // border: 2px solid red;
 
+  &.dark {
+    background-color: transparent;
+  }
+
   .edit-profile-form {
     // box-shadow: 0 8px 30px rgb(0 29 54 / 10%);
     padding: 1.5rem 3rem;
