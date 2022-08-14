@@ -1,195 +1,197 @@
-.job {
-  // border: 1px solid rgba(156, 156, 156, 0.173);
-  flex: 25%;
-  //border-radius: 8px;
-  position: relative;
-  cursor: pointer;
-  transition: all 400ms ease;
-  width: 100%;
-  padding: 1.5rem;
-  padding-bottom: 1.75rem;
-  margin: 0.75rem;
-  margin-bottom: 0.2rem;
-  box-shadow: 0px 2px 4px rgba(0,0,0,.1);
-  background-color: white;
-  //max-width: 30%;
+// .job {
+//   // border: 1px solid rgba(156, 156, 156, 0.173);
+//   flex: 25%;
+//   //border-radius: 8px;
+//   position: relative;
+//   cursor: pointer;
+//   transition: all 400ms ease;
+//   width: 100%;
+//   padding: 1.5rem;
+//   padding-bottom: 1.75rem;
+//   margin: 0.75rem;
+//   margin-bottom: 0.2rem;
+//   box-shadow: 0px 2px 4px rgba(0,0,0,.1);
+//   background-color: white;
+//   //max-width: 30%;
 
-  &:hover {
-    background-color: #ffffff40 !important;
-  }
+//   &:hover {
+//     background-color: #ffffff40 !important;
+//   }
 
-  &.dark {
-    background-color: #ffffff40 !important;
+//   &.dark {
+//     background-color: #ffffff40 !important;
 
-    .icon {
-      color: white !important;
-    }
+//     .icon {
+//       color: white !important;
+//     }
 
-    .job-title {
-      color: white !important;
-    }
+//     .job-title {
+//       color: white !important;
+//     }
 
-    .job-desc {
-      color: white !important;
-    }
-  }
+//     .job-desc {
+//       color: white !important;
+//     }
+//   }
 
-  .icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.8rem;
-    color: #0e1016;
-    cursor: pointer;
-    border-radius: 50%;
-  }
+//   .icon {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     font-size: 1.8rem;
+//     color: #0e1016;
+//     cursor: pointer;
+//     border-radius: 50%;
+//   }
 
-  .apply-button {
-  position: absolute;
-  bottom: 10%;
-  right: 2%;
-  border-radius: 0px;
-  //padding: 0px;
-  font-size: 0.8rem;
-  }
+//   .apply-button {
+//   position: absolute;
+//   bottom: 10%;
+//   right: 2%;
+//   border-radius: 0px;
+//   //padding: 0px;
+//   font-size: 0.8rem;
+//   }
 
-  .img {
-    height: 60px;
-    width: 60px;
-    border-radius: 3px;
-    padding: 0.75rem;
-  }
+//   .img {
+//     height: 60px;
+//     width: 60px;
+//     border-radius: 3px;
+//     padding: 0.75rem;
+//   }
 
-  .names {
-    //border: 1px solid black;
-    padding: 0;
-    margin-left: 0.75rem;
-    font-family: 'Inter', sans-serif;
-  }
+//   .names {
+//     //border: 1px solid black;
+//     padding: 0;
+//     margin-left: 0.75rem;
+//     font-family: 'Inter', sans-serif;
+//   }
 
-  .job-title {
-    // margin-top: 1rem;
-    color: #0e1016;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+//   .job-title {
+//     // margin-top: 1rem;
+//     color: #0e1016;
+//     font-weight: 500;
+//     font-family: 'Inter', sans-serif;
+//     font-size: 1.1rem;
 
-  }
+//   }
 
-  .location {
-    //border: 1px solid black;
-    margin-left: 0.75rem;
-    margin-top: 1rem;
-    color: grey;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-  }
+//   .location {
+//     //border: 1px solid black;
+//     margin-left: 0.75rem;
+//     margin-top: 1rem;
+//     color: grey;
+//     font-family: 'Inter', sans-serif;
+//     font-size: 0.75rem;
+//   }
 
-  .price {
-    //border: 1px solid black;
-    margin-left: 0.75rem;
-    color: black;
-    margin-top: 0.7rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-  }
+//   .price {
+//     //border: 1px solid black;
+//     margin-left: 0.75rem;
+//     color: black;
+//     margin-top: 0.7rem;
+//     font-family: 'Inter', sans-serif;
+//     font-size: 0.9rem;
+//   }
 
-  .type {
-    position: absolute;
-    top: 10%;
-    right: 2%;
-    padding: 0.5rem;
-    font-size: 0.7rem;
-    font-family: 'Inter', sans-serif;
-  }
+//   .type {
+//     position: absolute;
+//     top: 10%;
+//     right: 2%;
+//     padding: 0.5rem;
+//     font-size: 0.7rem;
+//     font-family: 'Inter', sans-serif;
+//   }
 
-  .job-company-name {
-    color: grey;
-    font-weight: 400;
-    font-size: 0.9rem;
-  }
-
-
-  .job-desc {
-    color: #0e1016 !important;
-    font-family: "Noto Sans", sans-serif;
-    margin-top: 0.8rem;
-    font-size: 0.8rem;
-  }
-
-  .job-tags {
-    /* border: 1px solid black; */
-    margin-top: 1rem;
-
-    .company-name-tag {
-      /* border: 1px solid red; */
-      border: none;
-      border-radius: 3px;
-      height: 2rem !important;
-      min-width: 6rem !important;
-      margin-right: 0.7rem;
-      // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-      //   0 1px 2px rgba(0, 0, 0, 0.24);
-      border: 1px solid rgba(156, 156, 156, 0.16);
-      background-color: #ffffff40;
-      font-family: "Noto Sans", sans-serif;
-      color: rgba(0, 0, 0, 0.848);
-      margin-bottom: 0.5rem;
-
-      &.salary {
-        background-color: #43f3b853;
-        color: #1a5b45;
-        border: none;
-        font-weight: bold;
-      }
-    }
-  }
+//   .job-company-name {
+//     color: grey;
+//     font-weight: 400;
+//     font-size: 0.9rem;
+//   }
 
 
-  .applications-container {
-    // border: 1px solid black;
-    margin-top: 1rem;
-    padding: 0.75rem;
-    z-index: 2;
+//   .job-desc {
+//     color: #0e1016 !important;
+//     font-family: "Noto Sans", sans-serif;
+//     margin-top: 0.8rem;
+//     font-size: 0.8rem;
+//   }
 
-    .applications-title {
-      color: #0e1016 !important;
-    font-family: "Noto Sans", sans-serif;
-    text-decoration: underline;
-    margin-bottom: 0.5rem;
-    }
+//   .job-tags {
+//     /* border: 1px solid black; */
+//     margin-top: 1rem;
 
-    .company-name-tag {
-      /* border: 1px solid red; */
-      border: none;
-      border-radius: 3px;
-      height: 2rem !important;
-      min-width: 6rem !important;
-      margin-right: 0.7rem;
-      // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-      //   0 1px 2px rgba(0, 0, 0, 0.24);
-      border: 1px solid rgba(156, 156, 156, 0.16);
-      background-color: #ffffff40;
-      font-family: "Noto Sans", sans-serif;
-      color: rgba(0, 0, 0, 0.848);
-      margin-bottom: 0.5rem;
+//     .company-name-tag {
+//       /* border: 1px solid red; */
+//       border: none;
+//       border-radius: 3px;
+//       height: 2rem !important;
+//       min-width: 6rem !important;
+//       margin-right: 0.7rem;
+//       // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+//       //   0 1px 2px rgba(0, 0, 0, 0.24);
+//       border: 1px solid rgba(156, 156, 156, 0.16);
+//       background-color: #ffffff40;
+//       font-family: "Noto Sans", sans-serif;
+//       color: rgba(0, 0, 0, 0.848);
+//       margin-bottom: 0.5rem;
 
-      &.salary {
-        background-color: #ebfffc;
-        color: #00947e;
-        border: none;
-      }
-    }
-  }
-
+//       &.salary {
+//         background-color: #43f3b853;
+//         color: #1a5b45;
+//         border: none;
+//         font-weight: bold;
+//       }
+//     }
+//   }
 
 
-}
+//   .applications-container {
+//     // border: 1px solid black;
+//     margin-top: 1rem;
+//     padding: 0.75rem;
+//     z-index: 2;
 
-@media only screen and (max-width: 880px) {
-  .jobs-list {
-    .job {
-      flex: 100% !important;
-    }
-  }
-}
+//     .applications-title {
+//       color: #0e1016 !important;
+//     font-family: "Noto Sans", sans-serif;
+//     text-decoration: underline;
+//     margin-bottom: 0.5rem;
+//     }
+
+//     .company-name-tag {
+//       /* border: 1px solid red; */
+//       border: none;
+//       border-radius: 3px;
+//       height: 2rem !important;
+//       min-width: 6rem !important;
+//       margin-right: 0.7rem;
+//       // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+//       //   0 1px 2px rgba(0, 0, 0, 0.24);
+//       border: 1px solid rgba(156, 156, 156, 0.16);
+//       background-color: #ffffff40;
+//       font-family: "Noto Sans", sans-serif;
+//       color: rgba(0, 0, 0, 0.848);
+//       margin-bottom: 0.5rem;
+
+//       &.salary {
+//         background-color: #ebfffc;
+//         color: #00947e;
+//         border: none;
+//       }
+//     }
+//   }
+
+
+
+// }
+
+// @media only screen and (max-width: 880px) {
+//   .jobs-list {
+//     .job {
+//       flex: 100% !important;
+//     }
+//   }
+// }
+
+
